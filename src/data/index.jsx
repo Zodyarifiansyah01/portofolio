@@ -7,7 +7,7 @@ export const imagesdata = [
     bulanAwal: "April",
     tahunAkhir: "2021",
     bulanAkhir: "Mei",
-    img: "src//Aseets/MockupLogin.png",
+    img: "public/assets/MockupLogin.png",
   },
   {
     id: 2,
@@ -17,6 +17,6 @@ export const imagesdata = [
     bulanAwal: "April",
     tahunAkhir: "2021",
     bulanAkhir: "Mei",
-    img: "src//Aseets/MockupDashboard.png",
+    img: "public/assets/MockupDashboard.png",
   },
 ];
