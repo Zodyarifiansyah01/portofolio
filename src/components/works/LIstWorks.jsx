@@ -43,7 +43,7 @@ const ListWorks = () => {
                       />
                     </motion.div>
                     <motion.div
-                      className="space-y-2 absolute top-24 right-[-50px] hidden md:block"
+                      className="space-y-2 absolute top-8 left-4 hidden md:block"
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.5 }}
@@ -65,7 +65,7 @@ const ListWorks = () => {
                     <img
                       src={item.img}
                       alt={item.title}
-                      className="sm hiddenrounded-lg w-full h-60 object-cover shadow-md"
+                      className="sm hidden rounded-lg w-full h-60 object-cover shadow-md"
                     />
                   </motion.div>
                   <motion.div

@@ -2,10 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./AboutMe";
 import MoreWorks from "./MoreWorks";
+import Footer from "./footer";
 
 const Content = () => {
   return (
-    <div className="container mx-auto px-4 lg:px-6">
+    <div className="container overflow-hidden mx-auto px-4 lg:px-6">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
         <motion.div
           className="md:col-span-2 flex flex-col justify-between order-last md:order-first space-y-6"
@@ -48,6 +49,9 @@ const Content = () => {
       </div>
       <div className="more-works my-8">
         <MoreWorks />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

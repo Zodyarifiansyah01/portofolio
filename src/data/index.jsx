@@ -1,16 +1,14 @@
-import { desc } from "framer-motion/client";
-
 export const imagesdata = [
   {
     id: 1,
     title: "UI/UX Design",
     subtitle: "Course Binary",
-    desc: "Saya telah menyelesaikan kursus desain UI/UX yang berfokus pada desain antarmuka pengguna dan pengalaman pengguna. Dalam kursus ini, saya mempelajari penggunaan alat desain populer seperti Figma dan Adobe XD untuk membuat prototipe dan wireframe. Saya juga meningkatkan keterampilan dalam melakukan user research, pembuatan persona, dan user testing. Selain itu, saya menerapkan prinsip desain yang berfokus pada kebutuhan pengguna dan kemudahan navigasi. Sebagai hasilnya, saya berhasil memperoleh <strong>nilai 89/100</strong> pada penilaian akhir kursus tersebut.",
+    desc: "Saya telah menyelesaikan kursus desain UI/UX yang berfokus pada desain antarmuka pengguna dan pengalaman pengguna. Dalam kursus ini, saya mempelajari penggunaan alat desain populer seperti Figma dan Adobe XD untuk membuat prototipe dan wireframe. Saya juga meningkatkan keterampilan dalam melakukan user research, pembuatan persona, dan user testing. Selain itu, saya menerapkan prinsip desain yang berfokus pada kebutuhan pengguna dan kemudahan navigasi. Sebagai hasilnya, saya berhasil memperoleh nilai 89/100 pada penilaian akhir kursus tersebut.",
     tahunAwal: "2024",
     bulanAwal: "Januari",
     tahunAkhir: "2024",
     bulanAkhir: "April",
-    img: "/assets/MockupLogin.png",
+    img: "/assets/uiuxMobile.png",
   },
   {
     id: 2,

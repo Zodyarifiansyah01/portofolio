@@ -43,27 +43,12 @@ const AboutMe = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
-            className="mb-4"
           >
             My goal is always to create clean, pixel-perfect interfaces with
             smooth and fluid animations. I prioritize not only writing efficient
             code but also ensuring design integrity and optimizing UX/UI for the
             best possible user experience.
           </motion.p>
-
-          <motion.a
-            className="mt-8 inline-flex items-center text-white group"
-            href="#"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-          >
-            <span className="group-hover:text-gray-400">READ MORE</span>
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="ml-2 text-white group-hover:text-gray-400"
-            />
-          </motion.a>
         </div>
       </motion.div>
     </div>
