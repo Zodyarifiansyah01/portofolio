@@ -10,8 +10,6 @@ const Content = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
         <motion.div
           className="md:col-span-2 flex flex-col justify-between order-last md:order-first space-y-6"
-          // initial itu apa yang terjadi sebelum animasi dimulai
-          // animate itu apa yang terjadi ketika animasi dimulai
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -49,9 +47,6 @@ const Content = () => {
       </div>
       <div className="more-works my-8">
         <MoreWorks />
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );

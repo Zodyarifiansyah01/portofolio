@@ -7,11 +7,11 @@ const DetailListWork = () => {
   const { id } = useParams();
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="p-6 mx-auto">
       <div>
         {id === "1" && (
           <motion.div
-            className="mb-6 text-justify"
+            className=" text-justify"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
@@ -23,7 +23,7 @@ const DetailListWork = () => {
       <div>
         {id === "2" && (
           <motion.div
-            className="mb-6 text-justify"
+            className=" text-justify"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}

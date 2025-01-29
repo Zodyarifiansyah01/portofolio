@@ -8,7 +8,7 @@ const ListWorks = () => {
     return paragraphs.slice(0, 3).join("\n"); // Mengambil 3 paragraf pertama dan menggabungkannya kembali
   };
   return (
-    <div className="container ">
+    <div>
       <div className="space-y-12">
         {imagesdata.map((item) => (
           <Link to={`/detail/${item.id}`} key={item.id}>
@@ -65,7 +65,7 @@ const ListWorks = () => {
                     <img
                       src={item.img}
                       alt={item.title}
-                      className="sm hidden rounded-lg w-full h-60 object-cover shadow-md"
+                      className=" rounded-lg w-full h-60 object-cover shadow-md"
                     />
                   </motion.div>
                   <motion.div

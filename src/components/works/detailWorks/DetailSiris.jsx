@@ -19,7 +19,7 @@ const DetailSiris = ({ dataId }) => {
   }
 
   return (
-    <div className="container mx-auto p-6 md:px-12 lg:px-16">
+    <div className="md:px-12 lg:px-16">
       <motion.div
         className="bg-white shadow-lg rounded-lg p-8 lg:p-12"
         initial={{ opacity: 0 }}
@@ -27,7 +27,6 @@ const DetailSiris = ({ dataId }) => {
         transition={{ duration: 1, delay: 0.2 }}
       >
         <p className="text-xl lg:text-2xl mb-4 text-gray-700">
-          Detail for work item{" "}
           <span className="font-semibold ">{workItem.title}</span>
         </p>
 
@@ -46,17 +45,22 @@ const DetailSiris = ({ dataId }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <p className="text-lg text-gray-800">
-            <span className="font-semibold">Subtitle:</span> {workItem.subtitle}
-          </p>
-          <p className="text-lg text-gray-800">
+          <div className="flex gap-2 text-md md:text-lg text-gray-800">
+            <span className="font-semibold">Subtitle:</span>{" "}
+            <p>{workItem.subtitle}</p>
+          </div>
+          <div className="flex gap-2 text-md md:text-lg text-gray-800">
             <span className="font-semibold">Year Started:</span>{" "}
-            {workItem.bulanAwal} {workItem.tahunAwal}
-          </p>
-          <p className="text-lg text-gray-800">
+            <p>
+              {workItem.bulanAwal} {workItem.tahunAwal}
+            </p>
+          </div>
+          <div className="flex gap-2 text-md md:text-lg text-gray-800">
             <span className="font-semibold">Year End:</span>{" "}
-            {workItem.bulanAkhir} {workItem.tahunAkhir}
-          </p>
+            <p>
+              {workItem.bulanAkhir} {workItem.tahunAkhir}
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -68,7 +72,7 @@ const DetailSiris = ({ dataId }) => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Deskripsi Aplikasi LPPM Universitas
           </h2>
-          <p className="text-lg text-gray-700 mb-4">
+          <p className="text-sm md:text-lg text-gray-700 mb-4">
             Aplikasi Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM)
             di universitas merupakan platform digital yang dirancang untuk
             mendukung kegiatan penelitian dan pengabdian masyarakat di
@@ -93,7 +97,7 @@ const DetailSiris = ({ dataId }) => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Fitur Utama:
           </h2>
-          <ol className="list-decimal text-lg text-gray-700 mb-4 ml-6 space-y-2">
+          <ol className="text-sm md:text-lg list-decimal text-gray-700 mb-4 ml-6 space-y-2">
             <li>
               Pengajuan Proposal Penelitian dan Pengabdian Pengguna dapat
               mengajukan proposal penelitian atau pengabdian kepada masyarakat
@@ -122,7 +126,7 @@ const DetailSiris = ({ dataId }) => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Manfaat:
           </h2>
-          <ol className="list-decimal text-lg text-gray-700 mb-4 ml-6 space-y-2">
+          <ol className="text-sm md:text-lg list-decimal  text-gray-700 mb-4 ml-6 space-y-2">
             <li>
               Efisiensi Administrasi Aplikasi ini membantu mengurangi waktu dan
               beban administrasi dalam pengelolaan penelitian dan pengabdian
@@ -157,7 +161,7 @@ const DetailSiris = ({ dataId }) => {
             {workItem.desc?.split("\n").map((paragraph, index) => (
               <ul key={index} className="list-disc ml-6 mb-2">
                 {paragraph.split(". ").map((point, idx) => (
-                  <li key={idx} className="text-gray-700">
+                  <li key={idx} className="text-sm md:text-lg text-gray-700">
                     {point.trim()}.
                   </li>
                 ))}

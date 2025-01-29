@@ -19,7 +19,7 @@ const AboutMe = () => {
 
       {/* Main Content Section */}
       <motion.div
-        className="col-span-12 md:col-span-8 text-lg"
+        className="col-span-12 md:col-span-8 text-sm"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}

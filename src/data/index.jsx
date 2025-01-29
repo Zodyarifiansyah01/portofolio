@@ -12,13 +12,13 @@ export const imagesdata = [
   },
   {
     id: 2,
-    title: "Siris",
+    title: "Web Development",
     subtitle: "Freelance MercuBuana",
     desc: "Saya telah membuat dan mengoptimalkan tampilan login dengan desain responsif, memastikan tampilan yang dapat menyesuaikan diri dengan berbagai ukuran layar. Selain itu, saya juga mengembangkan menu navigasi yang responsif dan mudah digunakan, memungkinkan pengguna untuk mengakses berbagai fitur dengan mudah. Di samping itu, saya mendesain tampilan dashboard yang responsif, yang menyajikan informasi secara efektif, sehingga pengguna dapat dengan cepat menemukan dan memahami data yang disajikan.",
-    tahunAwal: "2021",
-    bulanAwal: "April",
+    tahunAwal: "2024",
+    bulanAwal: "Oktober",
     tahunAkhir: "2021",
-    bulanAkhir: "Mei",
+    bulanAkhir: "sampai sekarang",
     img: "/assets/MockupDashboard.png",
   },
 ];

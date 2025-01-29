@@ -78,6 +78,7 @@ const Navbar = ({ openModal, menuItems }) => {
             >
               <motion.a
                 whileHover={{ scale: 1.05 }}
+                target="_blank"
                 href="https://www.instagram.com/zodyarifiansyah_/"
                 className="py-2 px-4 text-black hover:text-gray-700 transition duration-300"
               >
@@ -85,6 +86,7 @@ const Navbar = ({ openModal, menuItems }) => {
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.05 }}
+                target="_blank"
                 href="https://www.instagram.com/abhiprayaui/"
                 className="py-2 px-4 text-black hover:text-gray-700 transition duration-300"
               >
