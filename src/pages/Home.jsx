@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Content from "../components/Content";
 import ModalPopup from "../components/modalPopup";
 import Footer from "../components/Footer";
+import { menuItems } from "../data";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,13 +11,6 @@ const Home = () => {
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  const menuItems = [
-    { name: "Home", link: "#" },
-    { name: "About", link: "#" },
-    { name: "Contact", link: "#" },
-    { name: "Works", link: "#" },
-  ];
 
   useEffect(() => {
     if (isMenuOpen) {

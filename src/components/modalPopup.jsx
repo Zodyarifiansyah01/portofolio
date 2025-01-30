@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const ModalPopup = ({ onClose, menuItems, className }) => {
@@ -33,7 +32,8 @@ const ModalPopup = ({ onClose, menuItems, className }) => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <a
-                href="#"
+                href={item.link}
+                onClick={handleCloseModal}
                 className="hover:text-gray-300 transition duration-300"
               >
                 {item.name}

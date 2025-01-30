@@ -45,17 +45,17 @@ const DetailUIUX = ({ dataId }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <div className="flex gap-2 text-md md:text-lg text-gray-800">
+          <div className="flex gap-2  text-sm md:text-lg text-gray-800">
             <span className="font-semibold">Subtitle:</span>{" "}
             <p>{workItem.subtitle}</p>
           </div>
-          <div className="flex gap-2 text-md md:text-lg text-gray-800">
+          <div className="flex gap-2  text-sm md:text-lg text-gray-800">
             <span className="font-semibold">Year Started:</span>{" "}
             <p>
               {workItem.bulanAwal} {workItem.tahunAwal}
             </p>
           </div>
-          <div className="flex gap-2 text-md md:text-lg text-gray-800">
+          <div className="flex gap-2 text-sm md:text-lg text-gray-800">
             <span className="font-semibold">Year End:</span>{" "}
             <p>
               {workItem.bulanAkhir} {workItem.tahunAkhir}
@@ -69,7 +69,7 @@ const DetailUIUX = ({ dataId }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
             Deskripsi Aplikasi LPPM Universitas
           </h2>
           <p className="text-sm md:text-lg text-gray-700 mb-4">
@@ -89,7 +89,7 @@ const DetailUIUX = ({ dataId }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
             Fitur Utama:
           </h2>
           <ol className="text-sm md:text-lg list-decimal text-gray-700 mb-4 ml-6 space-y-2">
@@ -123,7 +123,7 @@ const DetailUIUX = ({ dataId }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
             Manfaat:
           </h2>
           <ol className="text-sm md:text-lg list-decimal text-gray-700 mb-4 ml-6 space-y-2">
@@ -144,7 +144,7 @@ const DetailUIUX = ({ dataId }) => {
         </motion.div>
 
         <div>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
             Tugas yang Dikerjakan
           </h2>
           <motion.p

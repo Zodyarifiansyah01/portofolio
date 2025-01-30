@@ -34,7 +34,7 @@ const Navbar = ({ openModal, menuItems }) => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <a
-                  href="#"
+                  href={item.link} // Pastikan link seperti #about atau #services
                   className="hover:text-gray-300 transition duration-300"
                 >
                   {item.name}

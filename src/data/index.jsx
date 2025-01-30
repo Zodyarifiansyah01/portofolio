@@ -22,3 +22,9 @@ export const imagesdata = [
     img: "/assets/MockupDashboard.png",
   },
 ];
+
+export const menuItems = [
+  { name: "Home", link: "#" },
+  { name: "About", link: "#about" },
+  { name: "Works", link: "#works" },
+];

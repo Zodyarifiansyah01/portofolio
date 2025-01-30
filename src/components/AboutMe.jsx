@@ -1,11 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 const AboutMe = () => {
   return (
-    <div className="grid grid-cols-12 gap-4 md:p-8">
+    <div className="grid grid-cols-12 gap-4 md:p-8" id="about">
       {/* Header Section */}
       <motion.div
         className="col-span-12 md:col-span-4 text-justify"
@@ -17,7 +15,6 @@ const AboutMe = () => {
         <h1 className="font-bold text-2xl md:text-3xl font-noto-serif">WORK</h1>
       </motion.div>
 
-      {/* Main Content Section */}
       <motion.div
         className="col-span-12 md:col-span-8 text-sm"
         initial={{ opacity: 0, x: 50 }}

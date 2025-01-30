@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 const ListWorks = () => {
   const getLimitedDescription = (desc) => {
-    const paragraphs = desc.split("\n"); // Memecah teks berdasarkan baris baru
-    return paragraphs.slice(0, 3).join("\n"); // Mengambil 3 paragraf pertama dan menggabungkannya kembali
+    const paragraphs = desc.split("\n");
+    return paragraphs.slice(0, 3).join("\n");
   };
+
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="space-y-12">
         {imagesdata.map((item) => (
           <Link to={`/detail/${item.id}`} key={item.id}>

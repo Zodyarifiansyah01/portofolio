@@ -1,8 +1,6 @@
-import React from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./AboutMe";
 import MoreWorks from "./MoreWorks";
-import Footer from "./Footer";
 
 const Content = () => {
   return (
@@ -42,12 +40,23 @@ const Content = () => {
           </h1>
         </motion.div>
       </div>
-      <div className="about-me my-8">
+      <motion.div
+        className="about-me my-8"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <AboutMe />
-      </div>
-      <div className="more-works my-8">
+      </motion.div>
+
+      <motion.div
+        className="more-works my-8"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <MoreWorks />
-      </div>
+      </motion.div>
     </div>
   );
 };
