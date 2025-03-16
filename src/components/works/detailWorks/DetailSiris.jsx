@@ -6,7 +6,7 @@ const DetailSiris = ({ dataId }) => {
   const [workItem, setWorkItem] = useState(null);
 
   useEffect(() => {
-    const item = imagesdata.find((item) => item.id === parseInt(dataId));
+    const item = imagesdata.find((item) => item.slug === dataId);
     setWorkItem(item);
   }, [dataId]);
 
@@ -18,53 +18,59 @@ const DetailSiris = ({ dataId }) => {
     );
   }
 
+  const renderList = (items) => {
+    return items.map((item, index) => (
+      <li key={index} className="text-sm md:text-lg text-gray-700 mb-2">
+        {item}
+      </li>
+    ));
+  };
+
   return (
-    <div className="md:px-12 lg:px-16">
+    <div className="container mx-auto px-4 lg:px-16 py-6">
       <motion.div
         className="bg-white shadow-lg rounded-lg p-8 lg:p-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        <p className="text-xl lg:text-2xl mb-4 text-gray-700">
-          <span className="font-semibold ">{workItem.title}</span>
-        </p>
+        <h1 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-6 text-center">
+          {workItem.title}
+        </h1>
 
         <motion.img
           src={workItem.img}
           alt={workItem.title}
-          className="w-full h-auto max-w-lg mx-auto mb-6 rounded-lg shadow-md"
+          className="w-full h-auto max-w-3xl mx-auto mb-8 rounded-lg shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
         />
 
         <motion.div
-          className="mb-4"
+          className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          <div className="flex gap-2 text-sm md:text-lg text-gray-800">
-            <span className="font-semibold">Subtitle:</span>{" "}
-            <p>{workItem.subtitle}</p>
-          </div>
-          <div className="flex gap-2 text-sm md:text-lg text-gray-800">
-            <span className="font-semibold">Year Started:</span>{" "}
-            <p>
-              {workItem.bulanAwal} {workItem.tahunAwal}
-            </p>
-          </div>
-          <div className="flex gap-2 text-sm md:text-lg text-gray-800">
-            <span className="font-semibold">Year End:</span>{" "}
-            <p>
-              {workItem.bulanAkhir} {workItem.tahunAkhir}
-            </p>
+          <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
+            <div className="w-full md:w-1/2">
+              <span className="font-semibold">Subtitle:</span> {workItem.subtitle}
+            </div>
+            <div className="w-full md:w-1/2">
+              <span className="font-semibold">App Title :</span> {workItem.titleApp}
+            </div>
+            <div className="w-full md:w-1/2">
+              <span className="font-semibold">Year Started:</span> {workItem.bulanAwal} {workItem.tahunAwal}
+            </div>
+            <div className="w-full md:w-1/2">
+              <span className="font-semibold">Year End:</span> {workItem.bulanAkhir} {workItem.tahunAkhir}
+            </div>
           </div>
         </motion.div>
 
         <motion.div
-          className="mb-6 text-justify"
+          className="mb-8 text-justify"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
@@ -89,7 +95,7 @@ const DetailSiris = ({ dataId }) => {
         </motion.div>
 
         <motion.div
-          className="mb-6 text-justify"
+          className="mb-8 text-justify"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
@@ -97,28 +103,17 @@ const DetailSiris = ({ dataId }) => {
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
             Fitur Utama:
           </h2>
-          <ol className="text-sm md:text-lg list-decimal text-gray-700 mb-4 ml-6 space-y-2">
-            <li>
-              Pengajuan Proposal Penelitian dan Pengabdian Pengguna dapat
-              mengajukan proposal penelitian atau pengabdian kepada masyarakat
-              secara online. Proses ini dilengkapi dengan sistem pengecekan
-              kelengkapan dokumen dan format standar yang telah ditetapkan.
-            </li>
-            <li>
-              Manajemen Proyek Fitur untuk mengelola proyek penelitian dan
-              pengabdian yang sedang berlangsung, termasuk pemantauan timeline,
-              anggaran, serta kegiatan yang sudah atau belum dilaksanakan.
-            </li>
-            <li>
-              Pengelolaan Dana Sistem yang mendukung pengelolaan dana yang
-              diterima untuk proyek penelitian atau pengabdian, termasuk
-              pencatatan penggunaan dana dan pelaporan keuangan.
-            </li>
-          </ol>
+          <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+            {renderList([
+              "Pengajuan Proposal Penelitian dan Pengabdian secara online, lengkap dengan pengecekan dokumen dan format standar.",
+              "Manajemen Proyek untuk mengelola proyek penelitian dan pengabdian termasuk pemantauan timeline dan anggaran.",
+              "Pengelolaan Dana untuk mendukung pengelolaan dana proyek, pencatatan penggunaan dana, dan pelaporan keuangan."
+            ])}
+          </ul>
         </motion.div>
 
         <motion.div
-          className="mb-6 text-justify"
+          className="mb-8 text-justify"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -126,26 +121,13 @@ const DetailSiris = ({ dataId }) => {
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
             Manfaat:
           </h2>
-          <ol className="text-sm md:text-lg list-decimal  text-gray-700 mb-4 ml-6 space-y-2">
-            <li>
-              Efisiensi Administrasi Aplikasi ini membantu mengurangi waktu dan
-              beban administrasi dalam pengelolaan penelitian dan pengabdian
-              kepada masyarakat, karena semua proses dapat dilakukan secara
-              online.
-            </li>
-            <li>
-              Transparansi Dengan sistem yang terintegrasi, semua pihak yang
-              terlibat dapat memantau perkembangan proyek dan penggunaan dana,
-              sehingga meningkatkan transparansi dalam pengelolaan kegiatan
-              penelitian.
-            </li>
-            <li>
-              Pemantauan Keuangan yang Lebih Baik Dengan adanya pengelolaan dana
-              yang lebih transparan dan sistematis, pemantauan anggaran yang
-              digunakan dalam proyek penelitian menjadi lebih akurat dan
-              terkontrol.
-            </li>
-          </ol>
+          <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+            {renderList([
+              "Efisiensi Administrasi: Semua proses dapat dilakukan secara online, mengurangi beban administrasi.",
+              "Transparansi: Memungkinkan semua pihak yang terlibat untuk memantau perkembangan proyek dan penggunaan dana.",
+              "Pemantauan Keuangan yang Lebih Baik: Pengelolaan dana yang lebih transparan dan sistematis."
+            ])}
+          </ul>
         </motion.div>
 
         <div>

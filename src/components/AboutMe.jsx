@@ -39,7 +39,7 @@ const AboutMe = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
           >
             My goal is always to create clean, pixel-perfect interfaces with
             smooth and fluid animations. I prioritize not only writing efficient

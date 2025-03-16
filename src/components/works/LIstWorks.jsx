@@ -1,26 +1,54 @@
 import { imagesdata } from "../../data/index";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ListWorks = () => {
+  // Fungsi untuk memotong deskripsi sehingga hanya menampilkan 3 paragraf pertama
   const getLimitedDescription = (desc) => {
-    const paragraphs = desc.split("\n");
-    return paragraphs.slice(0, 3).join("\n");
+    const paragraphs = desc.split("\n"); // Memecah deskripsi berdasarkan baris
+    return paragraphs.slice(0, 3).join("\n"); // Mengambil hanya 3 paragraf pertama
   };
 
+  const cardRef = useRef([]);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    cardRef.current.forEach((card) => {
+      gsap.fromTo(
+        card,
+        {
+          opacity: 0, // Mulai dari transparan
+          y: 50, // Mulai dari posisi lebih rendah
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: card,
+            once: true,
+            start: "top 80%", // Animasi mulai ketika card hampir muncul
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4">
       <div className="space-y-12">
-        {imagesdata.map((item) => (
-          <Link to={`/detail/${item.id}`} key={item.id}>
-            <motion.div
+        {imagesdata.map((item, index) => (
+          <Link to={`/Detail-Works/${item.slug}`} key={item.id}>
+            <div
               className="cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              ref={(el) => (cardRef.current[index] = el)}
             >
               <div className="grid grid-cols-1 gap-4 md:grid-cols-12 mt-8">
-                <div className="flex flex-col gap-4 md:col-span-4 ">
+                {/* Kolom Kiri (Tahun dan Bulan) */}
+                <div className="flex flex-col gap-4 md:col-span-4">
                   <div className="space-y-1">
                     <p className="text-gray-600 font-medium text-base sm:text-lg md:text-xl">
                       {item.tahunAwal}
@@ -28,60 +56,50 @@ const ListWorks = () => {
                     <p className="text-gray-500 text-sm sm:text-base">
                       {item.bulanAwal}
                     </p>
+                    <p className="text-gray-500 text-sm sm:text-base">
+                      {item.title}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex flex-col md:col-span-8 gap-4 ">
+                {/* Kolom Kanan (Gambar dan Deskripsi) */}
+                <div className="flex flex-col md:col-span-8 gap-4">
                   <div className="relative flex flex-col md:flex-row gap-4">
-                    <motion.div
-                      className="space-y-4 w-full"
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
+                    {/* Gambar di desktop */}
+                    <div className="space-y-4 w-full">
                       <img
                         src={item.img}
-                        alt={item.title}
-                        className="hidden sm:block rounded-lg w-full h-60 object-cover shadow-md object-left"
+                        alt={item.titleApp}
+                        className="hidden sm:block rounded-lg w-full h-60 object-cover object-center shadow-md"
                       />
-                    </motion.div>
-                    <motion.div
-                      className="space-y-2 absolute top-8 left-4 hidden md:block"
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.5 }}
-                    >
+                    </div>
+                    {/* Judul gambar di desktop */}
+                    <div className="space-y-2 absolute top-8 left-4 hidden md:block">
                       <h2 className="text-white font-noto-serif text-xl md:text-2xl font-medium">
-                        {item.title}
+                        {item.titleApp}
                       </h2>
-                    </motion.div>
+                    </div>
                   </div>
-                  <motion.div
-                    className="md:hidden space-y-4"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <h2 className="text-white font-noto-serif text-xl md:text-2xl font-medium">
-                      {item.title}
+                  {/* Gambar dan Judul di mobile */}
+                  <div className="md:hidden space-y-4">
+                    <h2 className="text-white font-noto-serif text-xl font-medium">
+                      {item.titleApp}
                     </h2>
                     <img
                       src={item.img}
-                      alt={item.title}
-                      className=" rounded-lg w-full h-60 object-cover shadow-md"
+                      alt={item.titleApp}
+                      className="rounded-lg w-full h-60 object-cover object-center shadow-md"
                     />
-                  </motion.div>
-                  <motion.div
-                    className="text-sm flex flex-col justify-end"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
+                  </div>
+                  {/* Deskripsi */}
+                  <div className="text-sm flex flex-col justify-end mt-4">
                     <p className="text-gray-500 text-justify">
                       {getLimitedDescription(item.desc)}{" "}
                     </p>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </Link>
         ))}
       </div>
