@@ -10,12 +10,11 @@ const DetailListWork = () => {
   const detailComponents = {
     "UIUX-Course-Binary": <DetailUIUX dataId={slug} />,
     "LPPM-Universitas": <DetailSiris dataId={slug} />,
-    "My-Wali": <DetaiMyWali dataId={slug} />
+    "My-Wali": <DetaiMyWali dataId={slug} />,
   };
 
   return (
     <div className=" mx-auto">
-
       {detailComponents[slug] && (
         <motion.div
           className="text-justify"

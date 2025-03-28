@@ -1,5 +1,3 @@
-import { title } from "framer-motion/client";
-
 export const imagesdata = [
   {
     id: 1,
@@ -35,7 +33,7 @@ export const imagesdata = [
     slug: "My-Wali",
     desc: "Saya telah membuat tampilan yang responsif untuk semua ukuran layar perangkat yang dapat digunakan oleh pengguna, dengan desain yang simpel dan mudah digunakan. Karena aplikasi ini ditujukan untuk orang tua, saya juga mengonsumsi API untuk memenuhi kebutuhan data yang digunakan dalam aplikasi.",
     tahunAwal: "2024",
-    bulanAwal: "Oktober",
+    bulanAwal: "Februari",
     tahunAkhir: "2021",
     bulanAkhir: "sampai sekarang",
     img: "/assets/imagesMyWali/mockuper (1).png",

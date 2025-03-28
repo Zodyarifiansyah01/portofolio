@@ -55,16 +55,20 @@ const DetailSiris = ({ dataId }) => {
         >
           <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Subtitle:</span> {workItem.subtitle}
+              <span className="font-semibold">Subtitle:</span>{" "}
+              {workItem.subtitle}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">App Title :</span> {workItem.titleApp}
+              <span className="font-semibold">App Title :</span>{" "}
+              {workItem.titleApp}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year Started:</span> {workItem.bulanAwal} {workItem.tahunAwal}
+              <span className="font-semibold">Year Started:</span>{" "}
+              {workItem.bulanAwal} {workItem.tahunAwal}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year End:</span> {workItem.bulanAkhir} {workItem.tahunAkhir}
+              <span className="font-semibold">Year End:</span>{" "}
+              {workItem.bulanAkhir} {workItem.tahunAkhir}
             </div>
           </div>
         </motion.div>
@@ -107,7 +111,7 @@ const DetailSiris = ({ dataId }) => {
             {renderList([
               "Pengajuan Proposal Penelitian dan Pengabdian secara online, lengkap dengan pengecekan dokumen dan format standar.",
               "Manajemen Proyek untuk mengelola proyek penelitian dan pengabdian termasuk pemantauan timeline dan anggaran.",
-              "Pengelolaan Dana untuk mendukung pengelolaan dana proyek, pencatatan penggunaan dana, dan pelaporan keuangan."
+              "Pengelolaan Dana untuk mendukung pengelolaan dana proyek, pencatatan penggunaan dana, dan pelaporan keuangan.",
             ])}
           </ul>
         </motion.div>
@@ -125,7 +129,7 @@ const DetailSiris = ({ dataId }) => {
             {renderList([
               "Efisiensi Administrasi: Semua proses dapat dilakukan secara online, mengurangi beban administrasi.",
               "Transparansi: Memungkinkan semua pihak yang terlibat untuk memantau perkembangan proyek dan penggunaan dana.",
-              "Pemantauan Keuangan yang Lebih Baik: Pengelolaan dana yang lebih transparan dan sistematis."
+              "Pemantauan Keuangan yang Lebih Baik: Pengelolaan dana yang lebih transparan dan sistematis.",
             ])}
           </ul>
         </motion.div>

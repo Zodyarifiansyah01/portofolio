@@ -55,16 +55,20 @@ const DetailMyWali = ({ dataId }) => {
         >
           <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Subtitle:</span> {workItem.subtitle}
+              <span className="font-semibold">Subtitle:</span>{" "}
+              {workItem.subtitle}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">App Title:</span> {workItem.titleApp}
+              <span className="font-semibold">App Title:</span>{" "}
+              {workItem.titleApp}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year Started:</span> {workItem.bulanAwal} {workItem.tahunAwal}
+              <span className="font-semibold">Year Started:</span>{" "}
+              {workItem.bulanAwal} {workItem.tahunAwal}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year End:</span> {workItem.bulanAkhir} {workItem.tahunAkhir}
+              <span className="font-semibold">Year End:</span>{" "}
+              {workItem.bulanAkhir} {workItem.tahunAkhir}
             </div>
           </div>
         </motion.div>
@@ -79,7 +83,14 @@ const DetailMyWali = ({ dataId }) => {
             My Wali: Aplikasi Pemantauan Pendidikan untuk Orang Tua
           </h2>
           <p className="text-sm md:text-lg text-gray-700 mb-4">
-            Aplikasi My Wali adalah platform digital yang dirancang untuk membantu orang tua dalam memantau berbagai aspek terkait pendidikan anak-anak mereka yang sedang berkuliah. Dengan aplikasi ini, orang tua dapat dengan mudah mengakses informasi penting seperti pembayaran, nilai akademik, dan transkrip dari anak mereka. Aplikasi ini bertujuan untuk memberikan transparansi dan kemudahan bagi orang tua dalam mengikuti perkembangan pendidikan anak-anak mereka tanpa harus terlibat langsung dalam setiap proses administratif di kampus.
+            Aplikasi My Wali adalah platform digital yang dirancang untuk
+            membantu orang tua dalam memantau berbagai aspek terkait pendidikan
+            anak-anak mereka yang sedang berkuliah. Dengan aplikasi ini, orang
+            tua dapat dengan mudah mengakses informasi penting seperti
+            pembayaran, nilai akademik, dan transkrip dari anak mereka. Aplikasi
+            ini bertujuan untuk memberikan transparansi dan kemudahan bagi orang
+            tua dalam mengikuti perkembangan pendidikan anak-anak mereka tanpa
+            harus terlibat langsung dalam setiap proses administratif di kampus.
           </p>
         </motion.div>
 
@@ -97,7 +108,7 @@ const DetailMyWali = ({ dataId }) => {
               "Pemantauan Pembayaran: Orang tua dapat melacak status pembayaran uang kuliah dan biaya lainnya dengan mudah. Aplikasi ini memberikan notifikasi atau pembaruan terkait tenggat waktu pembayaran dan saldo yang harus dibayar, sehingga orang tua dapat memastikan bahwa anak mereka tidak terhambat oleh masalah administrasi.",
               "Laporan Nilai: Aplikasi ini menyediakan akses kepada orang tua untuk melihat nilai akademik anak mereka selama perkuliahan, baik nilai per mata kuliah maupun nilai keseluruhan. Ini memungkinkan orang tua untuk lebih terlibat dalam perkembangan akademik anak dan memberikan dukungan yang diperlukan.",
               "Pantauan Kehadiran: Aplikasi ini memungkinkan orang tua untuk mengetahui tingkat kehadiran anak mereka dalam perkuliahan. Fitur ini berguna untuk memastikan anak tetap disiplin dalam mengikuti perkuliahan dan tidak ada masalah dengan absensi.",
-              "Transkrip Akademik: Aplikasi ini memungkinkan orang tua untuk mengakses transkrip akademik lengkap anak mereka, yang berisi catatan seluruh mata kuliah yang telah diambil, nilai yang diperoleh, serta status kelulusan dari berbagai mata kuliah tersebut. Ini berguna untuk melihat perkembangan akademik anak dalam jangka panjang."
+              "Transkrip Akademik: Aplikasi ini memungkinkan orang tua untuk mengakses transkrip akademik lengkap anak mereka, yang berisi catatan seluruh mata kuliah yang telah diambil, nilai yang diperoleh, serta status kelulusan dari berbagai mata kuliah tersebut. Ini berguna untuk melihat perkembangan akademik anak dalam jangka panjang.",
             ])}
           </ul>
         </motion.div>
@@ -116,11 +127,10 @@ const DetailMyWali = ({ dataId }) => {
               "Akses Real-Time: Orang tua bisa mendapatkan informasi yang akurat dan terkini tanpa perlu menunggu laporan dari anak mereka.",
               "Peningkatan Komunikasi: Memudahkan komunikasi antara orang tua dan anak terkait masalah akademik dan administrasi pendidikan.",
               "Pemantauan Prestasi: Orang tua dapat mengetahui apakah anak mereka membutuhkan dukungan tambahan di bidang akademik.",
-               "Pantauan Kehadiran: Orang tua dapat memantau kehadiran anak mereka di perkuliahan secara langsung."
+              "Pantauan Kehadiran: Orang tua dapat memantau kehadiran anak mereka di perkuliahan secara langsung.",
             ])}
           </ul>
         </motion.div>
-
 
         <div>
           <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
@@ -155,10 +165,18 @@ const DetailMyWali = ({ dataId }) => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-auto">
             <div className="overflow-hidden rounded-lg shadow-lg">
-              <img src="/assets/imagesMyWali/mockuper.png" alt="" className="w-full h-full object-cover" />
+              <img
+                src="/assets/imagesMyWali/mockuper.png"
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="overflow-hidden rounded-lg shadow-lg">
-              <img src="/assets/imagesMyWali/mockuper (2).png" alt="" className="w-full h-full object-cover" />
+              <img
+                src="/assets/imagesMyWali/mockuper (2).png"
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </motion.div>

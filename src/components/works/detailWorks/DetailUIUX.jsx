@@ -55,13 +55,16 @@ const DetailUIUX = ({ dataId }) => {
         >
           <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Subtitle:</span> {workItem.subtitle}
+              <span className="font-semibold">Subtitle:</span>{" "}
+              {workItem.subtitle}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year Started:</span> {workItem.bulanAwal} {workItem.tahunAwal}
+              <span className="font-semibold">Year Started:</span>{" "}
+              {workItem.bulanAwal} {workItem.tahunAwal}
             </div>
             <div className="w-full md:w-1/2">
-              <span className="font-semibold">Year End:</span> {workItem.bulanAkhir} {workItem.tahunAkhir}
+              <span className="font-semibold">Year End:</span>{" "}
+              {workItem.bulanAkhir} {workItem.tahunAkhir}
             </div>
           </div>
         </motion.div>
@@ -101,7 +104,7 @@ const DetailUIUX = ({ dataId }) => {
               "Pengumpulan Sampah: Aplikasi akan mencatat jenis dan jumlah sampah yang dibuang, dan pengguna akan mendapatkan reward berdasarkan jenis dan berat sampah yang dibuang.",
               "Penjemputan Sampah: Pengguna dapat menjadwalkan waktu penjemputan sampah untuk kenyamanan mereka.",
               "Reward atau Poin: Pengguna yang aktif mendapatkan reward yang bisa ditukarkan dengan hadiah menarik.",
-              "Pendidikan Lingkungan: Aplikasi ini memberikan edukasi mengenai pentingnya pengelolaan sampah yang baik dan mendaur ulang."
+              "Pendidikan Lingkungan: Aplikasi ini memberikan edukasi mengenai pentingnya pengelolaan sampah yang baik dan mendaur ulang.",
             ])}
           </ul>
         </motion.div>
@@ -120,7 +123,7 @@ const DetailUIUX = ({ dataId }) => {
               "Mengurangi Sampah: Mengurangi sampah yang masuk ke TPA.",
               "Meningkatkan Kesadaran Lingkungan: Mendidik masyarakat untuk lebih peduli terhadap pengelolaan sampah.",
               "Mudah dan Praktis: Fitur penjemputan sampah membuat aplikasi mudah digunakan.",
-              "Reward yang Menguntungkan: Mendapatkan hadiah atas kontribusi pengelolaan sampah."
+              "Reward yang Menguntungkan: Mendapatkan hadiah atas kontribusi pengelolaan sampah.",
             ])}
           </ul>
         </motion.div>

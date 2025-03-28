@@ -32,7 +32,7 @@ const ListWorks = () => {
             once: true,
             start: "top 80%", // Animasi mulai ketika card hampir muncul
           },
-        }
+        },
       );
     });
   }, []);
