@@ -29,9 +29,9 @@ const Home = () => {
             />
             <Navbar openModal={handleMenu} menuItems={menuItems} />
             <Content />
-            <div>
-               <Footer menuItems={menuItems} />
-            </div>
+         </div>
+         <div>
+            <Footer menuItems={menuItems} />
          </div>
       </>
    );

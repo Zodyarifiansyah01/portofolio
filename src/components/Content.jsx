@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import AboutMe from "./AboutMe";
 import MoreWorks from "./MoreWorks";
+import Animation from "../data/animation";
+
+const { CircularText } = Animation();
 
 const Content = () => {
    return (
@@ -32,7 +35,14 @@ const Content = () => {
                      <span className="bg-orange-500 text-black px-2 inline-block">
                         ZODY ARIFIANSYAH
                      </span>
-                     <span className="text-base font-thin">2001</span>
+                     <span>
+                        <CircularText
+                           text="2001*2001*2001*"
+                           onHover="speedUp"
+                           spinDuration={20}
+                           className="custom-class"
+                        />
+                     </span>
                   </div>
                   <span className="block mt-2">
                      FRONT-END WEB DEVELOPER FROM INDONESIA
