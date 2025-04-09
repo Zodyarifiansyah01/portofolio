@@ -24,29 +24,31 @@ const AboutMe = () => {
             transition={{ duration: 0.5 }}
          >
             <div className="text-justify">
-               {/* First paragraph */}
+               {/* Paragraf pertama */}
                <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                   className="mb-4"
                >
-                  I believe in the strong connection between design and user
-                  experience, achieved through careful execution and attention
-                  to detail. I thrive on working with projects that are both
-                  engaging and meaningful, ones that I can truly take pride in.
+                  Saya percaya pada hubungan yang kuat antara desain dan
+                  pengalaman pengguna, yang tercapai melalui eksekusi yang
+                  hati-hati dan perhatian terhadap detail. Saya senang bekerja
+                  dengan proyek-proyek yang menarik dan bermakna, proyek yang
+                  benar-benar bisa saya banggakan.
                </motion.p>
 
-               {/* Second paragraph */}
+               {/* Paragraf kedua */}
                <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}
                >
-                  My goal is always to create clean, pixel-perfect interfaces
-                  with smooth and fluid animations. I prioritize not only
-                  writing efficient code but also ensuring design integrity and
-                  optimizing UX/UI for the best possible user experience.
+                  Tujuan saya selalu untuk menciptakan antarmuka yang bersih,
+                  sempurna pada piksel, dengan animasi yang halus dan lancar.
+                  Saya mengutamakan tidak hanya menulis kode yang efisien,
+                  tetapi juga memastikan integritas desain dan mengoptimalkan
+                  UX/UI untuk pengalaman pengguna yang terbaik.
                </motion.p>
             </div>
          </motion.div>

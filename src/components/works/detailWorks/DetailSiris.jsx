@@ -12,7 +12,7 @@ const DetailSiris = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold text-gray-600">
+         <div className="text-center text-xl font-semibold text-white">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -20,21 +20,21 @@ const DetailSiris = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-gray-700 mb-2">
+         <li key={index} className="text-sm md:text-lg text-white mb-2">
             {item}
          </li>
       ));
    };
 
    return (
-      <div className="container mx-auto px-4 lg:px-16 py-6">
+      <div className="py-6 text-white">
          <motion.div
-            className="bg-white shadow-lg rounded-lg p-8 lg:p-12"
+            className=" shadow-lg rounded-lg p-8 lg:p-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <h1 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-6 text-center">
+            <h1 className="text-2xl lg:text-3xl font-semibold text-white mb-6 text-center">
                {workItem.title}
             </h1>
 
@@ -53,9 +53,9 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.6 }}
             >
-               <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
+               <div className="flex flex-wrap gap-2 text-sm md:text-lg">
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Subtitle:</span>{" "}
+                     <span className="font-semibold">Project Subtitle:</span>{" "}
                      {workItem.subtitle}
                   </div>
                   <div className="w-full md:w-1/2">
@@ -63,11 +63,11 @@ const DetailSiris = ({ dataId }) => {
                      {workItem.titleApp}
                   </div>
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Year Started:</span>{" "}
+                     <span className="font-semibold">Start Date:</span>{" "}
                      {workItem.bulanAwal} {workItem.tahunAwal}
                   </div>
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Year End:</span>{" "}
+                     <span className="font-semibold">End Date:</span>{" "}
                      {workItem.bulanAkhir} {workItem.tahunAkhir}
                   </div>
                </div>
@@ -79,10 +79,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Deskripsi Aplikasi LPPM Universitas
                </h2>
-               <p className="text-sm md:text-lg text-gray-700 mb-4">
+               <p className="text-sm md:text-lg text-white mb-4">
                   Aplikasi Lembaga Penelitian dan Pengabdian kepada Masyarakat
                   (LPPM) di universitas merupakan platform digital yang
                   dirancang untuk mendukung kegiatan penelitian dan pengabdian
@@ -105,10 +105,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Fitur Utama:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
                   {renderList([
                      "Pengajuan Proposal Penelitian dan Pengabdian secara online, lengkap dengan pengecekan dokumen dan format standar.",
                      "Manajemen Proyek untuk mengelola proyek penelitian dan pengabdian termasuk pemantauan timeline dan anggaran.",
@@ -123,10 +123,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Manfaat:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
                   {renderList([
                      "Efisiensi Administrasi: Semua proses dapat dilakukan secara online, mengurangi beban administrasi.",
                      "Transparansi: Memungkinkan semua pihak yang terlibat untuk memantau perkembangan proyek dan penggunaan dana.",
@@ -136,11 +136,11 @@ const DetailSiris = ({ dataId }) => {
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-2">
                   Tugas yang Dikerjakan
                </h2>
                <motion.p
-                  className="text-lg text-gray-700 text-justify"
+                  className="text-lg text-white text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.4 }}
@@ -150,7 +150,7 @@ const DetailSiris = ({ dataId }) => {
                         {paragraph.split(". ").map((point, idx) => (
                            <li
                               key={idx}
-                              className="text-sm md:text-lg text-gray-700"
+                              className="text-sm md:text-lg text-white"
                            >
                               {point.trim()}.
                            </li>

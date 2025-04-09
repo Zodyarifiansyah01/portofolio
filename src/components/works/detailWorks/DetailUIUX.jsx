@@ -12,7 +12,7 @@ const DetailUIUX = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold text-gray-600">
+         <div className="text-center text-xl font-semibold ">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -20,21 +20,21 @@ const DetailUIUX = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-gray-700 mb-2">
+         <li key={index} className="text-sm md:text-lg mb-2">
             {item}
          </li>
       ));
    };
 
    return (
-      <div className="container mx-auto px-4 lg:px-16 py-6">
+      <div className="py-6 text-white">
          <motion.div
-            className="bg-white shadow-lg rounded-lg p-8 lg:p-12"
+            className="shadow-lg rounded-lg p-8 lg:p-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <h1 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-6 text-center">
+            <h1 className="text-2xl lg:text-3xl font-semibold  mb-6 text-center">
                {workItem.title}
             </h1>
 
@@ -53,32 +53,32 @@ const DetailUIUX = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.6 }}
             >
-               <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
+               <div className="flex flex-wrap gap-2 text-sm md:text-lg">
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Subtitle:</span>{" "}
+                     <span className="font-semibold">Project Subtitle:</span>{" "}
                      {workItem.subtitle}
                   </div>
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Year Started:</span>{" "}
+                     <span className="font-semibold">Start Date:</span>{" "}
                      {workItem.bulanAwal} {workItem.tahunAwal}
                   </div>
                   <div className="w-full md:w-1/2">
-                     <span className="font-semibold">Year End:</span>{" "}
+                     <span className="font-semibold">End Date:</span>{" "}
                      {workItem.bulanAkhir} {workItem.tahunAkhir}
                   </div>
                </div>
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify"
+               className="mb-8 text-justify text-white"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
                   Deskripsi Aplikasi Bank Sampah
                </h2>
-               <p className="text-sm md:text-lg text-gray-700 mb-4">
+               <p className="text-sm md:text-lg  mb-4">
                   Aplikasi Bank Sampah adalah sebuah platform yang dirancang
                   untuk memfasilitasi pengelolaan sampah dengan cara yang lebih
                   ramah lingkungan dan efisien. Dalam aplikasi ini, pengguna
@@ -91,15 +91,15 @@ const DetailUIUX = ({ dataId }) => {
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify"
+               className="mb-8 text-justify text-white"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
                   Fitur Utama:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg mb-4 ml-6 space-y-2">
                   {renderList([
                      "Pemisahan Sampah: Pengguna dapat memisahkan sampah berdasarkan jenisnya, seperti sampah organik, plastik, kertas, dan lainnya.",
                      "Pengumpulan Sampah: Aplikasi akan mencatat jenis dan jumlah sampah yang dibuang, dan pengguna akan mendapatkan reward berdasarkan jenis dan berat sampah yang dibuang.",
@@ -111,15 +111,15 @@ const DetailUIUX = ({ dataId }) => {
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify"
+               className="mb-8 text-justify text-white"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
                   Manfaat:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg mb-4 ml-6 space-y-2">
                   {renderList([
                      "Mengurangi Sampah: Mengurangi sampah yang masuk ke TPA.",
                      "Meningkatkan Kesadaran Lingkungan: Mendidik masyarakat untuk lebih peduli terhadap pengelolaan sampah.",
@@ -130,11 +130,11 @@ const DetailUIUX = ({ dataId }) => {
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-2">
                   Tugas yang Dikerjakan
                </h2>
                <motion.p
-                  className="text-lg text-gray-700 text-justify"
+                  className="text-lg text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.4 }}
@@ -142,10 +142,7 @@ const DetailUIUX = ({ dataId }) => {
                   {workItem.desc?.split("\n").map((paragraph, index) => (
                      <ul key={index} className="list-disc ml-6 mb-2">
                         {paragraph.split(". ").map((point, idx) => (
-                           <li
-                              key={idx}
-                              className="text-sm md:text-lg text-gray-700"
-                           >
+                           <li key={idx} className="text-sm md:text-lg">
                               {point.trim()}.
                            </li>
                         ))}

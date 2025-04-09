@@ -7,9 +7,14 @@ import { motion } from "framer-motion";
 const Navbar = ({ openModal, menuItems }) => {
    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
+   const handleDropdownClick = (event) => {
+      event.stopPropagation();
+      setIsDropdownVisible(!isDropdownVisible);
+   };
+
    return (
       <motion.nav
-         className="py-8 px-4 flex justify-between items-center "
+         className="py-8 px-4 flex justify-between items-center"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1 }}
@@ -20,7 +25,7 @@ const Navbar = ({ openModal, menuItems }) => {
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }}
          >
-            <div className="bg-orange-500 w-fit px-4 py-2 rounded-full text-white shadow-md ">
+            <div className="bg-orange-500 w-fit px-4 py-2 rounded-full text-white shadow-md">
                <h2 className="text-sm md:text-xl font-semibold">Arifiansyah</h2>
             </div>
 
@@ -34,7 +39,7 @@ const Navbar = ({ openModal, menuItems }) => {
                         transition={{ type: "spring", stiffness: 300 }}
                      >
                         <a
-                           href={item.link} // Pastikan link seperti #about atau #services
+                           href={item.link}
                            className="hover:text-gray-300 transition duration-300"
                         >
                            {item.name}
@@ -44,6 +49,7 @@ const Navbar = ({ openModal, menuItems }) => {
                </ul>
             </div>
          </motion.div>
+
          <motion.div
             initial={{ x: 100 }}
             animate={{ x: 0 }}
@@ -57,10 +63,11 @@ const Navbar = ({ openModal, menuItems }) => {
                   className="text-white text-3xl flex items-center gap-4 z-20 md:hidden"
                />
             </div>
+
             <div
-               className="relative group h-8 hidden md:block"
-               onMouseEnter={() => setIsDropdownVisible(true)}
-               onMouseLeave={() => setIsDropdownVisible(false)}
+               className="relative h-8 hidden md:block"
+               onClick={handleDropdownClick}
+               id="instagram-dropdown"
             >
                <a
                   href="#"
@@ -71,6 +78,8 @@ const Navbar = ({ openModal, menuItems }) => {
                      className="text-white text-3xl"
                   />
                </a>
+
+               {/* Dropdown Menu */}
                {isDropdownVisible && (
                   <motion.div
                      className="flex flex-col gap-4 absolute top-full mt-2 bg-white rounded-lg shadow-lg"
