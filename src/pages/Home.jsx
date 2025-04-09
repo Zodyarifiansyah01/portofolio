@@ -21,9 +21,9 @@ const Home = () => {
    }, [isMenuOpen]);
    return (
       <>
-         <div className="container mx-auto">
+         <div className="container mx-auto overflow-x-hidden">
             <ModalPopup
-               className={isMenuOpen ? "block" : "hidden"}
+               className={isMenuOpen ? "block " : "hidden "}
                onClose={handleMenu}
                menuItems={menuItems}
             />
