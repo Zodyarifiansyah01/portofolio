@@ -12,11 +12,16 @@ const Navbar = ({ openModal, menuItems }) => {
       setIsDropdownVisible(!isDropdownVisible);
    };
 
+   const handleOutsideClick = () => {
+      setIsDropdownVisible(false);
+   };
+
    return (
       <motion.nav
          className="py-8 px-4 flex justify-between items-center"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
+         onClick={handleOutsideClick}
          transition={{ duration: 1 }}
       >
          <motion.div

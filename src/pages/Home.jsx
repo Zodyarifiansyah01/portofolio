@@ -23,7 +23,7 @@ const Home = () => {
       <>
          <div className="container mx-auto">
             <ModalPopup
-               className={isMenuOpen ? "block " : "hidden "}
+               className={isMenuOpen ? "block" : "hidden"}
                onClose={handleMenu}
                menuItems={menuItems}
             />

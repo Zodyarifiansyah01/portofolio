@@ -19,10 +19,10 @@ const Footer = ({ menuItems }) => {
                >
                   <h5 className="text-xl font-semibold mb-2">About Us</h5>
                   <p className="text-sm text-justify">
-                     "I am committed to delivering the best results with a focus
-                     on quality and innovative solutions that meet user needs,
-                     while ensuring user satisfaction through dedication and
-                     creativity."
+                     "Saya berkomitmen untuk memberikan hasil terbaik dengan
+                     fokus pada kualitas dan solusi inovatif yang memenuhi
+                     kebutuhan pengguna, sambil memastikan kepuasan pengguna
+                     melalui dedikasi dan kreativitas."
                   </p>
                </motion.div>
 

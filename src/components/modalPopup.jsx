@@ -14,16 +14,16 @@ const ModalPopup = ({ onClose, menuItems, className }) => {
          exit={{ opacity: 0, scale: 0.5 }}
          transition={{ duration: 0.5 }}
          onClick={handleCloseModal}
-         className={`modal fixed inset-0 bg-slate-500 bg-opacity-50 flex justify-center items-center z-10 ${className}`}
+         className={`fixed inset-0 bg-slate-500 bg-opacity-50 z-10 ${className}`}
       >
          <motion.div
-            initial={{ y: -50 }}
-            animate={{ y: 0 }}
-            exit={{ y: -50 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white p-8 rounded-lg"
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-white h-full w-[300px] p-6 overflow-y-auto shadow-lg"
          >
-            <ul className="flex gap-6 text-black">
+            <ul className="flex flex-col gap-2 text-black">
                {menuItems.map((item, index) => (
                   <motion.li
                      key={index}

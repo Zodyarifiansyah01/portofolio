@@ -6,7 +6,7 @@ import DecryptedText from "../data/animation/DecryptedText";
 
 const Content = () => {
    return (
-      <div className="container overflow-hidden mx-auto px-4 lg:px-6">
+      <div className="container mx-auto px-4 lg:px-6">
          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
             <motion.div
                className="md:col-span-2 flex flex-col justify-between order-last md:order-first space-y-6"
