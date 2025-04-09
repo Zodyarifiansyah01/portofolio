@@ -44,7 +44,7 @@ const Content = () => {
                            text="ZODY ARIFIANSYAH"
                            animateOn="view"
                            speed={100}
-                           maxIterations={20}
+                           maxIterations={10}
                            revealDirection="center"
                         />
                      </span>
@@ -52,7 +52,7 @@ const Content = () => {
                         <CircularText
                            text="2001*2001*2001*"
                            onHover="speedUp"
-                           spinDuration={20}
+                           spinDuration={10}
                            className="custom-class hidden md:hidden xl:block"
                         />
                      </span>
