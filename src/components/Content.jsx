@@ -14,7 +14,7 @@ const Content = () => {
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.5 }}
             >
-               <p className="text-sm md:text-base">
+               <p className="text-sm ">
                   Lebih banyak pengalaman dan kemampuan saya dapat ditemukan
                   dalam ringkasan pekerjaan yang telah saya lakukan
                </p>

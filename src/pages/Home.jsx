@@ -11,24 +11,24 @@ const Home = () => {
    const handleMenu = () => {
       setIsMenuOpen(!isMenuOpen);
    };
-
    useEffect(() => {
       if (isMenuOpen) {
-         document.body.classList.add("overflow-hidden");
-      } else {
-         document.body.classList.remove("overflow-hidden");
+         document.body.style.overflow = "hidden";
       }
    }, [isMenuOpen]);
+
    return (
       <>
-         <div className="container mx-auto overflow-x-hidden">
-            <ModalPopup
-               className={isMenuOpen ? "block " : "hidden "}
-               onClose={handleMenu}
-               menuItems={menuItems}
-            />
-            <Navbar openModal={handleMenu} menuItems={menuItems} />
-            <Content />
+         <div className="container mx-auto">
+            <div>
+               <ModalPopup
+                  className={isMenuOpen ? "block" : "hidden"}
+                  onClose={handleMenu}
+                  menuItems={menuItems}
+               />
+               <Navbar openModal={handleMenu} menuItems={menuItems} />
+            </div>
+            <Content isScroll={isMenuOpen} />
          </div>
          <div>
             <Footer menuItems={menuItems} />

@@ -5,10 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ListWorks = () => {
-   // Fungsi untuk memotong deskripsi sehingga hanya menampilkan 3 paragraf pertama
    const getLimitedDescription = (desc) => {
-      const paragraphs = desc.split("\n"); // Memecah deskripsi berdasarkan baris
-      return paragraphs.slice(0, 3).join("\n"); // Mengambil hanya 3 paragraf pertama
+      const paragraphs = desc.split("\n");
+      return paragraphs.slice(0, 3).join("\n");
    };
 
    const cardRef = useRef([]);

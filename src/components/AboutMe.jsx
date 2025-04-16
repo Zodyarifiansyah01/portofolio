@@ -18,7 +18,7 @@ const AboutMe = () => {
          </motion.div>
 
          <motion.div
-            className="col-span-12 md:col-span-8 text-sm"
+            className="col-span-12 md:col-span-8 text-sm md:text-lg"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}

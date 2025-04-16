@@ -12,7 +12,7 @@ const DetailMyWali = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold text-gray-600">
+         <div className="text-center text-xl font-semibold text-white">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -20,26 +20,27 @@ const DetailMyWali = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-gray-700 mb-2">
+         <li key={index} className="text-sm md:text-lg text-white mb-2">
             {item}
          </li>
       ));
    };
 
    return (
-      <div className="container mx-auto px-4 lg:px-16 py-6">
+      <div className="py-6 text-white">
          <motion.div
-            className="bg-white shadow-lg rounded-lg p-8 lg:p-12"
+            className=" shadow-lg rounded-lg p-8 lg:p-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <h1 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-6 text-center">
+            <h1 className="text-2xl lg:text-3xl font-semibold text-white mb-6 text-center">
                {workItem.title}
             </h1>
 
             <motion.img
                src={workItem.img}
+               loading="lazy"
                alt={workItem.title}
                className="w-full h-auto max-w-3xl mx-auto mb-8 rounded-lg shadow-lg"
                initial={{ opacity: 0 }}
@@ -53,7 +54,7 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.6 }}
             >
-               <div className="flex flex-wrap gap-4 text-sm md:text-lg text-gray-800">
+               <div className="flex flex-wrap gap-2 text-sm md:text-lg">
                   <div className="w-full md:w-1/2">
                      <span className="font-semibold">Subtitle:</span>{" "}
                      {workItem.subtitle}
@@ -79,10 +80,10 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   My Wali: Aplikasi Pemantauan Pendidikan untuk Orang Tua
                </h2>
-               <p className="text-sm md:text-lg text-gray-700 mb-4">
+               <p className="text-sm md:text-lg text-white mb-4">
                   Aplikasi My Wali adalah platform digital yang dirancang untuk
                   membantu orang tua dalam memantau berbagai aspek terkait
                   pendidikan anak-anak mereka yang sedang berkuliah. Dengan
@@ -101,7 +102,7 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Fitur Utama:
                </h2>
                <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
@@ -120,10 +121,10 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Manfaat:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
                   {renderList([
                      "Akses Real-Time: Orang tua bisa mendapatkan informasi yang akurat dan terkini tanpa perlu menunggu laporan dari anak mereka.",
                      "Peningkatan Komunikasi: Memudahkan komunikasi antara orang tua dan anak terkait masalah akademik dan administrasi pendidikan.",
@@ -134,11 +135,11 @@ const DetailMyWali = ({ dataId }) => {
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-2">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-2">
                   Tugas yang Dikerjakan
                </h2>
                <motion.p
-                  className="text-lg text-gray-700 text-justify mb-8 "
+                  className="text-lg text-white text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.4 }}
@@ -148,7 +149,7 @@ const DetailMyWali = ({ dataId }) => {
                         {paragraph.split(". ").map((point, idx) => (
                            <li
                               key={idx}
-                              className="text-sm md:text-lg text-gray-700"
+                              className="text-sm md:text-lg text-white"
                            >
                               {point.trim()}.
                            </li>
@@ -172,6 +173,7 @@ const DetailMyWali = ({ dataId }) => {
                      <img
                         src="/assets/imagesMyWali/mockuper.png"
                         alt=""
+                        loading="lazy"
                         className="w-full h-full object-cover"
                      />
                   </div>
@@ -179,6 +181,7 @@ const DetailMyWali = ({ dataId }) => {
                      <img
                         src="/assets/imagesMyWali/mockuper (2).png"
                         alt=""
+                        loading="lazy"
                         className="w-full h-full object-cover"
                      />
                   </div>
