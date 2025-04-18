@@ -18,7 +18,7 @@ const Navbar = ({ openModal, menuItems }) => {
 
    return (
       <motion.nav
-         className="py-8 px-4 flex justify-between items-center"
+         className="container mx-auto py-8 px-4 flex justify-between items-center"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          onClick={handleOutsideClick}

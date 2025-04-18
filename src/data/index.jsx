@@ -11,6 +11,8 @@ export const imagesdata = [
       tahunAkhir: "2024",
       bulanAkhir: "April",
       img: "/assets/uiuxMobile.png",
+      about: "Merupakan Desain aplikasi bank sampah yang mendukung pengelolaan sampah secara efisien dan ramah lingkungan.",
+      tagList: ['Web Design', 'UI/UX Design', 'Figma', 'Prototype', 'System Design'],
    },
    {
       id: 2,
@@ -24,6 +26,8 @@ export const imagesdata = [
       tahunAkhir: "2021",
       bulanAkhir: "sampai sekarang",
       img: "/assets/MockupDashboard.png",
+      about: 'Aplikasi untuk mengelola data penelitian, pengabdian, dan hibah di Universitas Mercu Buana.',
+      tagList: ['Web Design', 'Web Development']
    },
    {
       id: 3,
@@ -37,6 +41,8 @@ export const imagesdata = [
       tahunAkhir: "2021",
       bulanAkhir: "sampai sekarang",
       img: "/assets/imagesMyWali/mockuper (1).png",
+      about: "Aplikasi yang memudahkan orang tua dalam memantau progres akademik anak di perguruan tinggi.",
+      tagList: ['Web Design', 'Web Development']
    },
 ];
 

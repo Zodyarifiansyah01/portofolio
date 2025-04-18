@@ -44,7 +44,7 @@ const Content = () => {
                            text="ZODY ARIFIANSYAH"
                            animateOn="view"
                            speed={100}
-                           maxIterations={10}
+                           maxIterations={20}
                            revealDirection="center"
                         />
                      </span>

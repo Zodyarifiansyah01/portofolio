@@ -19,20 +19,16 @@ const Home = () => {
 
    return (
       <>
-         <div className="container mx-auto">
-            <div>
-               <ModalPopup
-                  className={isMenuOpen ? "block" : "hidden"}
-                  onClose={handleMenu}
-                  menuItems={menuItems}
-               />
-               <Navbar openModal={handleMenu} menuItems={menuItems} />
-            </div>
-            <Content isScroll={isMenuOpen} />
+         <div className="min-h-screen flex flex-col">
+            <ModalPopup
+               className={isMenuOpen ? "block" : "hidden"}
+               onClose={handleMenu}
+               menuItems={menuItems}
+            />
+            <Navbar openModal={handleMenu} menuItems={menuItems} />
+            <Content isScroll={isMenuOpen} className="flex-grow" />
          </div>
-         <div>
-            <Footer menuItems={menuItems} />
-         </div>
+         <Footer menuItems={menuItems} />
       </>
    );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { imagesdata } from "../../../data/index";
 import { motion } from "framer-motion"; // Import motion
+import CaseWorkTop from "../../CaseWorkTop";
 
 const DetailUIUX = ({ dataId }) => {
    const [workItem, setWorkItem] = useState(null);
@@ -27,7 +28,8 @@ const DetailUIUX = ({ dataId }) => {
    };
 
    return (
-      <div className="py-6 text-white">
+      <div className=" text-white">
+         <CaseWorkTop />
          <motion.div
             className="shadow-lg rounded-lg p-8 lg:p-12"
             initial={{ opacity: 0 }}

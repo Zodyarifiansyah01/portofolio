@@ -19,7 +19,7 @@ const ListWorks = () => {
             card,
             {
                opacity: 0, // Mulai dari transparan
-               y: 50, // Mulai dari posisi lebih rendah
+               y: 40, // Mulai dari posisi lebih rendah
             },
             {
                opacity: 1,
@@ -29,7 +29,9 @@ const ListWorks = () => {
                scrollTrigger: {
                   trigger: card,
                   once: true,
-                  start: "top 80%", // Animasi mulai ketika card hampir muncul
+                  toggleActions: "play none none none",
+                  invalidateOnRefresh: true,
+                  start: "top 95%", // Animasi mulai ketika card hampir muncul
                },
             }
          );
@@ -37,16 +39,47 @@ const ListWorks = () => {
    }, []);
 
    return (
-      <div className="container mx-auto px-4">
-         <div className="space-y-12">
+      <div className=" mx-auto">
+         <div className="grid grid-cols-12 gap-8">
             {imagesdata.map((item, index) => (
-               <Link to={`/Detail-Works/${item.slug}`} key={item.id}>
+               <Link to={`/Detail-Works/${item.slug}`} key={item.id} className="col-span-12 md:col-span-6">
                   <div
                      className="cursor-pointer"
                      ref={(el) => (cardRef.current[index] = el)}
                   >
-                     <div className="grid grid-cols-1 gap-4 md:grid-cols-12 mt-8 text-gray-300">
-                        <div className="flex flex-col gap-4 md:col-span-4">
+                     <div>
+                        <img
+                           src={item.img}
+                           alt={item.titleApp}
+                           className="rounded-3xl h-60 w-full object-cover "
+                        />
+                        <div className="flex flex-col gap-4 mt-4">
+                           <h1>{item.title}</h1>
+                           <p>{item.about}</p>
+                           <div className="flex flex-wrap gap-1">
+                              {item.tagList.map((tag, index) => (
+                                 <span key={index} className="outline-1 flex-wrap outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-gray-100 text-gray-700">
+                                    {tag}
+                                 </span>
+                              ))}
+
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </Link>
+            ))}
+         </div>
+      </div >
+   );
+};
+
+export default ListWorks;
+
+
+
+{/* <div className="flex flex-col gap-4 md:col-span-4">
                            <div className="space-y-1">
                               <p className="font-medium text-base sm:text-lg md:text-xl">
                                  {item.tahunAwal}
@@ -90,14 +123,4 @@ const ListWorks = () => {
                                  {getLimitedDescription(item.desc)}{" "}
                               </p>
                            </div>
-                        </div>
-                     </div>
-                  </div>
-               </Link>
-            ))}
-         </div>
-      </div>
-   );
-};
-
-export default ListWorks;
+                        </div> */}
