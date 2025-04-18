@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion
-import DetailUIUX from "./detailWorks/DetailUIUX";
-import DetailSiris from "./detailWorks/DetailSiris";
-import DetaiMyWali from "./detailWorks/DetailMyWali";
+import DetailUIUX from "../../pages/detailWorks/DetailUIUX";
+import DetailSiris from "../../pages/detailWorks/DetailSiris";
+import DetaiMyWali from "../../pages/detailWorks/DetailMyWali";
 
 const DetailListWork = () => {
    const { slug } = useParams();

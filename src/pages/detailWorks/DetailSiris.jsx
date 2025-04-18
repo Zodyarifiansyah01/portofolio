@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { imagesdata } from "../../../data/index";
+import { imagesdata } from "../../data/index";
 import { motion } from "framer-motion"; // Import motion
-import CaseWorkTop from "../../CaseWorkTop";
+import { useLocation } from "react-router-dom";
+import CaseWorkTop from "../../components/CaseWorkTop";
 
-const DetailUIUX = ({ dataId }) => {
+const DetailSiris = ({ dataId }) => {
    const [workItem, setWorkItem] = useState(null);
 
    useEffect(() => {
@@ -13,7 +14,7 @@ const DetailUIUX = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold ">
+         <div className="text-center text-xl font-semibold text-white">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -21,7 +22,7 @@ const DetailUIUX = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg mb-2">
+         <li key={index} className="text-sm md:text-lg text-white mb-2">
             {item}
          </li>
       ));
@@ -31,12 +32,12 @@ const DetailUIUX = ({ dataId }) => {
       <div className=" text-white">
          <CaseWorkTop />
          <motion.div
-            className="shadow-lg rounded-lg p-8 lg:p-12"
+            className=" shadow-lg rounded-lg p-8 lg:p-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <h1 className="text-2xl lg:text-3xl font-semibold  mb-6 text-center">
+            <h1 className="text-2xl lg:text-3xl font-semibold text-white mb-6 text-center">
                {workItem.title}
             </h1>
 
@@ -61,6 +62,10 @@ const DetailUIUX = ({ dataId }) => {
                      {workItem.subtitle}
                   </div>
                   <div className="w-full md:w-1/2">
+                     <span className="font-semibold">App Title :</span>{" "}
+                     {workItem.titleApp}
+                  </div>
+                  <div className="w-full md:w-1/2">
                      <span className="font-semibold">Start Date:</span>{" "}
                      {workItem.bulanAwal} {workItem.tahunAwal}
                   </div>
@@ -72,71 +77,73 @@ const DetailUIUX = ({ dataId }) => {
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify text-white"
+               className="mb-8 text-justify"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
-                  Deskripsi Aplikasi Bank Sampah
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
+                  Deskripsi Aplikasi LPPM Universitas
                </h2>
-               <p className="text-sm md:text-lg  mb-4">
-                  Aplikasi Bank Sampah adalah sebuah platform yang dirancang
-                  untuk memfasilitasi pengelolaan sampah dengan cara yang lebih
-                  ramah lingkungan dan efisien. Dalam aplikasi ini, pengguna
-                  dapat membuang sampah yang sudah dipisahkan berdasarkan
-                  jenisnya, dan sebagai imbalannya, mereka akan mendapatkan
-                  reward atau hadiah. Selain itu, aplikasi ini juga menyediakan
-                  layanan penjemputan sampah, sehingga pengguna tidak perlu
-                  khawatir tentang cara membuang sampah mereka.
+               <p className="text-sm md:text-lg text-white mb-4">
+                  Aplikasi Lembaga Penelitian dan Pengabdian kepada Masyarakat
+                  (LPPM) di universitas merupakan platform digital yang
+                  dirancang untuk mendukung kegiatan penelitian dan pengabdian
+                  masyarakat di lingkungan akademik. Aplikasi ini bertujuan
+                  untuk mempermudah proses administrasi, monitoring, dan
+                  evaluasi program penelitian serta pengabdian kepada masyarakat
+                  yang dilakukan oleh dosen, mahasiswa, dan peneliti lainnya di
+                  universitas. <br />
+                  Dengan menggunakan aplikasi ini, seluruh kegiatan yang terkait
+                  dengan penelitian dan pengabdian masyarakat dapat diproses
+                  secara lebih efisien, transparan, dan terorganisir. Aplikasi
+                  LPPM memfasilitasi pengajuan proposal, pengelolaan dana,
+                  laporan, serta pemantauan perkembangan proyek penelitian.
                </p>
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify text-white"
+               className="mb-8 text-justify"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Fitur Utama:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
                   {renderList([
-                     "Pemisahan Sampah: Pengguna dapat memisahkan sampah berdasarkan jenisnya, seperti sampah organik, plastik, kertas, dan lainnya.",
-                     "Pengumpulan Sampah: Aplikasi akan mencatat jenis dan jumlah sampah yang dibuang, dan pengguna akan mendapatkan reward berdasarkan jenis dan berat sampah yang dibuang.",
-                     "Penjemputan Sampah: Pengguna dapat menjadwalkan waktu penjemputan sampah untuk kenyamanan mereka.",
-                     "Reward atau Poin: Pengguna yang aktif mendapatkan reward yang bisa ditukarkan dengan hadiah menarik.",
-                     "Pendidikan Lingkungan: Aplikasi ini memberikan edukasi mengenai pentingnya pengelolaan sampah yang baik dan mendaur ulang.",
+                     "Pengajuan Proposal Penelitian dan Pengabdian secara online, lengkap dengan pengecekan dokumen dan format standar.",
+                     "Manajemen Proyek untuk mengelola proyek penelitian dan pengabdian termasuk pemantauan timeline dan anggaran.",
+                     "Pengelolaan Dana untuk mendukung pengelolaan dana proyek, pencatatan penggunaan dana, dan pelaporan keuangan.",
                   ])}
                </ul>
             </motion.div>
 
             <motion.div
-               className="mb-8 text-justify text-white"
+               className="mb-8 text-justify"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
                   Manfaat:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
                   {renderList([
-                     "Mengurangi Sampah: Mengurangi sampah yang masuk ke TPA.",
-                     "Meningkatkan Kesadaran Lingkungan: Mendidik masyarakat untuk lebih peduli terhadap pengelolaan sampah.",
-                     "Mudah dan Praktis: Fitur penjemputan sampah membuat aplikasi mudah digunakan.",
-                     "Reward yang Menguntungkan: Mendapatkan hadiah atas kontribusi pengelolaan sampah.",
+                     "Efisiensi Administrasi: Semua proses dapat dilakukan secara online, mengurangi beban administrasi.",
+                     "Transparansi: Memungkinkan semua pihak yang terlibat untuk memantau perkembangan proyek dan penggunaan dana.",
+                     "Pemantauan Keuangan yang Lebih Baik: Pengelolaan dana yang lebih transparan dan sistematis.",
                   ])}
                </ul>
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-2">
+               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-2">
                   Tugas yang Dikerjakan
                </h2>
                <motion.p
-                  className="text-lg text-justify"
+                  className="text-lg text-white text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.4 }}
@@ -144,7 +151,10 @@ const DetailUIUX = ({ dataId }) => {
                   {workItem.desc?.split("\n").map((paragraph, index) => (
                      <ul key={index} className="list-disc ml-6 mb-2">
                         {paragraph.split(". ").map((point, idx) => (
-                           <li key={idx} className="text-sm md:text-lg">
+                           <li
+                              key={idx}
+                              className="text-sm md:text-lg text-white"
+                           >
                               {point.trim()}.
                            </li>
                         ))}
@@ -157,4 +167,4 @@ const DetailUIUX = ({ dataId }) => {
    );
 };
 
-export default DetailUIUX;
+export default DetailSiris;
