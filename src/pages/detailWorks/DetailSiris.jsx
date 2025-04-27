@@ -37,10 +37,6 @@ const DetailSiris = ({ dataId }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <h1 className="text-2xl lg:text-3xl font-semibold text-white mb-6 text-center">
-               {workItem.title}
-            </h1>
-
             <motion.img
                src={workItem.img}
                alt={workItem.title}
@@ -50,7 +46,7 @@ const DetailSiris = ({ dataId }) => {
                transition={{ duration: 1, delay: 0.4 }}
             />
 
-            <motion.div
+            {/* <motion.div
                className="mb-8"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
@@ -74,7 +70,7 @@ const DetailSiris = ({ dataId }) => {
                      {workItem.bulanAkhir} {workItem.tahunAkhir}
                   </div>
                </div>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
                className="mb-8 text-justify"

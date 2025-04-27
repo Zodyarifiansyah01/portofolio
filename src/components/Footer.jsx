@@ -4,7 +4,7 @@ import { motion } from "framer-motion"; // Impor motion
 const Footer = ({ menuItems }) => {
    return (
       <motion.div
-         className=" text-white py-4 rounded-md"
+         className=" bg-white text-black py-4 rounded-md"
          initial={{ opacity: 0 }} // Mulai dengan opacity 0
          animate={{ opacity: 1 }} // Animasi menjadi opacity 1
          transition={{ duration: 1 }} // Durasi transisi

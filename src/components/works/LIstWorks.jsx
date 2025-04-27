@@ -54,7 +54,7 @@ const ListWorks = () => {
                            className="rounded-3xl h-60 w-full object-cover "
                         />
                         <div className="flex flex-col gap-4 mt-4">
-                           <h1>{item.title}</h1>
+                           <h1 className="font-bold text-2xl">{item.titleApp}</h1>
                            <p>{item.about}</p>
                            <div className="flex flex-wrap gap-1">
                               {item.tagList.map((tag, index) => (

@@ -3,44 +3,42 @@ import { FaAngleRight } from "react-icons/fa6";
 import { imagesdata } from "../data";
 
 const CaseWorkTop = () => {
-   let location = useLocation().pathname
-   const path = location.split("/").slice(1).filter(Boolean);
+   const location = useLocation().pathname;
 
+   const pathOriginal = location.split("/").slice(1).filter(Boolean);
+   const pathDisplay = pathOriginal.map(segment => segment.replace(/-/g, ' '));
 
-   console.log(imagesdata, "imagesdata")
+   const slug_akhir = pathOriginal[pathOriginal.length - 1];
+   const slug = imagesdata.find((item) => item.slug === slug_akhir);
+
    return (
-      <>
-         <div className="bg-gray-300 h-[30%]">
-            <div className="container mx-auto flex flex-col justify-center items-start h-full px-4 pt-20 pb-6">
-               <div className="flex items-center gap-x-1">
-                  {path.map((segment, index) => (
-                     <div key={index} className="text-[#0d0d0d] flex items-center gap-x-1">
-                        <span>{segment}</span>{index !== path.length - 1 && (<FaAngleRight />)}
-                     </div>
-                  ))}
-               </div>
-               <div>
-                  {
-                     imagesdata.map((item) => (
-                        item.slug === path[1] && (
-                           <div key={item.id} className="flex flex-col gap-2 mt-4">
-                              <h1 className="text-3xl font-semibold text-[#0d0d0d]">{item.titleApp}</h1>
-                              <div>
-                                 {item.tagList.map((tag, index) => (
-                                    <span key={index} className="outline-1 flex-wrap outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-gray-100 text-gray-700">
-                                       {tag}
-                                    </span>
-                                 ))}
-                              </div>
-                           </div>
-                        )
-                     ))
-                  }
-               </div>
+      <div className="bg-white h-[30%]">
+         <div className="container mx-auto flex flex-col justify-center items-start h-full px-4 pt-20 pb-6">
+
+            <div className="flex items-center gap-x-1">
+               {pathDisplay.map((segment, index) => (
+                  <div key={index} className="text-[#0d0d0d] flex items-center gap-x-1 capitalize">
+                     <span className={``}>{segment}</span>
+                     {index !== pathDisplay.length - 1 && <FaAngleRight />}
+                  </div>
+               ))}
             </div>
+
+            {slug && (
+               <div key={slug.id} className="flex flex-col gap-2 mt-4">
+                  <h1 className="text-3xl font-semibold text-[#0d0d0d]">{slug.titleApp}</h1>
+                  <div className="flex flex-wrap gap-2 text-sm font-semibold text-[#0d0d0d]">
+                     {slug.tagList.map((tag, index) => (
+                        <span key={index} className="outline-1  outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-[#f2f2f2] text-gray-700">
+                           {tag}
+                        </span>
+                     ))}
+                  </div>
+               </div>
+            )}
          </div>
-      </>
-   )
-}
+      </div>
+   );
+};
 
 export default CaseWorkTop;
