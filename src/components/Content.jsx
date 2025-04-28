@@ -52,7 +52,7 @@ const Content = () => {
                         <CircularText
                            text="2001*2001*2001*"
                            onHover="speedUp"
-                           spinDuration={10}
+                           spinDuration={20}
                            className="custom-class hidden md:hidden xl:block"
                         />
                      </span>
