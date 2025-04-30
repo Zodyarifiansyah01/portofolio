@@ -5,8 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 
 import { imagesdata } from "../../data/index";
-import ImagePopup from "../../data/animation/ImagePopup";
 import CaseWorkTop from "../../components/CaseWorkTop";
+import ImagePopup from "../../data/animation/ImagePopup";
 
 
 const DetailUIUX = ({ dataId }) => {
@@ -32,29 +32,25 @@ const DetailUIUX = ({ dataId }) => {
       gsap.registerPlugin(ScrollTrigger);
 
       cardRef.current.forEach((card) => {
-         gsap.fromTo(
-            card,
-            {
-               opacity: 0,
-               y: 40
-            },
-            {
-               opacity: 1,
-               y: 0,
-               duration: 1.5,
-               scrollTrigger: {
-                  trigger: card,
-                  once: true,
-                  toggleActions: "play none none none",
-                  invalidateOnRefresh: true,
-                  start: "top 95%",
-               },
-               force3D: false,
-            }
-         )
-      }, [workItem])
-
-   })
+         if (card) {
+            gsap.fromTo(
+               card,
+               { opacity: 0, y: 40 },
+               {
+                  opacity: 1,
+                  y: 0,
+                  duration: 1.5,
+                  scrollTrigger: {
+                     trigger: card,
+                     start: "top 95%",
+                     toggleActions: "play none none none",
+                     once: true,
+                  },
+               }
+            );
+         }
+      });
+   }, [workItem]);
 
    const handleHover = (source) => setSelectedText(source);
    const handleHoverOut = () => setSelectedText(null);
@@ -83,6 +79,7 @@ const DetailUIUX = ({ dataId }) => {
                handleHoverOut={handleHoverOut}
                linkberita={linkberita}
                cardRef={cardRef}
+               imagesdata={imagesdata}
             />
             <SectionPlanning />
          </motion.div>
@@ -90,7 +87,7 @@ const DetailUIUX = ({ dataId }) => {
    );
 };
 
-const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita, cardRef }) => {
+const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita, cardRef, imagesdata }) => {
    return (
       <motion.section
          className="mb-8 text-justify text-white relative"
@@ -104,53 +101,54 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <h3 className="font-semibold mb-2">Data Sampah Plastik di Indonesia (2024)</h3>
 
-         <div className="mb-4">
-            <p className="mb-4">
-               <span className={`mb-4 text-base lg:text-lg ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
-                  Berdasarkan laporan dari <strong>Sistem Informasi Pengelolaan Sampah Nasional (SIPSN)</strong> yang dikelola oleh Kementerian Lingkungan Hidup dan Kehutanan (KLHK), tercatat bahwa total timbulan sampah dari 310 kabupaten/kota di seluruh Indonesia pada tahun 2024 mencapai <strong>33,6 juta ton</strong>.
-                  Data ini tidak hanya menggambarkan peningkatan signifikan volume sampah dari tahun ke tahun, tetapi juga memperlihatkan betapa mendesaknya kebutuhan akan pengelolaan sampah yang lebih inovatif di tengah laju pertumbuhan populasi dan konsumsi masyarakat yang semakin masif.
-                  Oleh karena itu, informasi ini menjadi dasar yang krusial bagi pemerintah pusat maupun daerah untuk menyusun berbagai kebijakan strategis, mulai dari program pengelolaan berbasis komunitas hingga penerapan inovasi teknologi daur ulang, dengan harapan dapat menciptakan sistem pengelolaan sampah yang lebih efektif, efisien, dan berkelanjutan.
-               </span>
-            </p>
+         <div className="mb-8 grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-4 text-justify">
+               <p>
+                  <span className={`block text-base lg:text-lg leading-relaxed ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
+                     Berdasarkan laporan dari <strong>Sistem Informasi Pengelolaan Sampah Nasional (SIPSN)</strong> yang dikelola oleh Kementerian Lingkungan Hidup dan Kehutanan (KLHK), tercatat bahwa total timbulan sampah dari 310 kabupaten/kota di seluruh Indonesia pada tahun 2024 mencapai <strong>33,6 juta ton</strong>.
+                     Data ini tidak hanya menggambarkan peningkatan signifikan volume sampah dari tahun ke tahun, tetapi juga memperlihatkan betapa mendesaknya kebutuhan akan pengelolaan sampah yang lebih inovatif di tengah laju pertumbuhan populasi dan konsumsi masyarakat yang semakin masif.
+                     Oleh karena itu, informasi ini menjadi dasar yang krusial bagi pemerintah pusat maupun daerah untuk menyusun berbagai kebijakan strategis, mulai dari program pengelolaan berbasis komunitas hingga penerapan inovasi teknologi daur ulang, dengan harapan dapat menciptakan sistem pengelolaan sampah yang lebih efektif, efisien, dan berkelanjutan.
+                  </span>
+               </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 p-4">
-               {imagesdata[0].imgSampah.map((item, index) => (
-                  <div ref={(el) => (cardRef.current[index] = el)} key={item.id} className="opacity-0">
-                     <ImagePopup item={item} index={item.id} />
-                  </div>
-               ))}
+               <div>
+                  <strong className="text-lg">Pengelolaan Sampah:</strong>
+                  <ul className="list-disc ml-6 space-y-3 mt-2">
+                     <li>
+                        <span className={`text-base lg:text-lg leading-relaxed ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
+                           Dari jumlah tersebut, sampah yang berhasil dikelola tercatat sebesar <strong>60,09%</strong> atau sekitar 20,2 juta ton, menunjukkan adanya upaya nyata dalam menangani permasalahan sampah di Indonesia.
+                        </span>
+                     </li>
+                     <li>
+                        <span className={`text-base lg:text-lg leading-relaxed ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
+                           Sementara itu, masih terdapat <strong>39,91%</strong> atau sekitar 13,4 juta ton sampah yang tidak terkelola dengan baik, yang pada akhirnya berpotensi mencemari lingkungan darat maupun laut dan memperburuk krisis sampah nasional.
+                        </span>
+                        <span className="inline-block relative group ml-2">
+                           <Link
+                              to="https://sipsn.menlhk.go.id/sipsn/"
+                              target="_blank"
+                              className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                              onMouseEnter={() => handleHover('SIPSN')}
+                              onMouseLeave={handleHoverOut}
+                           >
+                              SIPSN
+                           </Link>
+                           <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-10">
+                              Kunjungi Situs Resmi SIPSN
+                           </span>
+                        </span>
+                     </li>
+                  </ul>
+               </div>
             </div>
 
-            <strong>Pengelolaan Sampah:</strong>
-            <ul className="text-white list-disc ml-6 flex gap-2 items-end">
-               <div>
-                  <li >
-                     <span className={`text-base lg:text-lg ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
-                        Dari jumlah tersebut, sampah yang berhasil dikelola tercatat sebesar <strong>60,09%</strong> atau sekitar 20,2 juta ton, menunjukkan adanya upaya nyata dalam menangani permasalahan sampah di Indonesia.
-                     </span>
-                  </li>
-                  <li>
-                     <span className={`text-base lg:text-lg ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
-                        Sementara itu, masih terdapat <strong>39,91%</strong> atau sekitar 13,4 juta ton sampah yang tidak terkelola dengan baik, yang pada akhirnya berpotensi mencemari lingkungan darat maupun laut dan memperburuk krisis sampah nasional.
-                     </span>
-                     <span className="inline-block relative group ml-[8px]">
-                        <Link
-                           to="https://sipsn.menlhk.go.id/sipsn/"
-                           target="_blank"
-                           className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
-                           onMouseEnter={() => handleHover('SIPSN')}
-                           onMouseLeave={handleHoverOut}
-                        >
-                           SIPSN
-                        </Link>
-                        <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-10">
-                           Kunjungi Situs Resmi SIPSN
-                        </span>
-                     </span>
-                  </li>
-               </div>
-            </ul>
+
+            <div className="h-full flex items-center">
+               <ImageGrid imagesdata={imagesdata} cardRef={cardRef} />
+            </div>
          </div>
+
+
 
          <div>
             <strong>Sampah Plastik di Laut:</strong><br />
@@ -271,20 +269,74 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
             Sebagai jawaban atas tantangan-tantangan tersebut, <strong>Aplikasi Bank Sampah</strong> dikembangkan untuk memberdayakan masyarakat dalam mengelola, memilah, serta mengurangi sampah plastik secara lebih sistematis dan berkelanjutan, sehingga mendukung terciptanya lingkungan yang lebih bersih dan sehat.
          </p>
 
-      </motion.section>
+      </motion.section >
    )
 }
 
+const ImageGrid = (({ cardRef, imagesdata }) => {
 
+   return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 p-4">
+         {imagesdata[0].imgSampah.map((item, index) => (
+            <div
+               ref={(el) => (cardRef.current[index] = el)}
+               key={item.id}
+               className="opacity-0"
+            >
+               <ImagePopup item={item} index={item.id} />
+            </div>
+         ))}
+      </div>
+   );
+});
 
 const SectionPlanning = () => {
+   const dataAccording = [
+      {
+         title: "Apa itu sampah plastik?",
+         content:
+            "Sampah plastik adalah jenis sampah yang terbuat dari bahan plastik yang dapat diolah menjadi barang-barang baru seperti botol plastik, botol bekas, kardus, dan lain-lain.",
+      },
+      {
+         title: "Apa saja jenis sampah plastik?",
+         content:
+            "Ada beberapa jenis sampah plastik yang umum digunakan, seperti botol plastik, botol bekas, kardus, dan lain-lain.",
+      },
+   ]
    return (
-      <div className="" id="planning">
-         <strong className="text-base lg:text-lg">Tinjauaan Penelitian:</strong><br />
+      <div className="text-base lg:text-lg" id="planning">
+         <strong >Tinjauaan Penelitian:</strong><br />
          <h4>Permasalahan yang Dihadapi:</h4>
-         <p>Indonesia saat ini menempati peringkat kedua sebagai produsen sampah plastik terbesar di dunia, sebuah masalah yang telah memberikan dampak lingkungan yang sangat besar. Fenomena ini sebagian besar disebabkan oleh kebiasaan masyarakat yang kurang menyadari pentingnya pengelolaan sampah dengan cara yang lebih efisien dan ramah lingkungan. Meskipun ada sejumlah upaya untuk mengurangi produksi sampah plastik, kenyataannya masih banyak sampah yang tidak terkelola dengan baik dan berakhir di tempat pembuangan akhir atau bahkan mencemari lautan. Kurangnya fasilitas dan kesadaran mengenai proses daur ulang yang efektif menyebabkan sebagian besar sampah plastik tersebut terbuang begitu saja tanpa memberi manfaat lebih bagi masyarakat maupun lingkungan.</p><br />
-         <h4>Tujuan Penelitian:</h4>
-         <p>Penelitian ini bertujuan untuk menawarkan solusi yang lebih efektif dan berkelanjutan dalam upaya melacak, mengelola, dan mengurangi dampak negatif dari sampah plastik terhadap lingkungan. Dengan menekankan pada pengelolaan sampah yang lebih efisien, penelitian ini bertujuan untuk membangun sistem yang dapat mempermudah pengguna dalam berpartisipasi secara aktif dalam proses pengurangan sampah plastik. Selain itu, penelitian ini juga berfokus pada peningkatan kesadaran masyarakat mengenai pentingnya daur ulang dan pengelolaan sampah secara bertanggung jawab. Produk yang dikembangkan diharapkan dapat memberikan dampak positif yang signifikan dalam mengurangi jumlah sampah plastik yang terbuang ke lingkungan, sekaligus memperkenalkan cara-cara yang lebih mudah dan praktis bagi setiap individu untuk turut berkontribusi dalam menjaga kelestarian lingkungan hidup.</p>
+         <p>
+            Indonesia saat ini menempati peringkat kedua sebagai produsen sampah plastik terbesar di dunia, sebuah masalah yang telah memberikan dampak lingkungan yang sangat besar. Fenomena ini sebagian besar disebabkan oleh kebiasaan masyarakat yang kurang menyadari pentingnya pengelolaan sampah dengan cara yang lebih efisien dan ramah lingkungan. Meskipun ada sejumlah upaya untuk mengurangi produksi sampah plastik, kenyataannya masih banyak sampah yang tidak terkelola dengan baik dan berakhir di tempat pembuangan akhir atau bahkan mencemari lautan. Kurangnya fasilitas dan kesadaran mengenai proses daur ulang yang efektif menyebabkan sebagian besar sampah plastik tersebut terbuang begitu saja tanpa memberi manfaat lebih bagi masyarakat maupun lingkungan.
+         </p><br />
+         <h4>Tujuan:</h4>
+         <p>
+            Penelitian ini bertujuan untuk menawarkan solusi yang lebih efektif dan berkelanjutan dalam upaya melacak, mengelola, dan mengurangi dampak negatif dari sampah plastik terhadap lingkungan. Dengan menekankan pada pengelolaan sampah yang lebih efisien, penelitian ini bertujuan untuk membangun sistem yang dapat mempermudah pengguna dalam berpartisipasi secara aktif dalam proses pengurangan sampah plastik. Selain itu, penelitian ini juga berfokus pada peningkatan kesadaran masyarakat mengenai pentingnya daur ulang dan pengelolaan sampah secara bertanggung jawab. Produk yang dikembangkan diharapkan dapat memberikan dampak positif yang signifikan dalam mengurangi jumlah sampah plastik yang terbuang ke lingkungan, sekaligus memperkenalkan cara-cara yang lebih mudah dan praktis bagi setiap individu untuk turut berkontribusi dalam menjaga kelestarian lingkungan hidup.
+         </p><br />
+
+         <div>
+            <strong>Tujuan Penelitian:</strong>
+            <ul className="text-white list-disc ml-6 space-y-2 mt-2">
+               <li>
+                  Mengidentifikasi persepsi dan pemahaman pengguna mengenai konsep daur ulang sampah plastik sebagai langkah pertama dalam mengembangkan platform digital.
+               </li>
+               <li>
+                  Mengetahui kebutuhan pengguna terkait pengelolaan sampah plastik di Indonesia melalui platform digital.
+               </li>
+               <li>
+                  Mengidentifikasi preferensi pengguna terkait fitur-fitur yang diinginkan dalam pengembangan platform digital untuk daur ulang sampah plastik.
+               </li>
+            </ul>
+
+            <div className="mt-4">
+               <strong>Dengan research objective tersebut, kami menemukan pertanyaan utama:</strong>
+               <p className="mt-2">
+                  Bagaimana persepsi, pemahaman, kebutuhan, dan preferensi pengguna terkait konsep daur ulang sampah plastik serta fitur yang diharapkan terhadap pengembangan platform pengelolaan sampah plastik?
+               </p>
+            </div>
+         </div>
+
       </div>
    );
 }

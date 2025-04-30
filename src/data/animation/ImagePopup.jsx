@@ -52,7 +52,7 @@ const ImagePopup = ({ item }) => {
             <img
                src={item.img}
                alt="Sample trash"
-               className="w-full h-48 object-cover transition-opacity duration-300 group-hover:opacity-90"
+               className={`${isOpen ? "hidden" : "block"} w-full object-cover transition-opacity duration-300 group-hover:opacity-90`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                <span className="text-white font-medium text-sm">{item.title}</span>
@@ -71,7 +71,7 @@ const ImagePopup = ({ item }) => {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                      >
                         <motion.div
-                           className="relative cursor-pointer w-[95%] sm:w-4/5 max-w-4xl"
+                           className="relative cursor-pointer w-[95%] sm:w-4/5 max-w-3xl"
                            initial={{ scale: 0.8, opacity: 0 }}
                            animate={{ scale: 1, opacity: 1 }}
                            exit={{ scale: 0.8, opacity: 0 }}
@@ -112,7 +112,6 @@ const ImagePopup = ({ item }) => {
                </AnimatePresence>,
                document.body
             )}
-
 
       </>
    );
