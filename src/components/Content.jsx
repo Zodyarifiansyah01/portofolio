@@ -30,23 +30,25 @@ const Content = () => {
                transition={{ duration: 0.5 }}
             >
                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-nunito-sans leading-tight">
-                  <DecryptedText
+                  {/* <DecryptedText
                      text="HELLO, MY NAME IS"
                      animateOn="view"
                      speed={100}
                      maxIterations={10}
                      revealDirection="center"
-                  />
+                  /> */}
+                  <p>HELLO, MY NAME IS</p>
 
                   <div className="flex flex-wrap items-center gap-2">
                      <span className="bg-orange-500 text-black px-2 inline-block">
-                        <DecryptedText
+                        {/* <DecryptedText
                            text="ZODY ARIFIANSYAH"
                            animateOn="view"
                            speed={100}
                            maxIterations={20}
                            revealDirection="center"
-                        />
+                        /> */}
+                        ZODY ARIFIANSYAH
                      </span>
                      <span>
                         <CircularText
@@ -58,13 +60,14 @@ const Content = () => {
                      </span>
                   </div>
                   <span className="block mt-2">
-                     <DecryptedText
+                     {/* <DecryptedText
                         text="FRONT-END WEB DEVELOPER FROM INDONESIA"
                         animateOn="view"
                         speed={100}
                         maxIterations={20}
                         revealDirection="center"
-                     />
+                     /> */}
+                     FRONT-END WEB DEVELOPER
                   </span>
                </h1>
             </motion.div>
