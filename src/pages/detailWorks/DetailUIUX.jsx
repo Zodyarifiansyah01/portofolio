@@ -101,7 +101,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <h3 className="font-semibold mb-2">Data Sampah Plastik di Indonesia (2024)</h3>
 
-         <div className="mb-8 grid md:grid-cols-2 gap-6 items-start">
+         <div className="mb-8 grid xl:grid-cols-2 gap-6 items-start">
             <div className="space-y-4 text-justify">
                <p>
                   <span className={`block text-base lg:text-lg leading-relaxed ${selectedText === 'SIPSN' ? 'bg-orange-400' : ''}`}>
