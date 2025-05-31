@@ -14,7 +14,7 @@ const DetailSiris = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold text-white">
+         <div className="text-center text-xl font-semibold text-black">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -22,29 +22,22 @@ const DetailSiris = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-white mb-2">
+         <li key={index} className="text-sm md:text-lg text-black mb-2">
             {item}
          </li>
       ));
    };
 
    return (
-      <div className=" text-white">
+      <div className="text-black bg-white">
          <CaseWorkTop />
          <motion.div
-            className=" shadow-lg rounded-lg p-8 lg:p-12"
+            className="container mx-auto p-8 lg:p-12  "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
          >
-            <motion.img
-               src={workItem.img}
-               alt={workItem.title}
-               className="w-full h-auto max-w-3xl mx-auto mb-8 rounded-lg shadow-lg"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ duration: 1, delay: 0.4 }}
-            />
+
 
             {/* <motion.div
                className="mb-8"
@@ -78,10 +71,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
                   Deskripsi Aplikasi LPPM Universitas
                </h2>
-               <p className="text-sm md:text-lg text-white mb-4">
+               <p className="text-sm md:text-lg  mb-4">
                   Aplikasi Lembaga Penelitian dan Pengabdian kepada Masyarakat
                   (LPPM) di universitas merupakan platform digital yang
                   dirancang untuk mendukung kegiatan penelitian dan pengabdian
@@ -104,10 +97,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
                   Fitur Utama:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg  mb-4 ml-6 space-y-2">
                   {renderList([
                      "Pengajuan Proposal Penelitian dan Pengabdian secara online, lengkap dengan pengecekan dokumen dan format standar.",
                      "Manajemen Proyek untuk mengelola proyek penelitian dan pengabdian termasuk pemantauan timeline dan anggaran.",
@@ -122,10 +115,10 @@ const DetailSiris = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
                   Manfaat:
                </h2>
-               <ul className="list-decimal text-sm md:text-lg text-white mb-4 ml-6 space-y-2">
+               <ul className="list-decimal text-sm md:text-lg  mb-4 ml-6 space-y-2">
                   {renderList([
                      "Efisiensi Administrasi: Semua proses dapat dilakukan secara online, mengurangi beban administrasi.",
                      "Transparansi: Memungkinkan semua pihak yang terlibat untuk memantau perkembangan proyek dan penggunaan dana.",
@@ -135,11 +128,11 @@ const DetailSiris = ({ dataId }) => {
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold text-white mb-2">
+               <h2 className="text-lg lg:text-2xl font-semibold  mb-2">
                   Tugas yang Dikerjakan
                </h2>
                <motion.p
-                  className="text-lg text-white text-justify"
+                  className="text-lg  text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.4 }}
@@ -149,7 +142,7 @@ const DetailSiris = ({ dataId }) => {
                         {paragraph.split(". ").map((point, idx) => (
                            <li
                               key={idx}
-                              className="text-sm md:text-lg text-white"
+                              className="text-sm md:text-lg "
                            >
                               {point.trim()}.
                            </li>

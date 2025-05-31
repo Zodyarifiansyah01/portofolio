@@ -77,7 +77,24 @@ export const imagesdata = [
       bulanAkhir: "sampai sekarang",
       img: "/assets/imagesMyWali/mockuper (1).png",
       about: "Aplikasi yang memudahkan orang tua dalam memantau progres akademik anak di perguruan tinggi.",
-      tagList: ['Web Design', 'Web Development']
+      tagList: ['Web Design', 'Web Development'],
+      PortofolioDisplay: [
+         {
+            id: 1,
+            img: "/assets/imagesMyWali/mockuper.png",
+            title: "Dashboard",
+         },
+         {
+            id: 2,
+            img: "/assets/imagesMyWali/mockuper (1).png",
+            title: "Dashboard",
+         },
+         {
+            id: 3,
+            img: "/assets/imagesMyWali/mockuper (2).png",
+            title: "Dashboard",
+         }
+      ]
    },
 ];
 
@@ -85,3 +102,13 @@ export const menuItems = [
    { name: "Home", link: "#" },
    { name: "About", link: "#about" },
 ];
+
+
+
+export const linkberita = [
+   'https://lestari.kompas.com/read/2025/02/14/175817386/350-ribu-ton-sampah-plastik-masuk-ke-laut-indonesia-pada-2024?utm_source=chatgpt.com',
+   'https://www.beautynesia.id/life/miris-5-fakta-mengejutkan-tentang-sampah-di-indonesia-yang-perlu-kamu-tahu/b-303458?utm_source=chatgpt.com',
+   'https://asean.org/wp-content/uploads/2024/10/23-Final_ASEAN-Declaration-on-Plastic-Circularity.pdf?utm_source=chatgpt.com',
+   'https://data.goodstats.id/statistic/sungai-filipina-dominasi-sampah-plastik-dunia-indonesia-peringkat-berapa-mKRsp?utm_source=chatgpt.com',
+   'https://rkcmpd-eria.org/reports-and-publications/asean-conference-on-combating-plastic-pollution-2024-action-innovation-and-partnership-to-phase-out-plastic-pollution?utm_source=chatgpt.com'
+]

@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 
-import { imagesdata } from "../../data/index";
+import { imagesdata, linkberita } from "../../data/index";
 import CaseWorkTop from "../../components/CaseWorkTop";
 import ImagePopup from "../../data/animation/ImagePopup";
 
@@ -13,14 +13,6 @@ const DetailUIUX = ({ dataId }) => {
    const [workItem, setWorkItem] = useState(null);
    const [selectedText, setSelectedText] = useState(null);
    const cardRef = useRef([]);
-
-   const linkberita = [
-      'https://lestari.kompas.com/read/2025/02/14/175817386/350-ribu-ton-sampah-plastik-masuk-ke-laut-indonesia-pada-2024?utm_source=chatgpt.com',
-      'https://www.beautynesia.id/life/miris-5-fakta-mengejutkan-tentang-sampah-di-indonesia-yang-perlu-kamu-tahu/b-303458?utm_source=chatgpt.com',
-      'https://asean.org/wp-content/uploads/2024/10/23-Final_ASEAN-Declaration-on-Plastic-Circularity.pdf?utm_source=chatgpt.com',
-      'https://data.goodstats.id/statistic/sungai-filipina-dominasi-sampah-plastik-dunia-indonesia-peringkat-berapa-mKRsp?utm_source=chatgpt.com',
-      'https://rkcmpd-eria.org/reports-and-publications/asean-conference-on-combating-plastic-pollution-2024-action-innovation-and-partnership-to-phase-out-plastic-pollution?utm_source=chatgpt.com'
-   ]
 
    useEffect(() => {
       const item = imagesdata.find((item) => item.slug === dataId);
@@ -65,10 +57,10 @@ const DetailUIUX = ({ dataId }) => {
    }
 
    return (
-      <div className="text-white">
+      <div className="text-black bg-white">
          <CaseWorkTop />
          <motion.div
-            className="container mx-auto shadow-lg rounded-lg p-8 lg:p-12"
+            className="container mx-auto p-8 lg:p-12  "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -90,7 +82,7 @@ const DetailUIUX = ({ dataId }) => {
 const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita, cardRef, imagesdata }) => {
    return (
       <motion.section
-         className="mb-8 text-justify text-white relative"
+         className="mb-8 text-justify  relative Helvetica-regular"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1, delay: 0.8 }}
@@ -127,7 +119,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                            <Link
                               to="https://sipsn.menlhk.go.id/sipsn/"
                               target="_blank"
-                              className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                              rel="noopener noreferrer"
+                              className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                               onMouseEnter={() => handleHover('SIPSN')}
                               onMouseLeave={handleHoverOut}
                            >
@@ -161,7 +154,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                   <Link
                      to={linkberita[0]}
                      target="_blank"
-                     className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                     rel="noopener noreferrer"
+                     className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                      onMouseEnter={() => handleHover('Kompas')}
                      onMouseLeave={handleHoverOut}
                   >
@@ -185,7 +179,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                <Link
                   to={linkberita[1]}
                   target="_blank"
-                  className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                  rel="noopener noreferrer"
+                  className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                   onMouseEnter={() => handleHover('Beautynesia')}
                   onMouseLeave={handleHoverOut}
                >
@@ -197,11 +192,11 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
             </span>
          </p>
 
-         <h3 className="font-semibold mb-2">🌏 Data Sampah Plastik di Kawasan ASEAN</h3>
+         <h3 className="font-semibold mb-2 text-lg">🌏 Data Sampah Plastik di Kawasan ASEAN</h3>
 
          <p className="mb-4 text-base lg:text-lg">
             <strong>Komitmen Regional:</strong><br />
-            <span className={`${selectedText === 'ASEAN Declaration on Plastic Circularity' ? 'bg-orange-400' : ''}`}>
+            <span className={`ml-8 ${selectedText === 'ASEAN Declaration on Plastic Circularity' ? 'bg-orange-400' : ''}`}>
                Tidak hanya Indonesia, negara-negara di kawasan ASEAN pun menunjukkan komitmen mereka terhadap pengurangan sampah plastik melalui <strong>ASEAN Declaration on Plastic Circularity</strong> yang diresmikan pada Oktober 2024.
                Deklarasi ini mengadopsi pendekatan siklus hidup penuh terhadap polusi plastik, mulai dari produksi hingga tahap pembuangan akhir, dengan fokus pada pengurangan plastik sekali pakai serta peningkatan tingkat daur ulang di kawasan Asia Tenggara.
             </span>
@@ -209,7 +204,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                <Link
                   to={linkberita[1]}
                   target="_blank"
-                  className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                  rel="noopener noreferrer"
+                  className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                   onMouseEnter={() => handleHover('ASEAN Declaration on Plastic Circularity')}
                   onMouseLeave={handleHoverOut}
                >
@@ -223,7 +219,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4 text-base lg:text-lg">
             <strong>Sungai Penyumbang Sampah Plastik ke Laut:</strong><br />
-            <span className={`${selectedText === 'GoodStats Data' ? 'bg-orange-400' : ''}`}>
+            <span className={`block indent-8 ${selectedText === 'GoodStats Data' ? 'bg-orange-400' : ''}`}>
                Menariknya, data terbaru menunjukkan bahwa sungai-sungai di Filipina menjadi sumber utama sampah plastik yang mengalir ke lautan dunia.
                Dari 10 sungai penyumbang terbesar secara global, 9 di antaranya berada di Filipina, termasuk Sungai Pasig yang tercatat sebagai penyumbang tertinggi.
             </span>
@@ -231,7 +227,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                <Link
                   to={linkberita[0]}
                   target="_blank"
-                  className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                  rel="noopener noreferrer"
+                  className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                   onMouseEnter={() => handleHover('GoodStats Data')}
                   onMouseLeave={handleHoverOut}
                >
@@ -245,7 +242,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4 text-base lg:text-lg">
             <strong>Inisiatif Regional:</strong><br />
-            <span className={`${selectedText === 'ERIA' ? 'bg-orange-400' : ''}`}>
+            <span className={`block indent-8 ${selectedText === 'ERIA' ? 'bg-orange-400' : ''}`}>
                Dalam rangka memperkuat sinergi, ASEAN juga menggelar <strong>ASEAN Conference on Combating Plastic Pollution (ACCPP)</strong> tahun 2024 di Vientiane, Laos.
                Konferensi ini bertujuan untuk meningkatkan kerja sama, mempercepat inovasi, dan memperluas kemitraan dalam mengatasi permasalahan polusi plastik secara lebih kolaboratif di tingkat regional.
             </span>
@@ -253,7 +250,8 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
                <Link
                   to={linkberita[0]}
                   target="_blank"
-                  className="bg-gray-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
+                  rel="noopener noreferrer"
+                  className="bg-amber-400 font-semibold rounded-3xl w-fit px-2 py-1 text-xs hover:underline"
                   onMouseEnter={() => handleHover('ERIA')}
                   onMouseLeave={handleHoverOut}
                >
@@ -305,19 +303,14 @@ const SectionPlanning = () => {
    ]
    return (
       <div className="text-base lg:text-lg" id="planning">
-         <strong >Tinjauaan Penelitian:</strong><br />
-         <h4>Permasalahan yang Dihadapi:</h4>
+         <h4 className="text-xl lg:text-2xl font-semibold">Permasalahan Utama</h4>
          <p>
             Indonesia saat ini menempati peringkat kedua sebagai produsen sampah plastik terbesar di dunia, sebuah masalah yang telah memberikan dampak lingkungan yang sangat besar. Fenomena ini sebagian besar disebabkan oleh kebiasaan masyarakat yang kurang menyadari pentingnya pengelolaan sampah dengan cara yang lebih efisien dan ramah lingkungan. Meskipun ada sejumlah upaya untuk mengurangi produksi sampah plastik, kenyataannya masih banyak sampah yang tidak terkelola dengan baik dan berakhir di tempat pembuangan akhir atau bahkan mencemari lautan. Kurangnya fasilitas dan kesadaran mengenai proses daur ulang yang efektif menyebabkan sebagian besar sampah plastik tersebut terbuang begitu saja tanpa memberi manfaat lebih bagi masyarakat maupun lingkungan.
-         </p><br />
-         <h4>Tujuan:</h4>
-         <p>
-            Penelitian ini bertujuan untuk menawarkan solusi yang lebih efektif dan berkelanjutan dalam upaya melacak, mengelola, dan mengurangi dampak negatif dari sampah plastik terhadap lingkungan. Dengan menekankan pada pengelolaan sampah yang lebih efisien, penelitian ini bertujuan untuk membangun sistem yang dapat mempermudah pengguna dalam berpartisipasi secara aktif dalam proses pengurangan sampah plastik. Selain itu, penelitian ini juga berfokus pada peningkatan kesadaran masyarakat mengenai pentingnya daur ulang dan pengelolaan sampah secara bertanggung jawab. Produk yang dikembangkan diharapkan dapat memberikan dampak positif yang signifikan dalam mengurangi jumlah sampah plastik yang terbuang ke lingkungan, sekaligus memperkenalkan cara-cara yang lebih mudah dan praktis bagi setiap individu untuk turut berkontribusi dalam menjaga kelestarian lingkungan hidup.
          </p><br />
 
          <div>
             <strong>Tujuan Penelitian:</strong>
-            <ul className="text-white list-disc ml-6 space-y-2 mt-2">
+            <ul className=" list-disc ml-6 space-y-2 mt-2">
                <li>
                   Mengidentifikasi persepsi dan pemahaman pengguna mengenai konsep daur ulang sampah plastik sebagai langkah pertama dalam mengembangkan platform digital.
                </li>
@@ -330,16 +323,32 @@ const SectionPlanning = () => {
             </ul>
 
             <div className="mt-4">
-               <strong>Dengan research objective tersebut, kami menemukan pertanyaan utama:</strong>
+               <strong>Pertanyaan Penelitian Utama:</strong>
                <p className="mt-2">
                   Bagaimana persepsi, pemahaman, kebutuhan, dan preferensi pengguna terkait konsep daur ulang sampah plastik serta fitur yang diharapkan terhadap pengembangan platform pengelolaan sampah plastik?
                </p>
             </div>
          </div>
 
+         {/* <Test /> */}
       </div>
    );
 }
 
+function Test() {
+   const text = "Indonesia saat ini menempati peringkat kedua sebagai produsen sampah plastik terbesar di dunia.";
+
+   useEffect(() => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'id-ID';
+      speechSynthesis.speak(utterance);
+   }, []);
+
+   return (
+      <div style={{ padding: '2rem' }}>
+         <p>{text}</p>
+      </div>
+   );
+}
 
 export default DetailUIUX;
