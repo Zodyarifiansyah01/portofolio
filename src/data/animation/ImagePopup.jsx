@@ -1,12 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
+import OverflowBody from "../../hooks/overflowBody";
 
 
-const ImagePopup = ({ item }) => {
+const ImagePopup = ({ item, Test }) => {
    const [isOpen, setIsOpen] = useState(false);
    const imageRef = useRef(null);
-   const bodyRef = useRef(document.body);
+
 
    const handleOpen = () => {
       setIsOpen(true);
@@ -16,21 +17,8 @@ const ImagePopup = ({ item }) => {
       setIsOpen(false);
    };
 
-   useEffect(() => {
-      if (isOpen) {
-         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-         bodyRef.current.style.overflow = "hidden";
-         bodyRef.current.style.paddingRight = `${scrollbarWidth}px`;
-      } else {
-         bodyRef.current.style.overflow = "";
-         bodyRef.current.style.paddingRight = "0px";
-      }
 
-      return () => {
-         bodyRef.current.style.overflow = "";
-         bodyRef.current.style.paddingRight = "0px";
-      };
-   }, [isOpen]);
+   OverflowBody({ OverflowBody: isOpen });
 
    useEffect(() => {
       const handleClickOutside = (event) => {
@@ -38,6 +26,16 @@ const ImagePopup = ({ item }) => {
             handelClose();
          }
       };
+      if (isOpen) {
+         const texttospeak = `${item.title}. ${item.paragraf}. sumber ${item.sumber} `
+         const utterance = new SpeechSynthesisUtterance(texttospeak);
+         utterance.lang = 'id-ID';
+         speechSynthesis.speak(utterance);
+      } else {
+         speechSynthesis.cancel();
+      }
+
+
       document.addEventListener("click", handleClickOutside);
       return () => document.removeEventListener("click", handleClickOutside);
    }, [isOpen]);

@@ -149,7 +149,7 @@ const DetailMyWali = ({ dataId }) => {
                </motion.p>
             </div>
 
-            <PortofolioDisplay />
+            <PortofolioDisplay dataId={dataId} />
          </motion.div>
       </div>
    );

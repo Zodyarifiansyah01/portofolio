@@ -44,6 +44,23 @@ export const imagesdata = [
             paragraf: "Volume sampah domestik yang terus meningkat membebani TPA, menyebabkan pencemaran lingkungan dan meningkatkan risiko penyebaran penyakit. Gas beracun dan kontaminasi air tanah menjadi ancaman serius bagi kesehatan masyarakat di sekitar area pembuangan.",
             sumber: "National Geographic, 2021"
          }
+      ],
+      PortofolioDisplay: [
+         {
+            id: 1,
+            img: "/assets/imagesUIUX/mockupuiux/iphone-x-mockup-lying-on-a-wooden-bench-outdoors-a17484.png",
+            title: "Dashboard",
+         },
+         {
+            id: 2,
+            img: "/assets/imagesUIUX/mockupuiux/lajk2QLZ6TJ.png",
+            title: "Dashboard",
+         },
+         {
+            id: 3,
+            img: "/assets/imagesUIUX/mockupuiux/UCWx42FfqqM.png",
+            title: "Dashboard",
+         }
       ]
 
 
@@ -100,7 +117,7 @@ export const imagesdata = [
 
 export const menuItems = [
    { name: "Home", link: "#" },
-   { name: "About", link: "#about" },
+   { name: "About", link: "/PageAbout" },
 ];
 
 

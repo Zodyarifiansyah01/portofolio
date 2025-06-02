@@ -1,38 +1,86 @@
 import { motion } from "framer-motion";
 import { imagesdata } from "../data";
-import { useLocation } from "react-router-dom";
-const PortofolioDisplay = () => {
-   const location = useLocation().pathname;
-   const slug = location.split("/").pop();
+import { useState } from "react";
+import { gsap } from "gsap";
+import OverflowBody from "../hooks/overflowBody";
 
-   const data = imagesdata.find((item) => item.slug === slug);
-   console.log(data.PortofolioDisplay);
+const PortofolioDisplay = ({ dataId }) => {
+   const data = imagesdata.find((item) => item.slug === dataId);
+   const [imagefull, setImageFull] = useState(false);
+   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+
+   const imageClose = () => {
+      setImageFull(false);
+   };
+
+   const handleClick = (index) => {
+      setSelectedImageIndex(index);
+      setImageFull(true);
+   };
+
+   OverflowBody({ OverflowBody: imagefull });
 
    return (
       <motion.div
-         className="mb-8 text-justify"
+         className="mb-8 text-justify mt-4"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1, delay: 0.8 }}
       >
-         <h2 className="text-lg lg:text-2xl font-semibold text-gray-800 mb-4">
-            Images
-         </h2>
-         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-auto">
+         <strong >Images</strong>
+
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto">
             {data.PortofolioDisplay?.map((item, index) => (
-               <div className="overflow-hidden rounded-lg shadow-lg">
+               <div
+                  key={item.img + index}
+                  className="overflow-hidden rounded-lg shadow-lg bg-white h-[200px]"
+               >
                   <img
-                     key={index}
+                     onClick={() => handleClick(index)}
                      src={item.img}
                      alt={item.title}
-                     className="w-full h-full object-cover"
+                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
                   />
                </div>
             ))}
-
          </div>
-      </motion.div>
-   )
-}
 
-export default PortofolioDisplay
+         {imagefull && (
+            <motion.div
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+            >
+               <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center justify-center"
+               >
+                  <div className="relative max-w-[800px] max-h-[80vh] w-auto h-auto">
+                     <img
+                        src={data.PortofolioDisplay[selectedImageIndex]?.img}
+                        alt={data.PortofolioDisplay[selectedImageIndex]?.title}
+                        className="w-full h-auto rounded-lg object-contain"
+                        onClick={(e) => e.stopPropagation()}
+                     />
+                     <div
+                        onClick={imageClose}
+                        className="absolute top-2 right-[2%] bg-slate-200 rounded-xl text-black px-3 py-1 cursor-pointer z-10"
+                     >
+                        x
+                     </div>
+                  </div>
+               </motion.div>
+            </motion.div>
+         )}
+
+
+      </motion.div>
+   );
+};
+
+export default PortofolioDisplay;

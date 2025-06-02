@@ -2,11 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 
 import { imagesdata, linkberita } from "../../data/index";
 import CaseWorkTop from "../../components/CaseWorkTop";
 import ImagePopup from "../../data/animation/ImagePopup";
+import PortofolioDisplay from "../../components/PortfolioDisplay";
 
 
 const DetailUIUX = ({ dataId }) => {
@@ -18,7 +19,6 @@ const DetailUIUX = ({ dataId }) => {
       const item = imagesdata.find((item) => item.slug === dataId);
       setWorkItem(item);
    }, [dataId]);
-
 
    useEffect(() => {
       gsap.registerPlugin(ScrollTrigger);
@@ -74,6 +74,7 @@ const DetailUIUX = ({ dataId }) => {
                imagesdata={imagesdata}
             />
             <SectionPlanning />
+            <PortofolioDisplay dataId={dataId} />
          </motion.div>
       </div>
    );
@@ -289,18 +290,7 @@ const ImageGrid = (({ cardRef, imagesdata }) => {
 });
 
 const SectionPlanning = () => {
-   const dataAccording = [
-      {
-         title: "Apa itu sampah plastik?",
-         content:
-            "Sampah plastik adalah jenis sampah yang terbuat dari bahan plastik yang dapat diolah menjadi barang-barang baru seperti botol plastik, botol bekas, kardus, dan lain-lain.",
-      },
-      {
-         title: "Apa saja jenis sampah plastik?",
-         content:
-            "Ada beberapa jenis sampah plastik yang umum digunakan, seperti botol plastik, botol bekas, kardus, dan lain-lain.",
-      },
-   ]
+
    return (
       <div className="text-base lg:text-lg" id="planning">
          <h4 className="text-xl lg:text-2xl font-semibold">Permasalahan Utama</h4>
@@ -330,25 +320,11 @@ const SectionPlanning = () => {
             </div>
          </div>
 
-         {/* <Test /> */}
       </div>
    );
 }
 
-function Test() {
-   const text = "Indonesia saat ini menempati peringkat kedua sebagai produsen sampah plastik terbesar di dunia.";
 
-   useEffect(() => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'id-ID';
-      speechSynthesis.speak(utterance);
-   }, []);
 
-   return (
-      <div style={{ padding: '2rem' }}>
-         <p>{text}</p>
-      </div>
-   );
-}
 
 export default DetailUIUX;
