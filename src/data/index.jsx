@@ -117,7 +117,7 @@ export const imagesdata = [
 
 export const menuItems = [
    { name: "Home", link: "#" },
-   { name: "About", link: "/PageAbout" },
+   { name: "About", link: "PageAbout" },
 ];
 
 
