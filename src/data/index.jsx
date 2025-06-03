@@ -19,29 +19,29 @@ export const imagesdata = [
          {
             id: 1,
             img: "/assets/imagesUIUX/imageSampah/dirty-beach-environment-from-plastic-garbage_127090-1070.png",
-            title: "Pantai Tercemar Akibat Sampah Plastik",
-            paragraf: "Sampah plastik yang mencemari pantai kini menjadi masalah serius di seluruh dunia. Menurut United Nations Environment Programme (UNEP), sekitar 11 juta ton plastik memasuki laut setiap tahun. Tanpa tindakan nyata, jumlah ini diperkirakan akan meningkat tiga kali lipat pada 2040. Selain merusak pemandangan, pencemaran ini mengancam lebih dari 700 spesies laut dan dapat berdampak pada rantai makanan manusia.",
+            title: "Pantai yang Tercemar oleh Sampah Plastik",
+            paragraf: "Pantai kini menghadapi krisis lingkungan akibat akumulasi sampah plastik. Menurut United Nations Environment Programme (UNEP), sekitar 11 juta ton plastik memasuki lautan setiap tahunnya. Tanpa intervensi nyata, jumlah ini diproyeksikan meningkat tiga kali lipat pada tahun 2040. Selain merusak keindahan alam, pencemaran ini mengancam lebih dari 700 spesies laut dan berdampak terhadap rantai makanan manusia.",
             sumber: "United Nations Environment Programme (UNEP), 2021"
          },
          {
             id: 2,
             img: "/assets/imagesUIUX/imageSampah/eagle-ray-small-fishes-group-swimming-aquarium-tank_127090-1045.png",
-            title: "Dampak Sampah Plastik di Laut",
-            paragraf: "Pencemaran laut akibat sampah plastik berdampak langsung pada biota laut seperti ikan dan pari. Banyak hewan laut salah mengira plastik sebagai makanan, yang membahayakan kesehatan mereka dan mengganggu keseimbangan ekosistem. Plastik yang mengendap di dasar laut juga mengubah struktur habitat alami.",
+            title: "Dampak Sampah Plastik terhadap Kehidupan Laut",
+            paragraf: "Sampah plastik di laut secara langsung membahayakan kehidupan biota laut seperti ikan dan pari. Banyak hewan laut salah mengira plastik sebagai makanan, menyebabkan gangguan kesehatan dan kematian. Selain itu, akumulasi plastik di dasar laut turut mengubah struktur habitat alami dan menurunkan kualitas ekosistem laut.",
             sumber: "World Wildlife Fund (WWF), 2022"
          },
          {
             id: 3,
             img: "/assets/imagesUIUX/imageSampah/municipal-garbage-dump-landfill-environmental-pollution_96336-372.png",
-            title: "Pencemaran Lingkungan di Tempat Pembuangan Akhir (TPA)",
-            paragraf: "TPA yang tidak dikelola dengan baik menjadi sumber utama polusi tanah dan udara. Sampah organik menghasilkan gas metana berbahaya, sedangkan sampah plastik membutuhkan ratusan tahun untuk terurai, menyebabkan pencemaran jangka panjang pada tanah dan air sekitar.",
+            title: "Pencemaran Lingkungan di Tempat Pembuangan Akhir",
+            paragraf: "Tempat Pembuangan Akhir (TPA) yang tidak dikelola dengan baik menjadi sumber utama polusi tanah dan udara. Sampah organik menghasilkan gas metana yang mudah terbakar dan berbahaya, sementara limbah plastik membutuhkan waktu ratusan tahun untuk terurai. Kondisi ini memicu pencemaran jangka panjang yang membahayakan lingkungan sekitarnya.",
             sumber: "Environmental Protection Agency (EPA), 2020"
          },
          {
             id: 4,
             img: "/assets/imagesUIUX/imageSampah/municipal-landfill-domestic-waste_96336-154.png",
-            title: "Krisis Sampah Domestik di TPA",
-            paragraf: "Volume sampah domestik yang terus meningkat membebani TPA, menyebabkan pencemaran lingkungan dan meningkatkan risiko penyebaran penyakit. Gas beracun dan kontaminasi air tanah menjadi ancaman serius bagi kesehatan masyarakat di sekitar area pembuangan.",
+            title: "Krisis Sampah Domestik di Area Pembuangan",
+            paragraf: "Pertumbuhan volume sampah domestik secara signifikan membebani kapasitas TPA. Akibatnya, terjadi pencemaran lingkungan yang parah, termasuk penyebaran gas beracun dan kontaminasi air tanah. Kondisi ini meningkatkan risiko gangguan kesehatan bagi masyarakat yang tinggal di sekitar area pembuangan.",
             sumber: "National Geographic, 2021"
          }
       ],
@@ -117,7 +117,7 @@ export const imagesdata = [
 
 export const menuItems = [
    { name: "Home", link: "#" },
-   { name: "About", link: "PageAbout" },
+   { name: "About", link: "/PageAbout" },
 ];
 
 

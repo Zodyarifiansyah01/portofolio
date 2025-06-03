@@ -78,7 +78,7 @@ const ImagePopup = ({ item, Test }) => {
                            <div
                               className="relative w-full rounded-2xl overflow-hidden shadow-xl bg-cover bg-center p-4 sm:p-8"
                               style={{
-                                 backgroundImage: `url('/assets/imagesUIUX/imageSampah/dirty-beach-environment-from-plastic-garbage_127090-1070.png')`,
+                                 backgroundImage: `url('${item.img}')`,
                               }}
                            >
                               <div className="bg-black/60 w-full text-white p-4 sm:p-6 rounded-xl shadow-lg backdrop-blur-sm max-h-[90vh] overflow-y-auto">

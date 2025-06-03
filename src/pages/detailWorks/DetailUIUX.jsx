@@ -273,7 +273,6 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 }
 
 const ImageGrid = (({ cardRef, imagesdata }) => {
-
    return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 p-4">
          {imagesdata[0].imgSampah.map((item, index) => (
