@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { imagesdata } from "../../data/index";
-import { motion } from "framer-motion"; // Import motion
-import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import CaseWorkTop from "../../components/CaseWorkTop";
+import PortofolioDisplay from "../../components/PortfolioDisplay";
 
 const DetailSiris = ({ dataId }) => {
    const [workItem, setWorkItem] = useState(null);
@@ -151,6 +151,7 @@ const DetailSiris = ({ dataId }) => {
                   ))}
                </motion.p>
             </div>
+            <PortofolioDisplay dataId={dataId} />
          </motion.div>
       </div>
    );

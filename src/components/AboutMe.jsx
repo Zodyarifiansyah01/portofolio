@@ -5,17 +5,14 @@ const AboutMe = () => {
    return (
       <div className="grid grid-cols-12 gap-4 md:p-8" id="about">
          {/* Header Section */}
-         <motion.div
+         <div
             className="col-span-12 md:col-span-4 text-justify"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
          >
             <h1 className="font-bold text-2xl md:text-3xl">ABOUT MY</h1>
             <h1 className="font-bold text-2xl md:text-3xl font-noto-serif">
                WORK
             </h1>
-         </motion.div>
+         </div>
 
          <motion.div
             className="col-span-12 md:col-span-8 text-sm md:text-lg"

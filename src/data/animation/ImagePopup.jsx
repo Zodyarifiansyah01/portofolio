@@ -69,7 +69,7 @@ const ImagePopup = ({ item, Test }) => {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                      >
                         <motion.div
-                           className="relative cursor-pointer w-[95%] sm:w-4/5 max-w-3xl"
+                           className="relative cursor-pointer sm:w-4/5 max-w-3xl"
                            initial={{ scale: 0.8, opacity: 0 }}
                            animate={{ scale: 1, opacity: 1 }}
                            exit={{ scale: 0.8, opacity: 0 }}
@@ -83,8 +83,8 @@ const ImagePopup = ({ item, Test }) => {
                            >
                               <div className="bg-black/60 w-full text-white p-4 sm:p-6 rounded-xl shadow-lg backdrop-blur-sm max-h-[90vh] overflow-y-auto">
                                  <motion.h2
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    initial={{ opacity: 0, y: 10, x: 20 }}
+                                    animate={{ opacity: 1, y: 0, x: 0 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.6, ease: "easeInOut" }}
                                     className="text-lg sm:text-xl font-bold mb-2"

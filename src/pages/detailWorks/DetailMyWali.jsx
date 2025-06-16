@@ -14,7 +14,7 @@ const DetailMyWali = ({ dataId }) => {
 
    if (!workItem) {
       return (
-         <div className="text-center text-xl font-semibold text-black">
+         <div className="text-center text-xl font-semibold text-black Helvetica-regular">
             Memuat atau Item tidak ditemukan!
          </div>
       );
@@ -22,14 +22,14 @@ const DetailMyWali = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-black mb-2">
+         <li key={index} className="text-sm md:text-lg text-black Helvetica-regular">
             {item}
          </li>
       ));
    };
 
    return (
-      <div className="text-black bg-white">
+      <div className="text-black bg-white Helvetica-regular">
          <CaseWorkTop />
          <motion.div
             className="container mx-auto p-8 lg:p-12  "
@@ -70,19 +70,16 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
+               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
                   My Wali: Aplikasi Pemantauan Pendidikan untuk Orang Tua
                </h2>
-               <p className="text-sm md:text-lg  mb-4">
-                  Aplikasi My Wali adalah platform digital yang dirancang untuk
-                  membantu orang tua dalam memantau berbagai aspek terkait
-                  pendidikan anak-anak mereka yang sedang berkuliah. Dengan
-                  aplikasi ini, orang tua dapat dengan mudah mengakses informasi
-                  penting seperti pembayaran, nilai akademik, dan transkrip dari
-                  anak mereka. Aplikasi ini bertujuan untuk memberikan
-                  transparansi dan kemudahan bagi orang tua dalam mengikuti
-                  perkembangan pendidikan anak-anak mereka tanpa harus terlibat
-                  langsung dalam setiap proses administratif di kampus.
+               <p className="text-sm md:text-lg">
+                  Aplikasi <strong>My Wali</strong> adalah platform digital yang dirancang untuk membantu orang tua dalam
+                  memantau berbagai aspek terkait pendidikan anak-anak mereka yang sedang berkuliah.
+                  Dengan aplikasi ini, orang tua dapat dengan mudah mengakses informasi penting seperti pembayaran,
+                  nilai akademik, dan transkrip dari anak mereka. Aplikasi ini bertujuan untuk memberikan transparansi
+                  dan kemudahan bagi orang tua dalam mengikuti perkembangan pendidikan anak-anak mereka tanpa harus
+                  terlibat langsung dalam setiap proses administratif di kampus.
                </p>
             </motion.div>
 
@@ -92,10 +89,8 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
-                  Fitur Utama:
-               </h2>
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 mb-4 ml-6 space-y-2">
+               <strong> Fitur yang dimiliki</strong><br />
+               <ul className="list-decimal text-sm md:text-lg text-gray-700 ml-6">
                   {renderList([
                      "Pemantauan Pembayaran: Orang tua dapat melacak status pembayaran uang kuliah dan biaya lainnya dengan mudah. Aplikasi ini memberikan notifikasi atau pembaruan terkait tenggat waktu pembayaran dan saldo yang harus dibayar, sehingga orang tua dapat memastikan bahwa anak mereka tidak terhambat oleh masalah administrasi.",
                      "Laporan Nilai: Aplikasi ini menyediakan akses kepada orang tua untuk melihat nilai akademik anak mereka selama perkuliahan, baik nilai per mata kuliah maupun nilai keseluruhan. Ini memungkinkan orang tua untuk lebih terlibat dalam perkembangan akademik anak dan memberikan dukungan yang diperlukan.",
@@ -111,10 +106,8 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-4">
-                  Manfaat:
-               </h2>
-               <ul className="list-decimal text-sm md:text-lg  mb-4 ml-6 space-y-2">
+               <strong> Manfaat</strong><br />
+               <ul className="list-decimal text-sm md:text-lg ml-6">
                   {renderList([
                      "Akses Real-Time: Orang tua bisa mendapatkan informasi yang akurat dan terkini tanpa perlu menunggu laporan dari anak mereka.",
                      "Peningkatan Komunikasi: Memudahkan komunikasi antara orang tua dan anak terkait masalah akademik dan administrasi pendidikan.",
@@ -125,9 +118,7 @@ const DetailMyWali = ({ dataId }) => {
             </motion.div>
 
             <div>
-               <h2 className="text-lg lg:text-2xl font-semibold  mb-2">
-                  Tugas yang Dikerjakan
-               </h2>
+               <strong> Kontribusi</strong><br />
                <motion.p
                   className="text-lg  text-justify"
                   initial={{ opacity: 0 }}

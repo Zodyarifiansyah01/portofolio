@@ -60,6 +60,11 @@ export const imagesdata = [
             id: 3,
             img: "/assets/imagesUIUX/mockupuiux/UCWx42FfqqM.png",
             title: "Dashboard",
+         },
+         {
+            id: 4,
+            img: "/assets/imagesUIUX/mockupuiux/rrSTJE3iBZo.png",
+            title: "Dashboard",
          }
       ]
 
@@ -79,7 +84,25 @@ export const imagesdata = [
       bulanAkhir: "sampai sekarang",
       img: "/assets/MockupDashboard.png",
       about: 'Aplikasi untuk mengelola data penelitian, pengabdian, dan hibah di Universitas Mercu Buana.',
-      tagList: ['Web Design', 'Web Development']
+      tagList: ['Web Design', 'Web Development'],
+      PortofolioDisplay: [
+         {
+            id: 1,
+            img: "/assets/imageSiris/3e8a7f9ebcc.png",
+            title: "Dashboard",
+         },
+         {
+            id: 2,
+            img: "/assets/imageSiris/6e81f610234.png",
+            title: "Dashboard",
+         },
+         {
+            id: 2,
+            img: "/assets/imageSiris/M5WT2VXImsO.png",
+            title: "Dashboard",
+         },
+
+      ]
    },
    {
       id: 3,
@@ -87,7 +110,7 @@ export const imagesdata = [
       subtitle: "Freelance MercuBuana",
       titleApp: "My Wali",
       slug: "My-Wali",
-      desc: "Saya telah membuat tampilan yang responsif untuk semua ukuran layar perangkat yang dapat digunakan oleh pengguna, dengan desain yang simpel dan mudah digunakan. Karena aplikasi ini ditujukan untuk orang tua, saya juga mengonsumsi API untuk memenuhi kebutuhan data yang digunakan dalam aplikasi.",
+      desc: "Merancang dan menyesuaikan komponen antarmuka pengguna (UI) sesuai dengan kebutuhan proyek. Mengimplementasikan pengambilan data dari API untuk menampilkan informasi. Mengembangkan tampilan menu yang responsif untuk memastikan pengalaman pengguna yang konsisten di berbagai ukuran layar.",
       tahunAwal: "2024",
       bulanAwal: "Februari",
       tahunAkhir: "2021",
@@ -110,17 +133,19 @@ export const imagesdata = [
             id: 3,
             img: "/assets/imagesMyWali/mockuper (2).png",
             title: "Dashboard",
-         }
+         },
+         {
+            id: 3,
+            img: "/assets/imagesMyWali/HdWL2xY7uaZ.png",
+            title: "Dashboard",
+         },
       ]
    },
 ];
 
 export const menuItems = [
-   { name: "Home", link: "#" },
    { name: "About", link: "/PageAbout" },
 ];
-
-
 
 export const linkberita = [
    'https://lestari.kompas.com/read/2025/02/14/175817386/350-ribu-ton-sampah-plastik-masuk-ke-laut-indonesia-pada-2024?utm_source=chatgpt.com',

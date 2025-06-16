@@ -5,10 +5,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ListWorks = () => {
-   const getLimitedDescription = (desc) => {
-      const paragraphs = desc.split("\n");
-      return paragraphs.slice(0, 3).join("\n");
-   };
+   // const getLimitedDescription = (desc) => {
+   //    const paragraphs = desc.split("\n");
+   //    return paragraphs.slice(0, 3).join("\n");
+   // };
 
    const cardRef = useRef([]);
    useEffect(() => {

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"; // Impor motion
 const Footer = ({ menuItems }) => {
    return (
       <motion.div
-         className=" bg-white text-black py-4 rounded-md"
+         className=" bg-white text-black py-4 rounded-md Helvetica-regular"
          initial={{ opacity: 0 }} // Mulai dengan opacity 0
          animate={{ opacity: 1 }} // Animasi menjadi opacity 1
          transition={{ duration: 1 }} // Durasi transisi
@@ -35,6 +35,7 @@ const Footer = ({ menuItems }) => {
                   <h5 className="text-xl font-semibold mb-2">Quick Links</h5>
                   <ul className="space-y-2">
                      {menuItems.map((item, index) => (
+
                         <li key={index}>
                            <a
                               href={item.link}

@@ -7,8 +7,6 @@ const ModalPopup = ({ onClose, menuItems, className }) => {
       }
    };
 
-   // OverflowBody({ OverflowBody: isOpen });
-
    return (
       <motion.div
          initial={{ opacity: 0, scale: 0.5 }}

@@ -23,14 +23,14 @@ const PortofolioDisplay = ({ dataId }) => {
 
    return (
       <motion.div
-         className="mb-8 text-justify mt-4"
+         className="mt-4"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1, delay: 0.8 }}
       >
-         <strong >Images</strong>
+         <strong className="text-lg">Images</strong>
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto mt-2">
             {data.PortofolioDisplay?.map((item, index) => (
                <div
                   key={item.img + index}
@@ -51,7 +51,7 @@ const PortofolioDisplay = ({ dataId }) => {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                exit={{ opacity: 0 }}
-               className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+               className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 md:pl-0"
             >
                <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -60,7 +60,7 @@ const PortofolioDisplay = ({ dataId }) => {
                   transition={{ duration: 0.5 }}
                   className="flex items-center justify-center"
                >
-                  <div className="relative max-w-[800px] max-h-[80vh] w-auto h-auto">
+                  <div className="relative max-w-[900px] max-h-[80vh] w-auto h-auto">
                      <img
                         src={data.PortofolioDisplay[selectedImageIndex]?.img}
                         alt={data.PortofolioDisplay[selectedImageIndex]?.title}
