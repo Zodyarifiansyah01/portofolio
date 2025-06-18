@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
-import ModalPopup from '../components/ModalPopup';
+import ModalPopup from '../components/ModalPopup.jsx';
 
 import { menuItems } from "../data";
 
