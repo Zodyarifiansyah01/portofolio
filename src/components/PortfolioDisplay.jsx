@@ -23,12 +23,12 @@ const PortofolioDisplay = ({ dataId }) => {
 
    return (
       <motion.div
-         className="mt-4"
+         className="mt-4 mb-2 Helvetica-regular"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1, delay: 0.8 }}
       >
-         <strong className="text-lg">Images</strong>
+         <strong className="text-xl">Images</strong>
 
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto mt-2">
             {data.PortofolioDisplay?.map((item, index) => (

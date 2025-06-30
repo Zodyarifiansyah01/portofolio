@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { imagesdata, linkberita } from "../../data/index";
 import CaseWorkTop from "../../components/CaseWorkTop";
 import ImagePopup from "../../data/animation/ImagePopup";
 import PortofolioDisplay from "../../components/PortfolioDisplay";
+import TechBadge from "../../components/TechBadge";
+import { SiFigma } from 'react-icons/si';
 
 
 const DetailUIUX = ({ dataId }) => {
@@ -74,6 +76,18 @@ const DetailUIUX = ({ dataId }) => {
                imagesdata={imagesdata}
             />
             <SectionPlanning />
+
+            <motion.div
+               className="my-8 text-justify"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1.8 }}
+            >
+               <strong className="text-xl block mb-2">Teknologi yang Digunakan</strong>
+               <div className="flex flex-wrap gap-4 mt-4">
+                  <TechBadge icon={<SiFigma />} name="Figma" />
+               </div>
+            </motion.div>
             <PortofolioDisplay dataId={dataId} />
          </motion.div>
       </div>
@@ -389,19 +403,19 @@ const SectionPlanning = () => {
 
          <div className="mt-4 text-black">
             <strong className="text-xl">Mensintesis Penelitian:</strong><br />
-            <div class="grid md:grid-cols-2 gap-6 text-base lg:text-lg mt-4">
+            <div className="grid md:grid-cols-2 gap-6 text-base lg:text-lg mt-4">
                <div>
-                  <h3 class="text-base font-semibold mb-2">Profil Pengguna</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <h3 className="text-base font-semibold mb-2">Profil Pengguna</h3>
+                  <ul className="list-disc ml-5 space-y-1">
                      <li><strong>Nama:</strong> Resti Nur Azizah</li>
                      <li><strong>Usia:</strong> 45 tahun</li>
                      <li><strong>Profesi:</strong> Ibu rumah tangga dan pegiat komunitas lingkungan</li>
                      <li><strong>Latar Belakang:</strong> Tinggal di lingkungan perkotaan dan aktif dalam berbagai kegiatan sosial yang berfokus pada isu pengelolaan sampah dan pelestarian lingkungan.</li>
                   </ul>
 
-                  <div class="mt-6">
-                     <h3 class="text-base font-semibold mb-2">Kebutuhan Utama</h3>
-                     <ul class="list-disc ml-5 space-y-1">
+                  <div className="mt-6">
+                     <h3 className="text-base font-semibold mb-2">Kebutuhan Utama</h3>
+                     <ul className="list-disc ml-5 space-y-1">
                         <li>Membutuhkan akses yang mudah dan jelas ke lokasi bank sampah atau pusat daur ulang terdekat.</li>
                         <li>Menginginkan layanan penjemputan sampah plastik langsung dari rumah untuk menghemat waktu dan tenaga.</li>
                         <li>Memerlukan fitur pelacakan kontribusi pribadi terhadap jumlah sampah yang berhasil dikumpulkan dan dikelola.</li>
@@ -412,20 +426,20 @@ const SectionPlanning = () => {
 
 
                <div>
-                  <h3 class="text-base font-semibold mb-2">Tujuan & Motivasi</h3>
-                  <p class="mb-2">
+                  <h3 className="text-base font-semibold mb-2">Tujuan & Motivasi</h3>
+                  <p className="mb-2">
                      Resti memiliki keinginan kuat untuk berkontribusi dalam mengurangi dampak negatif sampah plastik terhadap lingkungan. Ia ingin menjadi agen perubahan di lingkungannya dan berharap ada solusi digital yang praktis serta efisien untuk mengelola limbah rumah tangga secara berkelanjutan.
                   </p>
 
-                  <h3 class="text-base font-semibold mt-4 mb-2">Pain Points (Tantangan)</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <h3 className="text-base font-semibold mt-4 mb-2">Pain Points (Tantangan)</h3>
+                  <ul className="list-disc ml-5 space-y-1">
                      <li>Mengalami kesulitan dalam menemukan cara yang efektif untuk mengelola sampah plastik sehari-hari.</li>
                      <li>Sulit mengakses atau mengetahui lokasi pusat daur ulang atau bank sampah di sekitar tempat tinggalnya.</li>
                      <li>Pengalaman sebelumnya menggunakan aplikasi daur ulang terasa membingungkan karena struktur menu yang kompleks dan kurangnya panduan yang jelas.</li>
                   </ul>
 
-                  <h3 class="text-base font-semibold mt-4 mb-2">Rekomendasi Solusi</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <h3 className="text-base font-semibold mt-4 mb-2">Rekomendasi Solusi</h3>
+                  <ul className="list-disc ml-5 space-y-1">
                      <li>Pengembangan aplikasi dengan navigasi sederhana dan panduan visual yang mudah dipahami.</li>
                      <li>Integrasi fitur lokasi bank sampah dengan peta digital berbasis lokasi pengguna.</li>
                      <li>Menyediakan layanan penjemputan dan pelacakan status secara real-time untuk meningkatkan kenyamanan pengguna.</li>
@@ -439,11 +453,11 @@ const SectionPlanning = () => {
          <div className="mt-4">
             <strong className="text-xl">Affinity Map</strong>
 
-            <div class="space-y-6 mt-4 text-base lg:text-lg text-gray-800">
+            <div className="space-y-6 mt-4 text-base lg:text-lg text-gray-800">
 
                <div>
-                  <h3 class="text-base font-semibold mb-2">1. Pola Perilaku dalam Membuang Sampah</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <strong className="text-base mb-2">1. Pola Perilaku dalam Membuang Sampah</strong>
+                  <ul className="list-disc ml-8 space-y-1">
                      <li>Beberapa pengguna sudah memilah sampah berdasarkan jenis dan menempatkannya dalam wadah yang terpisah.</li>
                      <li>Sampah plastik yang memiliki nilai tukar dikumpulkan secara khusus dalam satu wadah tersendiri.</li>
                      <li>Sampah organik dan sampah rumah tangga lainnya masih sering dibuang langsung tanpa proses pemilahan.</li>
@@ -452,8 +466,8 @@ const SectionPlanning = () => {
                </div>
 
                <div>
-                  <h3 class="text-base font-semibold mb-2">2. Keresahan dan Tantangan</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <strong className="text-base mb-2">2. Keresahan dan Tantangan</strong>
+                  <ul className="list-disc ml-8 space-y-1">
                      <li>Minimnya jumlah tempat daur ulang atau bank sampah yang tersedia di lingkungan sekitar.</li>
                      <li>Kurangnya informasi dan kejelasan pada aplikasi pengelolaan sampah yang pernah digunakan.</li>
                      <li>Kesulitan dalam menemukan lokasi bank sampah terdekat karena tidak adanya sistem penunjuk lokasi yang jelas.</li>
@@ -462,8 +476,8 @@ const SectionPlanning = () => {
                </div>
 
                <div>
-                  <h3 class="text-base font-semibold mb-2">3. Ide dan Rekomendasi Solusi</h3>
-                  <ul class="list-disc ml-5 space-y-1">
+                  <strong className="text-base mb-2">3. Ide dan Rekomendasi Solusi</strong>
+                  <ul className="list-disc ml-8 space-y-1">
                      <li>Pentingnya pengembangan layanan digital yang menyediakan fitur penjemputan sampah secara terjadwal.</li>
                      <li>Dukungan informasi lokasi bank sampah dan status operasionalnya secara real-time di dalam aplikasi.</li>
                      <li>Diperlukan fitur panduan interaktif di dalam aplikasi yang dapat memudahkan pengguna dalam memilah sampah dan menggunakan aplikasi dengan optimal.</li>
@@ -475,20 +489,18 @@ const SectionPlanning = () => {
 
 
          <div className="mt-4">
-            <strong className="text-base">Point of View</strong><br />
-            <strong className="text-lg">Point of View</strong><br />
             <strong className="text-xl">Point of View</strong>
             <ul className="list-disc ml-6">
                <li>
-                  <strong className="text-base">User:</strong>
+                  <strong className="text-base">User</strong>
                   <p>Pengguna berusia 20–50 tahun, terdiri dari mahasiswa, ibu rumah tangga, dan pekerja yang memiliki kesadaran lingkungan tinggi.</p>
                </li>
                <li>
-                  <strong className="text-base">Needs:</strong>
+                  <strong className="text-base">Needs</strong>
                   <p>Aplikasi yang memudahkan akses ke lokasi pengolahan atau bank sampah yang terpercaya dan terdekat.</p>
                </li>
                <li>
-                  <strong className="text-base">Insight:</strong>
+                  <strong className="text-base">Insight</strong>
                   <p>Kebanyakan pengguna mengalami kesulitan dalam menemukan informasi atau lokasi daur ulang yang dapat diandalkan. Hal ini menjadi hambatan utama dalam partisipasi mereka dalam kegiatan daur ulang. Oleh karena itu, aplikasi yang mampu mengatasi kendala tersebut sangat dibutuhkan.</p>
                </li>
             </ul>
@@ -498,9 +510,9 @@ const SectionPlanning = () => {
          </div>
 
          <div className="mt-4">
-            <strong>User Story</strong>
+            <strong className="text-xl">User Story</strong>
             <div>
-               <p><strong className="text-base">User Story 1 – Layanan Penjemputan Sampah:</strong></p>
+               <strong className="text-base">User Story 1 – Layanan Penjemputan Sampah:</strong>
                <ul className="list-disc ml-6">
                   <li>Menyediakan fitur penjemputan sampah plastik secara fleksibel melalui aplikasi.</li>
                   <li>Sebagai pengguna, saya ingin memesan layanan penjemputan kapan saja sesuai kebutuhan.</li>
@@ -508,7 +520,7 @@ const SectionPlanning = () => {
                </ul>
             </div>
             <div className="mt-2">
-               <p><strong className="text-base">User Story 2 – Navigasi ke Bank Sampah:</strong></p>
+               <strong className="text-base">User Story 2 – Navigasi ke Bank Sampah:</strong>
                <ul className="list-disc ml-6">
                   <li>Menyediakan fitur peta interaktif untuk mencari bank sampah terdekat.</li>
                   <li>Sebagai pengguna, saya ingin mengetahui lokasi bank sampah terdekat berdasarkan lokasi saya saat ini.</li>

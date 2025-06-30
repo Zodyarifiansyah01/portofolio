@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
+gsap.registerPlugin(ScrollTrigger);
 const ListWorks = () => {
    // const getLimitedDescription = (desc) => {
    //    const paragraphs = desc.split("\n");
@@ -12,30 +14,35 @@ const ListWorks = () => {
 
    const cardRef = useRef([]);
    useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
+      // Buat context GSAP
 
-      cardRef.current.forEach((card) => {
-         gsap.fromTo(
-            card,
-            {
-               opacity: 0, // Mulai dari transparan
-               y: 40, // Mulai dari posisi lebih rendah
-            },
-            {
-               opacity: 1,
-               y: 0,
-               duration: 1.5,
-               ease: "power4.out",
-               scrollTrigger: {
-                  trigger: card,
-                  once: true,
-                  toggleActions: "play none none none",
-                  invalidateOnRefresh: true,
-                  start: "top 95%", // Animasi mulai ketika card hampir muncul
-               },
-            }
-         );
+      if (!cardRef.current || cardRef.current.length === 0) return;
+
+      const ctx = gsap.context(() => {
+         cardRef.current.forEach(card => {
+            if (!card) return;
+            gsap.fromTo(card,
+               { opacity: 0, y: 40 },
+               {
+                  opacity: 1,
+                  y: 0,
+                  duration: 1.5,
+                  scrollTrigger: {
+                     trigger: card,
+                     once: true,
+                     start: "top bottom",
+                     end: "bottom 80%",
+                  }
+               }
+            );
+         });
       });
+
+      // Auto-cleanup
+      return () => {
+         ctx.revert()
+         ScrollTrigger.killAll();
+      };
    }, []);
 
    return (

@@ -12,7 +12,7 @@ const CaseWorkTop = () => {
    const slug = imagesdata.find((item) => item.slug === slug_akhir);
 
    return (
-      <div className="bg-black h-[30%]">
+      <div className="bg-[#161616] h-[30%]">
          <div className="container mx-auto flex flex-col justify-center items-start h-full px-4 pt-20 pb-6">
 
             <div className="flex items-center gap-x-1">

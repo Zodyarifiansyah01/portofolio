@@ -6,7 +6,7 @@ const PageTransition = () => {
    const location = useLocation();
 
    useEffect(() => {
-      gsap.killTweensOf("#page-transition");
+
       const tl = gsap.timeline();
       tl.clear();
 
@@ -77,7 +77,7 @@ const PageTransition = () => {
    }, [location.pathname]);
 
    return (
-      <div id="page-transition" className="fixed z-50 top-0 left-0 w-full h-full bg-white flex items-center justify-center pointer-events-none">
+      <div id="page-transition" className="fixed z-50 top-0 left-0 w-full h-full bg-white flex items-center justify-center">
          <p id='title-page-transition' className="text-black text-2xl">Arifiansyah</p>
       </div>
    );

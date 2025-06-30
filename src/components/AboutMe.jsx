@@ -54,3 +54,7 @@ const AboutMe = () => {
 };
 
 export default AboutMe;
+
+
+
+// scrub = true adalah untuk membuat animasi berjalan sesuai scroll

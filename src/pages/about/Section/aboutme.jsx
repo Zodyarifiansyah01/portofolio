@@ -9,37 +9,41 @@ const About = () => {
    const studiRef = useRef(null);
 
    useEffect(() => {
-      gsap.fromTo(
-         aboutRef.current,
-         { opacity: 0, y: 50 },
-         {
-            opacity: 1,
-            y: 0,
-            duration: 1.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-               trigger: aboutRef.current,
-               start: 'top 80%',
-               toggleActions: 'play none none reverse',
+      const ctx = gsap.context(() => {
+         gsap.fromTo(
+            aboutRef.current,
+            { opacity: 0, y: 50 },
+            {
+               opacity: 1,
+               y: 0,
+               duration: 1.2,
+               ease: 'power3.out',
+               scrollTrigger: {
+                  trigger: aboutRef.current,
+                  start: 'top 80%',
+                  toggleActions: 'play none none reverse',
+               }
             }
-         }
-      );
+         );
 
-      gsap.fromTo(
-         studiRef.current,
-         { opacity: 0, y: 100 },
-         {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-               trigger: studiRef.current,
-               start: 'top 80%',
-               toggleActions: 'play none none reverse',
+         gsap.fromTo(
+            studiRef.current,
+            { opacity: 0, y: 100 },
+            {
+               opacity: 1,
+               y: 0,
+               duration: 1,
+               ease: 'power2.out',
+               scrollTrigger: {
+                  trigger: studiRef.current,
+                  start: 'top 80%',
+                  toggleActions: 'play none none reverse',
+               }
             }
-         }
-      );
+         );
+      })
+
+      return () => ctx.revert();
    }, []);
 
    return (

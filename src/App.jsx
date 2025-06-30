@@ -1,24 +1,30 @@
 import "./index.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import DetailListWork from "./components/works/DetailListWork";
 import PageAbout from "./pages/about/pageAbout";
 import PageTransition from "./components/pageTransition";
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+
 
 function App() {
    const location = useLocation();
    const [showContent, setShowContent] = useState(false);
 
    useEffect(() => {
-      setShowContent(false);
-      const timeOut = setTimeout(() => {
-         setShowContent(true);
-      }, 1000)
+      // setShowContent(false);
+      // const timeOut = setTimeout(() => {
+      setShowContent(true);
+      // }, 1000);
 
-      return () => clearTimeout(timeOut);
-   }, [location.pathname])
+      return () => {
+         // clearTimeout(timeOut);
+
+         gsap.globalTimeline.getChildren().forEach(tween => tween.kill());
+      };
+   }, [location.pathname]);
+
    return (
       <>
          <PageTransition />
@@ -28,8 +34,6 @@ function App() {
 }
 
 export default App;
-
-
 
 const AnimatedRoutes = () => {
    const location = useLocation();

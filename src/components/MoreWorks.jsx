@@ -1,4 +1,4 @@
-import ListWorks from "./works/LIstWorks";
+import ListWorks from "./works/ListWorks";
 
 const MoreWorks = () => {
    return (

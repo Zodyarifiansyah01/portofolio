@@ -3,6 +3,9 @@ import { imagesdata } from "../../data/index";
 import { motion } from "framer-motion";
 import CaseWorkTop from "../../components/CaseWorkTop";
 import PortofolioDisplay from "../../components/PortfolioDisplay";
+import TechBadge from "../../components/TechBadge";
+
+import { SiJavascript, SiTailwindcss } from 'react-icons/si';
 
 const DetailMyWali = ({ dataId }) => {
    const [workItem, setWorkItem] = useState(null);
@@ -70,9 +73,9 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <h2 className="text-lg lg:text-2xl font-semibold mb-4">
+               <strong className="block text-xl lg:text-2xl font-semibold mb-2">
                   My Wali: Aplikasi Pemantauan Pendidikan untuk Orang Tua
-               </h2>
+               </strong>
                <p className="text-sm md:text-lg">
                   Aplikasi <strong>My Wali</strong> adalah platform digital yang dirancang untuk membantu orang tua dalam
                   memantau berbagai aspek terkait pendidikan anak-anak mereka yang sedang berkuliah.
@@ -89,7 +92,7 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
             >
-               <strong> Fitur yang dimiliki</strong><br />
+               <strong className="text-xl"> Fitur yang dimiliki</strong><br />
                <ul className="list-decimal text-sm md:text-lg text-gray-700 ml-6">
                   {renderList([
                      "Pemantauan Pembayaran: Orang tua dapat melacak status pembayaran uang kuliah dan biaya lainnya dengan mudah. Aplikasi ini memberikan notifikasi atau pembaruan terkait tenggat waktu pembayaran dan saldo yang harus dibayar, sehingga orang tua dapat memastikan bahwa anak mereka tidak terhambat oleh masalah administrasi.",
@@ -106,7 +109,7 @@ const DetailMyWali = ({ dataId }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1.2 }}
             >
-               <strong> Manfaat</strong><br />
+               <strong className="text-xl"> Manfaat</strong><br />
                <ul className="list-decimal text-sm md:text-lg ml-6">
                   {renderList([
                      "Akses Real-Time: Orang tua bisa mendapatkan informasi yang akurat dan terkini tanpa perlu menunggu laporan dari anak mereka.",
@@ -117,9 +120,14 @@ const DetailMyWali = ({ dataId }) => {
                </ul>
             </motion.div>
 
-            <div>
-               <strong> Kontribusi</strong><br />
-               <motion.p
+            <motion.div
+               className="mb-8 text-justify"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1.2 }}
+            >
+               <strong className="text-xl"> Kontribusi</strong><br />
+               <motion.div
                   className="text-lg  text-justify"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -137,8 +145,21 @@ const DetailMyWali = ({ dataId }) => {
                         ))}
                      </ul>
                   ))}
-               </motion.p>
-            </div>
+               </motion.div>
+            </motion.div>
+
+            <motion.div
+               className="mb-8 text-justify"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1.8 }}
+            >
+               <strong className="text-xl block mb-2">Teknologi yang Digunakan</strong>
+               <div className="flex flex-wrap gap-4 mt-4">
+                  <TechBadge icon={<SiJavascript />} name="JavaScript" />
+                  <TechBadge icon={<SiTailwindcss />} name="Tailwind CSS" />
+               </div>
+            </motion.div>
 
             <PortofolioDisplay dataId={dataId} />
          </motion.div>
