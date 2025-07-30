@@ -25,7 +25,7 @@ const DetailMyWali = ({ dataId }) => {
 
    const renderList = (items) => {
       return items.map((item, index) => (
-         <li key={index} className="text-sm md:text-lg text-black Helvetica-regular">
+         <li key={index} className="text-base lg:text-lg leading-relaxed text-black Helvetica-regular">
             {item}
          </li>
       ));
@@ -76,7 +76,7 @@ const DetailMyWali = ({ dataId }) => {
                <strong className="block text-xl lg:text-2xl font-semibold mb-2">
                   My Wali: Aplikasi Pemantauan Pendidikan untuk Orang Tua
                </strong>
-               <p className="text-sm md:text-lg">
+               <p className="text-base lg:text-lg leading-relaxed">
                   Aplikasi <strong>My Wali</strong> adalah platform digital yang dirancang untuk membantu orang tua dalam
                   memantau berbagai aspek terkait pendidikan anak-anak mereka yang sedang berkuliah.
                   Dengan aplikasi ini, orang tua dapat dengan mudah mengakses informasi penting seperti pembayaran,
@@ -93,7 +93,7 @@ const DetailMyWali = ({ dataId }) => {
                transition={{ duration: 1, delay: 1 }}
             >
                <strong className="text-xl"> Fitur yang dimiliki</strong><br />
-               <ul className="list-decimal text-sm md:text-lg text-gray-700 ml-6">
+               <ul className="list-decimal ml-6">
                   {renderList([
                      "Pemantauan Pembayaran: Orang tua dapat melacak status pembayaran uang kuliah dan biaya lainnya dengan mudah. Aplikasi ini memberikan notifikasi atau pembaruan terkait tenggat waktu pembayaran dan saldo yang harus dibayar, sehingga orang tua dapat memastikan bahwa anak mereka tidak terhambat oleh masalah administrasi.",
                      "Laporan Nilai: Aplikasi ini menyediakan akses kepada orang tua untuk melihat nilai akademik anak mereka selama perkuliahan, baik nilai per mata kuliah maupun nilai keseluruhan. Ini memungkinkan orang tua untuk lebih terlibat dalam perkembangan akademik anak dan memberikan dukungan yang diperlukan.",
@@ -110,7 +110,7 @@ const DetailMyWali = ({ dataId }) => {
                transition={{ duration: 1, delay: 1.2 }}
             >
                <strong className="text-xl"> Manfaat</strong><br />
-               <ul className="list-decimal text-sm md:text-lg ml-6">
+               <ul className="list-decimal ml-6">
                   {renderList([
                      "Akses Real-Time: Orang tua bisa mendapatkan informasi yang akurat dan terkini tanpa perlu menunggu laporan dari anak mereka.",
                      "Peningkatan Komunikasi: Memudahkan komunikasi antara orang tua dan anak terkait masalah akademik dan administrasi pendidikan.",
@@ -138,7 +138,7 @@ const DetailMyWali = ({ dataId }) => {
                         {paragraph.split(". ").map((point, idx) => (
                            <li
                               key={idx}
-                              className="text-sm md:text-lg "
+                              className="text-base lg:text-lg leading-relaxed "
                            >
                               {point.trim()}.
                            </li>

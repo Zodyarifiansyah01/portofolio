@@ -28,7 +28,7 @@ const PortofolioDisplay = ({ dataId }) => {
          animate={{ opacity: 1 }}
          transition={{ duration: 1, delay: 0.8 }}
       >
-         <strong className="text-xl">Images</strong>
+         <strong className="text-lg">Images</strong>
 
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto mt-2">
             {data.PortofolioDisplay?.map((item, index) => (

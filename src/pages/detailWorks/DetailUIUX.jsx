@@ -161,7 +161,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
          <div>
             <strong>Sampah Plastik di Laut:</strong><br />
             <p className="mb-4">
-               <span className={`text-base lg:text-lg ${selectedText === 'Kompas' ? 'bg-orange-400' : ''}`}>
+               <span className={`text-base lg:text-lg leading-relaxed ${selectedText === 'Kompas' ? 'bg-orange-400' : ''}`}>
                   Menyambung permasalahan di darat, sampah plastik yang tidak terkelola dengan baik turut memberikan kontribusi besar terhadap pencemaran laut. Berdasarkan laporan tahun 2024, sekitar <strong>350.000 ton</strong> sampah plastik telah memasuki lautan Indonesia.
                   Walaupun angka ini menunjukkan penurunan sebesar 41% dibandingkan tahun 2018, jumlah tersebut tetap menimbulkan kekhawatiran besar karena berdampak langsung terhadap ekosistem laut, mengancam kehidupan biota, serta berpotensi membahayakan manusia melalui rantai makanan yang telah tercemar mikroplastik.
                </span>
@@ -185,7 +185,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4">
             <strong>Provinsi Penyumbang Sampah Terbanyak:</strong><br />
-            <span className={`text-base lg:text-lg ${selectedText === 'Beautynesia' ? 'bg-orange-400' : ''}`}>
+            <span className={`text-base lg:text-lg leading-relaxed ${selectedText === 'Beautynesia' ? 'bg-orange-400' : ''}`}>
                Secara geografis, Pulau Jawa menjadi wilayah dengan kontribusi sampah terbesar, dimana <strong>Jawa Barat</strong> tercatat menghasilkan sekitar <strong>4,9 juta ton</strong> sampah sepanjang tahun 2024.
                Tingginya volume ini erat kaitannya dengan padatnya populasi serta tingginya aktivitas ekonomi dan konsumsi masyarakat di wilayah ini.
                Namun, kondisi ini juga memperlihatkan besarnya tantangan yang harus dihadapi, mengingat masih minimnya sistem pemilahan sampah yang efektif serta keterbatasan infrastruktur daur ulang, baik di kawasan perkotaan maupun pedesaan.
@@ -211,7 +211,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4 ">
             <strong>Komitmen Regional:</strong><br />
-            <span className={`ml-8 text-base lg:text-lg ${selectedText === 'ASEAN Declaration on Plastic Circularity' ? 'bg-orange-400' : ''}`}>
+            <span className={`ml-8 text-base lg:text-lg leading-relaxed ${selectedText === 'ASEAN Declaration on Plastic Circularity' ? 'bg-orange-400' : ''}`}>
                Tidak hanya Indonesia, negara-negara di kawasan ASEAN pun menunjukkan komitmen mereka terhadap pengurangan sampah plastik melalui <strong>ASEAN Declaration on Plastic Circularity</strong> yang diresmikan pada Oktober 2024.
                Deklarasi ini mengadopsi pendekatan siklus hidup penuh terhadap polusi plastik, mulai dari produksi hingga tahap pembuangan akhir, dengan fokus pada pengurangan plastik sekali pakai serta peningkatan tingkat daur ulang di kawasan Asia Tenggara.
             </span>
@@ -234,7 +234,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4 ">
             <strong>Sungai Penyumbang Sampah Plastik ke Laut:</strong><br />
-            <span className={`ml-8 text-base lg:text-lg ${selectedText === 'GoodStats Data' ? 'bg-orange-400' : ''}`}>
+            <span className={`ml-8 text-base lg:text-lg leading-relaxed ${selectedText === 'GoodStats Data' ? 'bg-orange-400' : ''}`}>
                Menariknya, data terbaru menunjukkan bahwa sungai-sungai di Filipina menjadi sumber utama sampah plastik yang mengalir ke lautan dunia.
                Dari 10 sungai penyumbang terbesar secara global, 9 di antaranya berada di Filipina, termasuk Sungai Pasig yang tercatat sebagai penyumbang tertinggi.
             </span>
@@ -257,7 +257,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
 
          <p className="mb-4">
             <strong>Inisiatif Regional:</strong><br />
-            <span className={`ml-8 text-base lg:text-lg ${selectedText === 'ERIA' ? 'bg-orange-400' : ''}`}>
+            <span className={`ml-8 text-base lg:text-lg leading-relaxed ${selectedText === 'ERIA' ? 'bg-orange-400' : ''}`}>
                Dalam rangka memperkuat sinergi, ASEAN juga menggelar <strong>ASEAN Conference on Combating Plastic Pollution (ACCPP)</strong> tahun 2024 di Vientiane, Laos.
                Konferensi ini bertujuan untuk meningkatkan kerja sama, mempercepat inovasi, dan memperluas kemitraan dalam mengatasi permasalahan polusi plastik secara lebih kolaboratif di tingkat regional.
             </span>
@@ -278,7 +278,7 @@ const ContentSection = ({ selectedText, handleHover, handleHoverOut, linkberita,
             </span>
          </p>
 
-         <p className="mb-4 text-base lg:text-lg">
+         <p className="mb-4 text-base lg:text-lg leading-relaxed">
             Sebagai jawaban atas tantangan-tantangan tersebut, <strong>Aplikasi Bank Sampah</strong> dikembangkan untuk memberdayakan masyarakat dalam mengelola, memilah, serta mengurangi sampah plastik secara lebih sistematis dan berkelanjutan, sehingga mendukung terciptanya lingkungan yang lebih bersih dan sehat.
          </p>
 
@@ -303,9 +303,9 @@ const ImageGrid = (({ cardRef, imagesdata }) => {
 });
 const SectionPlanning = () => {
    return (
-      <div className="text-base lg:text-lg Helvetica-regular" id="planning">
+      <div className="text-base lg:text-lg leading-relaxed Helvetica-regular" id="planning">
          <h4 className="text-xl lg:text-2xl font-semibold">Permasalahan Utama</h4>
-         <p>
+         <p >
             Indonesia saat ini menempati posisi sebagai salah satu negara dengan jumlah produksi sampah plastik tertinggi di dunia. Hal ini menimbulkan permasalahan lingkungan yang kompleks dan mendesak untuk segera ditangani. Rendahnya tingkat kesadaran masyarakat terhadap pentingnya pengelolaan sampah yang baik, serta keterbatasan infrastruktur pengolahan limbah yang memadai, menjadi faktor utama yang memperburuk situasi. Meskipun terdapat upaya dari pemerintah maupun sektor swasta dalam mengurangi penggunaan plastik, kenyataannya masih banyak sampah yang tidak dikelola secara optimal dan berakhir mencemari lingkungan, terutama lautan. Kurangnya pemahaman serta akses terhadap sistem daur ulang yang efisien membuat mayoritas limbah plastik dibuang tanpa dimanfaatkan kembali secara produktif.
          </p><br />
 
@@ -403,7 +403,7 @@ const SectionPlanning = () => {
 
          <div className="mt-4 text-black">
             <strong className="text-xl">Mensintesis Penelitian:</strong><br />
-            <div className="grid md:grid-cols-2 gap-6 text-base lg:text-lg mt-4">
+            <div className="grid md:grid-cols-2 gap-6 text-base lg:text-lg leading-relaxed mt-4">
                <div>
                   <h3 className="text-base font-semibold mb-2">Profil Pengguna</h3>
                   <ul className="list-disc ml-5 space-y-1">
@@ -453,7 +453,7 @@ const SectionPlanning = () => {
          <div className="mt-4">
             <strong className="text-xl">Affinity Map</strong>
 
-            <div className="space-y-6 mt-4 text-base lg:text-lg text-gray-800">
+            <div className="space-y-6 mt-4 text-base lg:text-lg leading-relaxed text-gray-800">
 
                <div>
                   <strong className="text-base mb-2">1. Pola Perilaku dalam Membuang Sampah</strong>
