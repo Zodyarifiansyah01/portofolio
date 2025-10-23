@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { imagesdata } from "../data";
 import { useState } from "react";
-import { gsap } from "gsap";
 import OverflowBody from "../hooks/overflowBody";
+import { X } from "lucide-react";
 
 const PortofolioDisplay = ({ dataId }) => {
    const data = imagesdata.find((item) => item.slug === dataId);
@@ -71,7 +71,7 @@ const PortofolioDisplay = ({ dataId }) => {
                         onClick={imageClose}
                         className="absolute top-2 right-[2%] bg-slate-200 rounded-xl text-black px-3 py-1 cursor-pointer z-10"
                      >
-                        x
+                        <X className="w-6 h-6" />
                      </div>
                   </div>
                </motion.div>

@@ -95,14 +95,37 @@
 
 // export default Content;
 
-
-import { motion } from "framer-motion";
 import AboutMe from "./AboutMe";
 import MoreWorks from "./MoreWorks";
 import CircularText from "../data/animation/CircularText";
-import DecryptedText from "../data/animation/DecryptedText";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+
 
 const Content = () => {
+   useEffect(() => {
+      const tl = gsap.timeline();
+      // Masuk dari atas
+      gsap.set("#about", { yPercent: -100, opacity: 0 });
+      gsap.set("#title", { yPercent: -100, opacity: 0 });
+
+      tl.to("#about", {
+         yPercent: 0,
+         duration: 1,
+         ease: "power1.out",
+         opacity: 1,
+      });
+
+      tl.to("#title", {
+         yPercent: 0,
+         duration: 1,
+         ease: "power1.out",
+         opacity: 1,
+         delay: 2
+
+      }, "<0.5");
+   }, []);
+
    return (
       <div className="container mx-auto px-4 lg:px-6 Helvetica-regular">
          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6">
@@ -110,7 +133,7 @@ const Content = () => {
                className="md:col-span-2 flex flex-col justify-between order-last md:order-first space-y-6"
 
             >
-               <p className="text-sm ">
+               <p className="text-sm " id="about">
                   Lebih banyak pengalaman dan kemampuan saya dapat ditemukan
                   dalam ringkasan pekerjaan yang telah saya lakukan
                </p>

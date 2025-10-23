@@ -61,7 +61,6 @@ const DetailSiris = ({ dataId }) => {
                <ul className="list-decimal text-base lg:text-lg ml-6">
                   {renderList([
                      "Sistem pengajuan proposal online dengan validasi dokumen otomatis (PDF, DOCX) dan plagiarism checker terintegrasi, mengurangi waktu administrasi hingga 70%",
-                     "Dashboard manajemen proyek real-time dengan Gantt chart, tracking milestone, dan sistem notifikasi multi-level approval",
                      "Modul keuangan canggih termasuk budgeting tool, expense tracking, dan rekonsiliasi otomatis dengan sistem keuangan universitas",
                      "Portal kolaborasi peneliti dengan fitur document sharing version control dan forum diskusi terstruktur",
                      "Sistem pelaporan otomatis yang menghasilkan output sesuai template Dikti dan LPDP dengan ekspor ke berbagai format"
