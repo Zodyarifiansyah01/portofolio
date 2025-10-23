@@ -4,7 +4,7 @@ import { motion } from "framer-motion"; // Impor motion
 const Footer = ({ menuItems = [] }) => {
    return (
       <motion.div
-         className=" text-white py-8 rounded-lg shadow-xl mt-32"
+         className=" text-white pb-8 rounded-lg shadow-xl"
          initial={{ opacity: 0 }}
          animate={{ opacity: 1 }}
          transition={{ duration: 1 }}
