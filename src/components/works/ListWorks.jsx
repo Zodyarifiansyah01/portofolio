@@ -66,25 +66,31 @@ const ListWorks = () => {
                      onClick={ClickSound}
                      ref={(el) => (cardRef.current[index] = el)}
                   >
-                     <div>
-                        <img
-                           src={item.img}
-                           alt={item.titleApp}
-                           className="rounded-3xl h-60 w-full object-cover "
-                        />
-                        <div className="flex flex-col gap-4 mt-4">
+                     <div className="w-full flex justify-center gap-4">
+                        <div className="w-full aspect-[16/9] md:aspect-[16/9]">
+                           <img
+                              src={item.img}
+                              alt={item.titleApp}
+                              className="w-full h-full rounded-3xl object-cover"
+                           />
+                        </div>
+
+                        <div className="w-full flex flex-col gap-4 mt-4">
                            <h1 className="font-bold text-2xl">{item.titleApp}</h1>
                            <p>{item.about}</p>
                            <div className="flex flex-wrap gap-1">
                               {item.tagList.map((tag, index) => (
-                                 <span key={index} className="outline-1 flex-wrap outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-gray-100 text-gray-700">
-                                    {tag}
-                                 </span>
+                              <span
+                                 key={index}
+                                 className="outline-1 outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-gray-100 text-gray-700"
+                              >
+                                 {tag}
+                              </span>
                               ))}
-
                            </div>
                         </div>
-                     </div>
+                        </div>
+
 
                   </div>
                </Link>

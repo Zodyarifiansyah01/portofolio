@@ -16,7 +16,7 @@ const MoreWorks = () => {
          </div>
 
          <div className="w-full h-[1.2px] bg-gray-700 my-4" />
-         <div className="col-span-12">
+         <div className="col-span-12 my-10">
             <ListWorks />
          </div>
       </div>
