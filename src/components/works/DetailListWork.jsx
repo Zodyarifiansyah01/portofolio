@@ -3,6 +3,7 @@ import { motion } from "framer-motion"; // Import motion
 import DetailUIUX from "../../pages/detailWorks/DetailUIUX";
 import DetailSiris from "../../pages/detailWorks/DetailSiris";
 import DetaiMyWali from "../../pages/detailWorks/DetailMyWali";
+import DetailULT from "../../pages/detailWorks/DetailULT";
 
 const DetailListWork = () => {
    const { slug } = useParams();
@@ -11,6 +12,7 @@ const DetailListWork = () => {
       "UIUX-Course-Binary": <DetailUIUX dataId={slug} />,
       "LPPM-Universitas": <DetailSiris dataId={slug} />,
       "My-Wali": <DetaiMyWali dataId={slug} />,
+      "Unit-Layanan-Terpadu": <DetailULT dataId={slug} />,
    };
 
    return (

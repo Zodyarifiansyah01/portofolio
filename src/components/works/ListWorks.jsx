@@ -80,16 +80,20 @@ const ListWorks = () => {
                            <p>{item.about}</p>
                            <div className="flex flex-wrap gap-1">
                               {item.tagList.map((tag, index) => (
-                              <span
-                                 key={index}
-                                 className="outline-1 outline-gray-300 rounded-full px-2 py-1 text-sm mr-2 mb-2 bg-gray-100 text-gray-700"
-                              >
-                                 {tag}
-                              </span>
+                                 <span
+                                    key={index}
+                                    className="outline outline-1 outline-gray-300 rounded-full 
+                                          px-2 py-1 
+                                          text-xs md:text-sm  /* kecil di hp, normal di md ke atas */
+                                          mr-2 mb-2 
+                                          bg-gray-100 text-gray-700" >
+                                    {tag}
+                                 </span>
                               ))}
                            </div>
+
                         </div>
-                        </div>
+                     </div>
 
 
                   </div>

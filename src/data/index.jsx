@@ -84,7 +84,7 @@ export const imagesdata = [
       bulanAkhir: "sampai sekarang",
       img: "/assets/MockupDashboard.png",
       about: 'Aplikasi untuk mengelola data penelitian, pengabdian, dan hibah di Universitas Mercu Buana.',
-      tagList: ['Web Design', 'Web Development'],
+      tagList: ['Web Design', 'Web Development', 'Laravel', 'Bootstrap'],
       PortofolioDisplay: [
          {
             id: 1,
@@ -137,6 +137,38 @@ export const imagesdata = [
          {
             id: 3,
             img: "/assets/imagesMyWali/HdWL2xY7uaZ.png",
+            title: "Dashboard",
+         },
+      ]
+   },
+   {
+      id: 4,
+      title: "Web Development",
+      subtitle: "Freelance Mercu Buana",
+      titleApp: "Unit Layanan Terpadu",
+      slug: "Unit-Layanan-Terpadu",
+      desc: "Mengembangkan dan menyesuaikan komponen antarmuka pengguna (UI) sesuai kebutuhan proyek. Membuat fitur Setting Rubrik yang akan di kunci setalah disetujui . Membuat beberapa fitur seperti Setting bobot sidang untuk menyesuaikan kriteria penilaian.. Mengimplementasikan integrasi API untuk menampilkan data secara dinamis. Membuat tampilan menu yang responsif agar memberikan pengalaman pengguna yang optimal di berbagai ukuran layar.",
+      tahunAwal: "2021",
+      bulanAwal: "Februari",
+      tahunAkhir: "Sekarang",
+      bulanAkhir: "",
+      img: "/assets/imagesULT/imagesUtama.png",
+      about: "Aplikasi ULT memudahkan mahasiswa mengajukan wisuda, sidang, dan bimbingan secara terpusat.",
+      tagList: ["Web Development", "Laravel", "Tailwind"],
+      PortofolioDisplay: [
+         {
+            id: 1,
+            img: "/assets/imagesULT/imagesUtama.png",
+            title: "Dashboard",
+         },
+         {
+            id: 2,
+            img: "/assets/imagesULT/images1.png",
+            title: "Dashboard",
+         },
+         {
+            id: 3,
+            img: "/assets/imagesULT/images2.png",
             title: "Dashboard",
          },
       ]

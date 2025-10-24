@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { imagesdata } from "../../data/index";
 import { motion } from "framer-motion";
 import CaseWorkTop from "../../components/CaseWorkTop";
 import PortofolioDisplay from "../../components/PortfolioDisplay";
-import { SiLaravel, SiTailwindcss, SiPostgresql } from 'react-icons/si';
+import { SiLaravel, SiBootstrap, SiPostgresql } from 'react-icons/si';
 import TechBadge from "../../components/TechBadge";
 
 const DetailSiris = ({ dataId }) => {
@@ -118,7 +118,7 @@ const DetailSiris = ({ dataId }) => {
                <strong className="text-lg block mb-2">Teknologi yang Digunakan</strong>
                <div className="flex flex-wrap gap-4 mt-4">
                   <TechBadge icon={<SiLaravel />} name="Laravel" />
-                  <TechBadge icon={<SiTailwindcss />} name="Tailwind CSS" />
+                  <TechBadge icon={<SiBootstrap />} name="Bootstrap" />
                   <TechBadge icon={<SiPostgresql />} name="PostgreSQL" />
                </div>
             </motion.div>
