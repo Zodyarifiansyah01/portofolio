@@ -21,7 +21,7 @@ const ModalPopup = ({ onClose, menuItems, className }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="bg-white h-full w-[300px] p-6 overflow-y-auto shadow-lg"
+            className="bg-white h-full w-[300px] p-6 shadow-lg"
          >
             <ul className="flex flex-col gap-2 text-black">
                {menuItems.map((item, index) => (

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { imagesdata } from "../data";
 import { useState } from "react";
-import OverflowBody from "../hooks/overflowBody";
 import { X } from "lucide-react";
 
 const PortofolioDisplay = ({ dataId }) => {
@@ -18,8 +17,6 @@ const PortofolioDisplay = ({ dataId }) => {
       setSelectedImageIndex(index);
       setImageFull(true);
    };
-
-   OverflowBody({ OverflowBody: imagefull });
 
    return (
       <motion.div

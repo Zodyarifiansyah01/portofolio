@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import OverflowBody from "../../hooks/overflowBody";
 
 
 const ImagePopup = ({ item, Test }) => {
@@ -16,9 +15,6 @@ const ImagePopup = ({ item, Test }) => {
    const handelClose = () => {
       setIsOpen(false);
    };
-
-
-   OverflowBody({ OverflowBody: isOpen });
 
    useEffect(() => {
       const handleClickOutside = (event) => {

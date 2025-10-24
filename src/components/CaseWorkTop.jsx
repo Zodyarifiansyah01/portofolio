@@ -1,6 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa6";
 import { imagesdata } from "../data";
+import AppRoutes from "../routes/routes";
+import { ChevronLeft } from 'lucide-react'
 
 const CaseWorkTop = () => {
    const location = useLocation().pathname;
@@ -11,10 +13,22 @@ const CaseWorkTop = () => {
    const slug_akhir = pathOriginal[pathOriginal.length - 1];
    const slug = imagesdata.find((item) => item.slug === slug_akhir);
 
+   const handleBack = () => {
+      const audio = new Audio('/assets/sound/close.mp3');
+      audio.play();
+   }
+
+   const handleHover = () => {
+      const audio = new Audio('/assets/sound/hover.mp3');
+      audio.play();
+   }
+
    return (
       <div className="bg-[#161616] h-[30%]">
          <div className="container mx-auto flex flex-col justify-center items-start h-full px-4 pt-20 pb-6">
-
+            <Link to={AppRoutes.home} onClick={handleBack} onMouseEnter={handleHover} className="text-black flex items-center gap-x-1 bg-slate-200 p-2 rounded-lg mb-3">
+               <ChevronLeft /> Back
+            </Link>
             <div className="flex items-center gap-x-1">
                {pathDisplay.map((segment, index) => (
                   <div key={index} className="text-white flex items-center gap-x-1 capitalize">

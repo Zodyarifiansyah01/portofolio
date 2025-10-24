@@ -6,7 +6,7 @@ import PageAbout from "./pages/about/pageAbout";
 import PageTransition from "./components/pageTransition";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-
+import AppRoutes from "./routes/routes";
 
 function App() {
    const location = useLocation();
@@ -40,9 +40,9 @@ const AnimatedRoutes = () => {
 
    return (
       <Routes location={location} key={location.pathname}>
-         <Route path="/" element={<Home />} />
-         <Route path="/Detail-Works/:slug" element={<DetailListWork />} />
-         <Route path="/PageAbout" element={<PageAbout />} />
+         <Route path={AppRoutes.home} element={<Home />} />
+         <Route path={AppRoutes.detailWorks} element={<DetailListWork />} />
+         <Route path={AppRoutes.pageAbout} element={<PageAbout />} />
       </Routes>
    );
 };
