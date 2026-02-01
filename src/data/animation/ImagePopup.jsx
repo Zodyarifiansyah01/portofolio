@@ -31,7 +31,6 @@ const ImagePopup = ({ item, Test }) => {
          speechSynthesis.cancel();
       }
 
-
       document.addEventListener("click", handleClickOutside);
       return () => document.removeEventListener("click", handleClickOutside);
    }, [isOpen]);
