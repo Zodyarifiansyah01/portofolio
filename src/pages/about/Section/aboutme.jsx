@@ -1,78 +1,72 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-   const aboutRef = useRef(null);
-   const studiRef = useRef(null);
    const containerRef = useRef(null);
+   const aboutRef = useRef(null);
+   const studyRef = useRef(null);
 
-   useEffect(() => {
-      gsap.set(studiRef.current, {
-         position: "absolute",
-         top: 0,
-         left: 0,
-         right: 0,
-         opacity: 0,
-         zIndex: 0,
-         scale: 0.95
-      })
+   useLayoutEffect(() => {
+      const context = gsap.context(() => {
+         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      const tl = gsap.timeline({
-         scrollTrigger: {
-            trigger: containerRef.current,
-            start: "32% 50%",
-            end: "+=100",
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-            // markers: true,
-            id: "about",
+         if (reduceMotion) {
+            gsap.set([aboutRef.current, studyRef.current], { clearProps: "all" });
+            return;
          }
-      })
 
-      // Animation sequence
-      tl.to(aboutRef.current, {
-         opacity: 0,
-         scale: 0.95,
-         duration: 0.5
-      })
-         .to(studiRef.current, {
-            opacity: 1,
-            scale: 1,
-            zIndex: 10,
-            duration: 0.5
-         }, "<");
+         gsap.set(studyRef.current, { autoAlpha: 0, y: 32 });
 
+         const timeline = gsap.timeline({
+            scrollTrigger: {
+               trigger: containerRef.current,
+               start: "top top",
+               end: "bottom bottom",
+               scrub: 0.8,
+               pin: ".about-stage",
+               anticipatePin: 1,
+               invalidateOnRefresh: true,
+            },
+         });
 
-      return () => {
-         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-         tl.kill();
-      };
+         timeline
+            .to(aboutRef.current, { autoAlpha: 0, y: -32, duration: 0.45, ease: "power2.in" })
+            .to(studyRef.current, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" }, "<");
+      }, containerRef);
+
+      return () => context.revert();
    }, []);
 
    return (
-      <div ref={containerRef} className="w-screen h-[1500px] bg-[url(https://sdmntprwestus3.oaiusercontent.com/files/00000000-e168-61fd-9f2a-c8a8fe8fa7c1/raw?se=2025-06-16T16%3A18%3A58Z&sp=r&sv=2024-08-04&sr=b&scid=4c374839-f8a8-5530-8fb4-1dba1716c928&skoid=732f244e-db13-47c3-bcc7-7ee02a9397bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-15T23%3A20%3A08Z&ske=2025-06-16T23%3A20%3A08Z&sks=b&skv=2024-08-04&sig=6VnCpALX528YKiS5FN00o10ktaVwz%2BOJlmvSkeoRuBs%3D)]">
-         {/* Section 1 */}
-         <section ref={aboutRef} className="h-screen flex flex-col justify-center items-center px-5 md:px-0">
-            <h1 className="text-4xl font-bold mb-6 border-b pb-2">About Me</h1>
-            <p className="text-lg text-center max-w-2xl mb-4">
-               Saya adalah lulusan Program Studi Teknik Informatika dari Universitas Esa Unggul pada tahun 2023, dengan minat mendalam dalam pengembangan web dan desain UI/UX.
-            </p>
-            <p className="text-lg text-center max-w-2xl">
-               Saya senang mengubah masalah yang kompleks menjadi desain yang sederhana, indah, dan intuitif.
-            </p>
-         </section>
+      <div ref={containerRef} className="relative min-h-[180vh] w-full overflow-hidden bg-[#e7e3dc] text-[#171717]">
+         <div className="about-stage relative flex h-screen items-center justify-center px-6 py-20 md:px-16">
+            <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,#17171712_1px,transparent_1px),linear-gradient(to_bottom,#17171712_1px,transparent_1px)] [background-size:5rem_5rem]" />
+            <div className="relative w-full max-w-6xl">
+               <div className="mb-10 flex items-center justify-between border-b border-[#171717]/30 pb-4 text-xs uppercase tracking-[0.28em]">
+                  <span>About / 01</span>
+                  <span className="hidden md:inline">Designer & Developer</span>
+               </div>
 
-         {/* Section 2 */}
-         <section ref={studiRef} className="h-screen flex flex-col justify-center items-center px-5 md:px-0 bg-[url(https://sdmntprwestus2.oaiusercontent.com/files/00000000-3418-61f8-8f3a-28980062fbf7/raw?se=2025-06-16T16%3A20%3A30Z&sp=r&sv=2024-08-04&sr=b&scid=0ceb685d-f0d0-5702-b032-94a3603dc4fc&skoid=732f244e-db13-47c3-bcc7-7ee02a9397bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-16T07%3A08%3A46Z&ske=2025-06-17T07%3A08%3A46Z&sks=b&skv=2024-08-04&sig=TeE6mzqs4aG9OhTRW9hmHa3AZIbKPaMeNAbXc85bpzM%3D)]">
-            <h2 className="text-4xl font-bold mb-6 border-b pb-2">Universitas Esa Unggul</h2>
-            <p className="text-lg text-center max-w-2xl">
-               Di sini saya menempuh pendidikan dan mengembangkan banyak keterampilan yang mendukung karier saya di dunia teknologi.
-            </p>
-         </section>
+               <section ref={aboutRef} className="absolute inset-0 flex min-h-[22rem] flex-col justify-center">
+                  <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#d45d3f]">A little context</p>
+                  <h1 className="max-w-4xl font-noto-serif text-5xl leading-[0.95] md:text-8xl">About <em>me</em></h1>
+                  <p className="mt-8 max-w-2xl text-lg leading-relaxed md:text-2xl">
+                     Saya lulusan Teknik Informatika Universitas Esa Unggul (2023) yang senang mengubah masalah kompleks menjadi pengalaman digital yang sederhana, indah, dan intuitif.
+                  </p>
+               </section>
+
+               <section ref={studyRef} className="absolute inset-0 flex min-h-[22rem] flex-col justify-center">
+                  <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#d45d3f]">The foundation</p>
+                  <h2 className="max-w-4xl font-noto-serif text-5xl leading-[0.95] md:text-8xl">Universitas <em>Esa Unggul</em></h2>
+                  <p className="mt-8 max-w-2xl text-lg leading-relaxed md:text-2xl">
+                     Di sini saya membangun fondasi teknologi, kepemimpinan, dan cara berpikir yang mendukung pekerjaan saya di dunia web dan UI/UX.
+                  </p>
+               </section>
+            </div>
+         </div>
       </div>
    );
 };
