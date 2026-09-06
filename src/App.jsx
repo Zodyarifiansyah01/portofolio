@@ -28,7 +28,12 @@ function App() {
    return (
       <>
          <PageTransition />
-         {showContent && <AnimatedRoutes />}
+         {showContent && (
+            <main>
+               <AnimatedRoutes />
+            </main>
+         )}
+
       </>
    );
 }

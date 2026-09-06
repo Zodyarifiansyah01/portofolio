@@ -12,34 +12,34 @@ export const imagesdata = [
       bulanAwal: "Januari",
       tahunAkhir: "2024",
       bulanAkhir: "April",
-      img: "/assets/uiuxMobile.png",
+      img: "/assets/uiuxMobile.webp",
       about: "Merupakan Desain aplikasi bank sampah yang mendukung pengelolaan sampah secara efisien dan ramah lingkungan.",
       tagList: ['Web Design', 'UI/UX Design', 'Figma', 'Prototype', 'System Design'],
       imgSampah: [
          {
             id: 1,
-            img: "/assets/imagesUIUX/imageSampah/dirty-beach-environment-from-plastic-garbage_127090-1070.png",
+            img: "/assets/imagesUIUX/imageSampah/dirty-beach-environment-from-plastic-garbage_127090-1070.webp",
             title: "Pantai yang Tercemar oleh Sampah Plastik",
             paragraf: "Pantai kini menghadapi krisis lingkungan akibat akumulasi sampah plastik. Menurut United Nations Environment Programme (UNEP), sekitar 11 juta ton plastik memasuki lautan setiap tahunnya. Tanpa intervensi nyata, jumlah ini diproyeksikan meningkat tiga kali lipat pada tahun 2040. Selain merusak keindahan alam, pencemaran ini mengancam lebih dari 700 spesies laut dan berdampak terhadap rantai makanan manusia.",
             sumber: "United Nations Environment Programme (UNEP), 2021"
          },
          {
             id: 2,
-            img: "/assets/imagesUIUX/imageSampah/eagle-ray-small-fishes-group-swimming-aquarium-tank_127090-1045.png",
+            img: "/assets/imagesUIUX/imageSampah/eagle-ray-small-fishes-group-swimming-aquarium-tank_127090-1045.webp",
             title: "Dampak Sampah Plastik terhadap Kehidupan Laut",
             paragraf: "Sampah plastik di laut secara langsung membahayakan kehidupan biota laut seperti ikan dan pari. Banyak hewan laut salah mengira plastik sebagai makanan, menyebabkan gangguan kesehatan dan kematian. Selain itu, akumulasi plastik di dasar laut turut mengubah struktur habitat alami dan menurunkan kualitas ekosistem laut.",
             sumber: "World Wildlife Fund (WWF), 2022"
          },
          {
             id: 3,
-            img: "/assets/imagesUIUX/imageSampah/municipal-garbage-dump-landfill-environmental-pollution_96336-372.png",
+            img: "/assets/imagesUIUX/imageSampah/municipal-garbage-dump-landfill-environmental-pollution_96336-372.webp",
             title: "Pencemaran Lingkungan di Tempat Pembuangan Akhir",
             paragraf: "Tempat Pembuangan Akhir (TPA) yang tidak dikelola dengan baik menjadi sumber utama polusi tanah dan udara. Sampah organik menghasilkan gas metana yang mudah terbakar dan berbahaya, sementara limbah plastik membutuhkan waktu ratusan tahun untuk terurai. Kondisi ini memicu pencemaran jangka panjang yang membahayakan lingkungan sekitarnya.",
             sumber: "Environmental Protection Agency (EPA), 2020"
          },
          {
             id: 4,
-            img: "/assets/imagesUIUX/imageSampah/municipal-landfill-domestic-waste_96336-154.png",
+            img: "/assets/imagesUIUX/imageSampah/municipal-landfill-domestic-waste_96336-154.webp",
             title: "Krisis Sampah Domestik di Area Pembuangan",
             paragraf: "Pertumbuhan volume sampah domestik secara signifikan membebani kapasitas TPA. Akibatnya, terjadi pencemaran lingkungan yang parah, termasuk penyebaran gas beracun dan kontaminasi air tanah. Kondisi ini meningkatkan risiko gangguan kesehatan bagi masyarakat yang tinggal di sekitar area pembuangan.",
             sumber: "National Geographic, 2021"
@@ -48,22 +48,22 @@ export const imagesdata = [
       PortofolioDisplay: [
          {
             id: 1,
-            img: "/assets/imagesUIUX/mockupuiux/iphone-x-mockup-lying-on-a-wooden-bench-outdoors-a17484.png",
+            img: "/assets/imagesUIUX/mockupuiux/iphone-x-mockup-lying-on-a-wooden-bench-outdoors-a17484.webp",
             title: "Dashboard",
          },
          {
             id: 2,
-            img: "/assets/imagesUIUX/mockupuiux/lajk2QLZ6TJ.png",
+            img: "/assets/imagesUIUX/mockupuiux/lajk2QLZ6TJ.webp",
             title: "Dashboard",
          },
          {
             id: 3,
-            img: "/assets/imagesUIUX/mockupuiux/UCWx42FfqqM.png",
+            img: "/assets/imagesUIUX/mockupuiux/UCWx42FfqqM.webp",
             title: "Dashboard",
          },
          {
             id: 4,
-            img: "/assets/imagesUIUX/mockupuiux/rrSTJE3iBZo.png",
+            img: "/assets/imagesUIUX/mockupuiux/rrSTJE3iBZo.webp",
             title: "Dashboard",
          }
       ]
@@ -82,23 +82,23 @@ export const imagesdata = [
       bulanAwal: "Oktober",
       tahunAkhir: "2021",
       bulanAkhir: "sampai sekarang",
-      img: "/assets/MockupDashboard.png",
+      img: "/assets/MockupDashboard.webp",
       about: 'Aplikasi untuk mengelola data penelitian, pengabdian, dan hibah di Universitas Mercu Buana.',
       tagList: ['Web Design', 'Web Development', 'Laravel', 'Bootstrap'],
       PortofolioDisplay: [
          {
             id: 1,
-            img: "/assets/imageSiris/3e8a7f9ebcc.png",
+            img: "/assets/imageSiris/3e8a7f9ebcc.webp",
             title: "Dashboard",
          },
          {
             id: 2,
-            img: "/assets/imageSiris/6e81f610234.png",
+            img: "/assets/imageSiris/6e81f610234.webp",
             title: "Dashboard",
          },
          {
             id: 2,
-            img: "/assets/imageSiris/M5WT2VXImsO.png",
+            img: "/assets/imageSiris/M5WT2VXImsO.webp",
             title: "Dashboard",
          },
 
@@ -115,28 +115,28 @@ export const imagesdata = [
       bulanAwal: "Februari",
       tahunAkhir: "2021",
       bulanAkhir: "sampai sekarang",
-      img: "/assets/imagesMyWali/mockuper (1).png",
+      img: "/assets/imagesMyWali/mockuper (1).webp",
       about: "Aplikasi yang memudahkan orang tua dalam memantau progres akademik anak di perguruan tinggi.",
       tagList: ['Web Design', 'Web Development'],
       PortofolioDisplay: [
          {
             id: 1,
-            img: "/assets/imagesMyWali/mockuper.png",
+            img: "/assets/imagesMyWali/mockuper.webp",
             title: "Dashboard",
          },
          {
             id: 2,
-            img: "/assets/imagesMyWali/mockuper (1).png",
+            img: "/assets/imagesMyWali/mockuper (1).webp",
             title: "Dashboard",
          },
          {
             id: 3,
-            img: "/assets/imagesMyWali/mockuper (2).png",
+            img: "/assets/imagesMyWali/mockuper (2).webp",
             title: "Dashboard",
          },
          {
             id: 3,
-            img: "/assets/imagesMyWali/HdWL2xY7uaZ.png",
+            img: "/assets/imagesMyWali/HdWL2xY7uaZ.webp",
             title: "Dashboard",
          },
       ]
@@ -152,23 +152,23 @@ export const imagesdata = [
       bulanAwal: "Februari",
       tahunAkhir: "Sekarang",
       bulanAkhir: "",
-      img: "/assets/imagesULT/imagesUtama.png",
+      img: "/assets/imagesULT/imagesUtama.webp",
       about: "Aplikasi ULT memudahkan mahasiswa mengajukan wisuda, sidang, dan bimbingan secara terpusat.",
       tagList: ["Web Development", "Laravel", "Tailwind"],
       PortofolioDisplay: [
          {
             id: 1,
-            img: "/assets/imagesULT/imagesUtama.png",
+            img: "/assets/imagesULT/imagesUtama.webp",
             title: "Dashboard",
          },
          {
             id: 2,
-            img: "/assets/imagesULT/images1.png",
+            img: "/assets/imagesULT/images1.webp",
             title: "Dashboard",
          },
          {
             id: 3,
-            img: "/assets/imagesULT/images2.png",
+            img: "/assets/imagesULT/images2.webp",
             title: "Dashboard",
          },
       ]

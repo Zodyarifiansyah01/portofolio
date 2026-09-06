@@ -1,118 +1,119 @@
-import { React, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import { faBars, faXmark, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
+
+const socials = [
+   { handle: "zodyarifiansyah_", href: "https://www.instagram.com/zodyarifiansyah_/" },
+   { handle: "abhiprayaui", href: "https://www.instagram.com/abhiprayaui/" },
+];
 
 const Navbar = ({ openModal, menuItems }) => {
    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+   const [isMobileOpen, setIsMobileOpen] = useState(false);
+   const dropdownRef = useRef(null);
 
-   const handleDropdownClick = (event) => {
-      event.stopPropagation();
-      setIsDropdownVisible(!isDropdownVisible);
-   };
+   useEffect(() => {
+      const handleClickOutside = (event) => {
+         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownVisible(false);
+         }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+   }, []);
 
-   const handleOutsideClick = () => {
-      setIsDropdownVisible(false);
+   const handleMenuClick = () => {
+      setIsMobileOpen((prev) => !prev);
+      openModal?.();
    };
 
    return (
       <motion.nav
-         className="container mx-auto py-8 px-4 flex justify-between items-center"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         onClick={handleOutsideClick}
-         transition={{ duration: 1 }}
+         className="sticky top-0 z-30 border-b border-white/10 bg-black/40 backdrop-blur-md"
+         initial={{ opacity: 0, y: -12 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-         <motion.div
-            className="flex gap-10 items-center"
-            initial={{ x: -100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.5 }}
-         >
-            <div className="bg-orange-500 w-fit px-4 py-2 rounded-full text-white shadow-md">
-               <h2 className="text-sm md:text-xl font-semibold">Arifiansyah</h2>
-            </div>
+         <div className="container mx-auto flex items-center justify-between px-4 py-5">
+            {/* Wordmark */}
+            <a href="#" className="group flex items-center gap-2">
+               <span className="text-lg font-semibold tracking-tight text-white md:text-xl">
+                  Arifiansyah
+               </span>
+               <span className="h-1.5 w-1.5 rounded-full bg-orange-500 transition-transform duration-300 group-hover:scale-150" />
+            </a>
 
-            <div className="hidden md:block">
-               <ul className="flex gap-6 text-white">
-                  {menuItems.map((item, index) => (
-                     <motion.li
-                        key={index}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        transition={{ type: "spring", stiffness: 300 }}
+            {/* Desktop links */}
+            <ul className="hidden items-center gap-8 md:flex">
+               {menuItems.map((item, index) => (
+                  <li key={index} className="relative">
+                     <a
+                        href={item.link}
+                        className="group relative py-1 text-sm text-zinc-300 transition-colors duration-200 hover:text-white"
                      >
-                        <a
-                           href={item.link}
-                           className="hover:text-gray-300 transition duration-300"
-                        >
-                           {item.name}
-                        </a>
-                     </motion.li>
-                  ))}
-               </ul>
-            </div>
-         </motion.div>
+                        {item.name}
+                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                     </a>
+                  </li>
+               ))}
+            </ul>
 
-         <motion.div
-            initial={{ x: 100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex gap-4 items-center"
-         >
-            <div>
-               <FontAwesomeIcon
-                  icon={faBars}
-                  onClick={openModal}
-                  className="text-white text-3xl flex items-center gap-4 z-20 md:hidden"
-               />
-            </div>
-
-            <div
-               className="relative h-8 hidden md:block"
-               onClick={handleDropdownClick}
-               id="instagram-dropdown"
-            >
-               <a
-                  href="#"
-                  className="hover:text-gray-300 transition duration-300"
-               >
-                  <FontAwesomeIcon
-                     icon={faInstagram}
-                     className="text-white text-3xl"
-                  />
-               </a>
-
-               {/* Dropdown Menu */}
-               {isDropdownVisible && (
-                  <motion.div
-                     className="flex flex-col gap-4 absolute top-full mt-2 bg-white rounded-lg shadow-lg"
-                     id="media-social"
-                     initial={{ opacity: 0, y: -20 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.3 }}
+            {/* Right cluster */}
+            <div className="flex items-center gap-3">
+               {/* Instagram dropdown */}
+               <div className="relative hidden md:block" ref={dropdownRef}>
+                  <button
+                     type="button"
+                     onClick={() => setIsDropdownVisible((v) => !v)}
+                     aria-expanded={isDropdownVisible}
+                     aria-label="Instagram links"
+                     className="flex h-9 w-9 items-center justify-center rounded-full text-zinc-300 transition-colors duration-200 hover:bg-white/10 hover:text-white"
                   >
-                     <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        target="_blank"
-                        href="https://www.instagram.com/zodyarifiansyah_/"
-                        className="py-2 px-4 text-black hover:text-gray-700 transition duration-300"
-                     >
-                        Zodyarifiansyah
-                     </motion.a>
-                     <motion.a
-                        whileHover={{ scale: 1.05 }}
-                        target="_blank"
-                        href="https://www.instagram.com/abhiprayaui/"
-                        className="py-2 px-4 text-black hover:text-gray-700 transition duration-300"
-                     >
-                        abhiprayaui
-                     </motion.a>
-                  </motion.div>
-               )}
+                     <FontAwesomeIcon icon={faInstagram} className="text-lg" />
+                  </button>
+
+                  <AnimatePresence>
+                     {isDropdownVisible && (
+                        <motion.div
+                           initial={{ opacity: 0, y: -8 }}
+                           animate={{ opacity: 1, y: 0 }}
+                           exit={{ opacity: 0, y: -8 }}
+                           transition={{ duration: 0.18 }}
+                           className="absolute right-0 mt-3 w-56 overflow-hidden rounded-xl border border-white/10 bg-zinc-900 shadow-xl shadow-black/40"
+                        >
+                           {socials.map((social) => (
+                              <a
+                                 key={social.handle}
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 href={social.href}
+                                 className="group flex items-center justify-between px-4 py-3 text-sm text-zinc-200 transition-colors duration-150 hover:bg-white/5 hover:text-white"
+                              >
+                                 <span>@{social.handle}</span>
+                                 <FontAwesomeIcon
+                                    icon={faChevronRight}
+                                    className="text-xs text-zinc-500 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-orange-500"
+                                 />
+                              </a>
+                           ))}
+                        </motion.div>
+                     )}
+                  </AnimatePresence>
+               </div>
+
+               {/* Mobile toggle */}
+               <button
+                  type="button"
+                  onClick={handleMenuClick}
+                  aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-white/10 md:hidden"
+               >
+                  <FontAwesomeIcon icon={isMobileOpen ? faXmark : faBars} className="text-xl" />
+               </button>
             </div>
-         </motion.div>
+         </div>
       </motion.nav>
    );
 };

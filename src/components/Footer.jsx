@@ -18,7 +18,7 @@ const Footer = ({ menuItems = [] }) => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="md:col-span-3 border-t  border-gray-400"
                >
-                  <h5 className="text-sm mb-4 text-gray-400 mt-8">( About Us )</h5>
+                  <p className="text-sm mb-4 text-gray-400 mt-8">( About Us )</p>
                   <p className="text-white font-semibold text-base leading-relaxed">
                      "Saya berkomitmen untuk memberikan hasil terbaik dengan
                      fokus pada kualitas dan solusi inovatif yang memenuhi
@@ -37,7 +37,7 @@ const Footer = ({ menuItems = [] }) => {
                   transition={{ duration: 0.5, delay: 0.6 }}
                   className="border-t border-gray-200"
                >
-                  <h5 className="text-sm mb-4 text-gray-400 mt-8">( Contact )</h5>
+                  <p className="text-sm mb-4 text-gray-400 mt-8">( Contact )</p>
                   <p className="text-white font-semibold text-base leading-relaxed break-words">
                      zodyarifiansyah01@gmail.com
                   </p>
@@ -51,7 +51,7 @@ const Footer = ({ menuItems = [] }) => {
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               <p className="text-gray-500 text-xs md:text-sm">
+               <p className="text-white text-xs md:text-sm">
                   &copy; 2025 Arifiansyah. All rights reserved.
                </p>
             </motion.div>

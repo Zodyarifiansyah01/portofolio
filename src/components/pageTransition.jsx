@@ -13,7 +13,6 @@ const PageTransition = () => {
 
       const split = new SplitText("#title-page-transition", {
          types: 'chars',
-         mask: "chars"
       });
 
       gsap.set("#page-transition", { yPercent: -100, opacity: 1 });
@@ -65,7 +64,8 @@ const PageTransition = () => {
          id="page-transition"
          className="fixed z-50 top-0 left-0 w-full h-full bg-white flex items-center justify-center"
       >
-         <p id="title-page-transition" className="text-black text-2xl">
+         <p id="title-page-transition" aria-hidden="true"
+            className="text-black text-2xl">
             Arifiansyah
          </p>
       </div>
