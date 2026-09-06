@@ -1,16 +1,18 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { imagesdata } from "../data";
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { X, Maximize2 } from "lucide-react";
 
 const PortofolioDisplay = ({ dataId }) => {
    const data = imagesdata.find((item) => item.slug === dataId);
    const [imagefull, setImageFull] = useState(false);
    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
+   const images = data?.PortofolioDisplay ?? [];
 
    const imageClose = () => {
       setImageFull(false);
+      setSelectedImageIndex(null);
    };
 
    const handleClick = (index) => {
@@ -18,65 +20,132 @@ const PortofolioDisplay = ({ dataId }) => {
       setImageFull(true);
    };
 
-   return (
-      <motion.div
-         className="mt-4 mb-2 Helvetica-regular"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         transition={{ duration: 1, delay: 0.8 }}
-      >
-         <strong className="text-lg">Images</strong>
+   useEffect(() => {
+      const handleKeyDown = (e) => {
+         if (e.key === "Escape") imageClose();
+      };
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mx-auto mt-2">
-            {data.PortofolioDisplay?.map((item, index) => (
-               <div
-                  key={item.img + index}
-                  className="overflow-hidden rounded-lg shadow-lg bg-white h-[200px]"
+      if (imagefull) {
+         document.body.style.overflow = "hidden";
+         window.addEventListener("keydown", handleKeyDown);
+      }
+
+      return () => {
+         document.body.style.overflow = "";
+         window.removeEventListener("keydown", handleKeyDown);
+      };
+   }, [imagefull]);
+
+   if (!data) return null;
+
+   return (
+      <motion.section
+         className="mt-8 mb-4 font-sans"
+         initial={{ opacity: 0, y: 20 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{ duration: 0.6, delay: 0.2 }}
+      >
+         <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+               <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                  Images
+               </h2>
+            </div>
+
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+               {images.length} {images.length === 1 ? "image" : "images"}
+            </span>
+         </div>
+
+         <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {images.map((item, index) => (
+               <motion.button
+                  key={`${item.img}-${index}`}
+                  type="button"
+                  onClick={() => handleClick(index)}
+                  className="group relative h-[220px] overflow-hidden rounded-2xl bg-slate-100 text-left shadow-sm ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                     duration: 0.4,
+                     delay: 0.25 + index * 0.06,
+                  }}
                >
                   <img
-                     onClick={() => handleClick(index)}
                      src={item.img}
-                     alt={item.title}
-                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                     alt={item.title || `Portfolio ${index + 1}`}
+                     loading="lazy"
+                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-               </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  <div className="absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                     <div className="min-w-0">
+                        {item.title && (
+                           <p className="truncate text-sm font-semibold text-white">
+                              {item.title}
+                           </p>
+                        )}
+
+                        <p className="mt-0.5 text-xs text-white/70">
+                           View image
+                        </p>
+                     </div>
+
+                     <span className="ml-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md">
+                        <Maximize2 className="h-4 w-4" />
+                     </span>
+                  </div>
+               </motion.button>
             ))}
          </div>
 
-         {imagefull && (
-            <motion.div
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 md:pl-0"
-            >
+         <AnimatePresence>
+            {imagefull && selectedImageIndex !== null && (
                <motion.div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.5 }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-center justify-center"
+                  className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md sm:p-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={imageClose}
                >
-                  <div className="relative max-w-[900px] max-h-[80vh] w-auto h-auto">
+                  <motion.div
+                     className="relative flex max-h-[92vh] max-w-6xl items-center justify-center"
+                     initial={{ opacity: 0, scale: 0.92, y: 15 }}
+                     animate={{ opacity: 1, scale: 1, y: 0 }}
+                     exit={{ opacity: 0, scale: 0.92, y: 15 }}
+                     transition={{
+                        duration: 0.3,
+                        ease: "easeOut",
+                     }}
+                     onClick={(e) => e.stopPropagation()}
+                  >
                      <img
-                        src={data.PortofolioDisplay[selectedImageIndex]?.img}
-                        alt={data.PortofolioDisplay[selectedImageIndex]?.title}
-                        className="w-full h-auto rounded-lg object-contain"
-                        onClick={(e) => e.stopPropagation()}
+                        src={images[selectedImageIndex]?.img}
+                        alt={images[selectedImageIndex]?.title}
+                        className="max-h-[88vh] max-w-full rounded-2xl object-contain shadow-2xl"
                      />
-                     <div
+
+                     <button
+                        type="button"
                         onClick={imageClose}
-                        className="absolute top-2 right-[2%] bg-slate-200 rounded-xl text-black px-3 py-1 cursor-pointer z-10"
+                        aria-label="Close image"
+                        className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md transition-all hover:bg-white hover:text-black"
                      >
-                        <X className="w-6 h-6" />
-                     </div>
-                  </div>
+                        <X className="h-5 w-5" />
+                     </button>
+
+                     {images[selectedImageIndex]?.title && (
+                        <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-black/50 px-4 py-3 text-sm text-white backdrop-blur-md">
+                           {images[selectedImageIndex].title}
+                        </div>
+                     )}
+                  </motion.div>
                </motion.div>
-            </motion.div>
-         )}
-
-
-      </motion.div>
+            )}
+         </AnimatePresence>
+      </motion.section>
    );
 };
 
