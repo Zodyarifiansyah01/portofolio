@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSound } from "../../context/SoundContext";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,8 @@ const ListWorks = () => {
    //    const paragraphs = desc.split("\n");
    //    return paragraphs.slice(0, 3).join("\n");
    // };
+
+   const { handleHover, handleClick } = useSound();
 
    const cardRef = useRef([]);
    useEffect(() => {
@@ -45,16 +48,6 @@ const ListWorks = () => {
       };
    }, []);
 
-   const HoverSound = () => {
-      const audio = new Audio('/assets/sound/hover.mp3');
-      audio.play();
-   }
-
-   const ClickSound = () => {
-      const audio = new Audio('/assets/sound/click.mp3');
-      audio.play();
-   }
-
    return (
       <div className=" mx-auto">
          <div className="grid grid-cols-12 gap-8">
@@ -62,8 +55,8 @@ const ListWorks = () => {
                <Link to={`/Detail-Works/${item.slug}`} key={item.id} className="col-span-12 md:col-span-6">
                   <div
                      className="cursor-pointer"
-                     onMouseEnter={HoverSound}
-                     onClick={ClickSound}
+                     onMouseEnter={handleHover}
+                     onClick={handleClick}
                      ref={(el) => (cardRef.current[index] = el)}
                   >
                      <div className="w-full flex justify-center gap-4">

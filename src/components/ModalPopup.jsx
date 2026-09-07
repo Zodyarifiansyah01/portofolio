@@ -1,43 +1,84 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useSound } from "../context/SoundContext";
 
-const ModalPopup = ({ onClose, menuItems, className }) => {
+const overlayVariants = {
+   hidden: { opacity: 0 },
+   visible: { opacity: 1, transition: { duration: 0.3 } },
+   exit: { opacity: 0, transition: { duration: 0.2 } },
+};
+
+const drawerVariants = {
+   hidden: { x: "-100%" },
+   visible: {
+      x: 0,
+      transition: {
+         type: "spring",
+         stiffness: 300,
+         damping: 30,
+         when: "beforeChildren",
+         staggerChildren: 0.05,
+      },
+   },
+   exit: {
+      x: "-100%",
+      transition: { type: "spring", stiffness: 300, damping: 30 },
+   },
+};
+
+const itemVariants = {
+   hidden: { opacity: 0, x: -20 },
+   visible: { opacity: 1, x: 0 },
+};
+
+const ModalPopup = ({ onClose, menuItems = [] }) => {
+   const { handleClick } = useSound();
+
    const handleCloseModal = (e) => {
       if (e.target === e.currentTarget) {
          onClose();
       }
    };
 
+   const handleMenuClick = () => {
+      onClose();
+   };
+
    return (
       <motion.div
-         initial={{ opacity: 0, scale: 0.5 }}
-         animate={{ opacity: 1, scale: 1 }}
-         exit={{ opacity: 0, scale: 0.5 }}
-         transition={{ duration: 0.5 }}
+         variants={overlayVariants}
+         initial="hidden"
+         animate="visible"
+         exit="exit"
          onClick={handleCloseModal}
-         className={`fixed inset-0 bg-slate-500 bg-opacity-50 z-10 ${className}`}
+         className="fixed inset-0 z-40 bg-slate-500 bg-opacity-50"
       >
          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "spring", stiffness: 300 }}
+            variants={drawerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="bg-white h-full w-[300px] p-6 shadow-lg"
          >
             <ul className="flex flex-col gap-2 text-black">
                {menuItems.map((item, index) => (
                   <motion.li
                      key={index}
-                     whileHover={{ scale: 1.1 }}
-                     whileTap={{ scale: 0.9 }}
-                     transition={{ type: "spring", stiffness: 300 }}
+                     variants={itemVariants}
+                     whileHover={{ scale: 1.05, x: 4 }}
+                     whileTap={{ scale: 0.95 }}
+                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                     <a
-                        href={item.link}
-                        onClick={handleCloseModal}
+                     <Link
+                        to={item.link}
+                        onClick={() => {
+                           handleClick();
+                           handleMenuClick();
+                        }}
                         className="hover:text-gray-300 transition duration-300"
                      >
                         {item.name}
-                     </a>
+                     </Link>
                   </motion.li>
                ))}
             </ul>

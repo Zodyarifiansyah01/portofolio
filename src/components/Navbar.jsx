@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faXmark, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useSound } from "../context/SoundContext";
 
 const socials = [
    { handle: "zodyarifiansyah_", href: "https://www.instagram.com/zodyarifiansyah_/" },
@@ -13,6 +15,7 @@ const Navbar = ({ openModal, menuItems }) => {
    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
    const [isMobileOpen, setIsMobileOpen] = useState(false);
    const dropdownRef = useRef(null);
+   const { handleHover, handleClick } = useSound();
 
    useEffect(() => {
       const handleClickOutside = (event) => {
@@ -46,16 +49,19 @@ const Navbar = ({ openModal, menuItems }) => {
             </a>
 
             {/* Desktop links */}
+            {/* about */}
             <ul className="hidden items-center gap-8 md:flex">
                {menuItems.map((item, index) => (
                   <li key={index} className="relative">
-                     <a
-                        href={item.link}
+                     <Link
+                        onMouseEnter={handleHover}
+                        onClick={handleClick}
+                        to={item.link}
                         className="group relative py-1 text-sm text-zinc-300 transition-colors duration-200 hover:text-white"
                      >
                         {item.name}
                         <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-full" />
-                     </a>
+                     </Link>
                   </li>
                ))}
             </ul>

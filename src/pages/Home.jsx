@@ -4,7 +4,11 @@ import Content from "../components/Content"
 import Footer from "../components/Footer";
 import ModalPopup from '../components/ModalPopup';
 
+import { AnimatePresence } from "framer-motion";
+
 import { menuItems } from "../data";
+
+import { SoundProvider } from "../context/SoundContext";
 
 const Home = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,16 +26,24 @@ const Home = () => {
 
    return (
       <>
-         <div className={`min-h-screen flex flex-col ${isMenuOpen ? "overflow-hidden" : ""}`}>
+         <SoundProvider>
+            <div className={`min-h-screen flex flex-col ${isMenuOpen ? "overflow-hidden" : ""}`}>
 
-            <ModalPopup
-               className={isMenuOpen ? "block" : "hidden"}
-               onClose={handleMenu}
-               menuItems={menuItems}
-            />
-            <Navbar openModal={handleMenu} menuItems={menuItems} />
-            <Content isScroll={isMenuOpen} />
-         </div>
+               <AnimatePresence>
+
+                  {isMenuOpen && (
+                     <ModalPopup
+                        onClose={handleMenu}
+                        menuItems={menuItems}
+                     />
+                  )}
+               </AnimatePresence>
+
+               <Navbar openModal={handleMenu} menuItems={menuItems} />
+               <Content isScroll={isMenuOpen} />
+            </div>
+         </SoundProvider>
+
          <Footer menuItems={menuItems} />
       </>
    );
