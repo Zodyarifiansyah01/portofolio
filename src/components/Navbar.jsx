@@ -11,9 +11,8 @@ const socials = [
    { handle: "abhiprayaui", href: "https://www.instagram.com/abhiprayaui/" },
 ];
 
-const Navbar = ({ openModal, menuItems }) => {
+const Navbar = ({ isMenuOpen, onMenuToggle, menuItems = [] }) => {
    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-   const [isMobileOpen, setIsMobileOpen] = useState(false);
    const dropdownRef = useRef(null);
    const { handleHover, handleClick } = useSound();
 
@@ -26,11 +25,6 @@ const Navbar = ({ openModal, menuItems }) => {
       document.addEventListener("mousedown", handleClickOutside);
       return () => document.removeEventListener("mousedown", handleClickOutside);
    }, []);
-
-   const handleMenuClick = () => {
-      setIsMobileOpen((prev) => !prev);
-      openModal?.();
-   };
 
    return (
       <motion.nav
@@ -112,11 +106,12 @@ const Navbar = ({ openModal, menuItems }) => {
                {/* Mobile toggle */}
                <button
                   type="button"
-                  onClick={handleMenuClick}
-                  aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+                  onClick={onMenuToggle}
+                  aria-expanded={isMenuOpen}
+                  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                   className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-white/10 md:hidden"
                >
-                  <FontAwesomeIcon icon={isMobileOpen ? faXmark : faBars} className="text-xl" />
+                  <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-xl" />
                </button>
             </div>
          </div>

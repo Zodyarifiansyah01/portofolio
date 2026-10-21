@@ -8,24 +8,29 @@ import DetailULT from "../../pages/detailWorks/DetailULT";
 const DetailListWork = () => {
    const { slug } = useParams();
 
-   const detailComponents = {
-      "UIUX-Course-Binary": <DetailUIUX dataId={slug} />,
-      "LPPM-Universitas": <DetailSiris dataId={slug} />,
-      "My-Wali": <DetaiMyWali dataId={slug} />,
-      "Unit-Layanan-Terpadu": <DetailULT dataId={slug} />,
+   const detailPages = {
+      "UIUX-Course-Binary": DetailUIUX,
+      "LPPM-Universitas": DetailSiris,
+      "My-Wali": DetaiMyWali,
+      "Unit-Layanan-Terpadu": DetailULT,
    };
+   const DetailPage = detailPages[slug];
 
    return (
       <div className=" mx-auto">
-         {detailComponents[slug] && (
+         {DetailPage ? (
             <motion.div
                className="text-justify"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 0.8 }}
             >
-               {detailComponents[slug]}
+               <DetailPage dataId={slug} />
             </motion.div>
+         ) : (
+            <div className="py-16 text-center text-xl font-semibold">
+               Proyek tidak ditemukan.
+            </div>
          )}
       </div>
    );

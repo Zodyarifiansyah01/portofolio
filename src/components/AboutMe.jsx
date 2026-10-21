@@ -1,20 +1,32 @@
-import React, { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const AboutMe = () => {
+   const sectionRef = useRef(null);
+   const firstParagraphRef = useRef(null);
+   const secondParagraphRef = useRef(null);
+
    useEffect(() => {
-      const tl = gsap.timeline();
-      tl.fromTo('#paragraf-1', { y: 50, opacity: 0 }, {
-         y: 0, delay: 2.5, opacity: 1, duration: 1, ease: "power2.out"
-      });
+      const context = gsap.context(() => {
+         const timeline = gsap.timeline();
+         timeline.fromTo(
+            firstParagraphRef.current,
+            { y: 50, opacity: 0 },
+            { y: 0, delay: 2.5, opacity: 1, duration: 1, ease: "power2.out" }
+         );
+         timeline.fromTo(
+            secondParagraphRef.current,
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "power2.out" },
+            "-=0.5"
+         );
+      }, sectionRef);
 
-      tl.fromTo('#paragraf-2', { y: 50, opacity: 0 }, {
-         y: 0, opacity: 1, duration: 1, ease: "power2.out"
-      }, "-=0.5");
-
+      return () => context.revert();
    }, []);
+
    return (
-      <div className="grid grid-cols-12 gap-4 md:p-8" id="about">
+      <div ref={sectionRef} className="grid grid-cols-12 gap-4 md:p-8" id="about">
          {/* Header Section */}
          <div
             className="col-span-12 md:col-span-4 text-justify"
@@ -27,7 +39,7 @@ const AboutMe = () => {
 
          <div className="col-span-12 md:col-span-8 text-sm md:text-lg">
             <div className="text-justify">
-               <p id="paragraf-1" className="mb-4" >
+               <p ref={firstParagraphRef} className="mb-4">
                   Saya percaya pada hubungan yang kuat antara desain dan
                   pengalaman pengguna, yang tercapai melalui eksekusi yang
                   hati-hati dan perhatian terhadap detail. Saya senang bekerja
@@ -35,7 +47,7 @@ const AboutMe = () => {
                   benar-benar bisa saya banggakan.
                </p>
 
-               <p id="paragraf-2">
+               <p ref={secondParagraphRef}>
                   Tujuan saya selalu untuk menciptakan antarmuka yang bersih,
                   sempurna pada piksel, dengan animasi yang halus dan lancar.
                   Saya mengutamakan tidak hanya menulis kode yang efisien,

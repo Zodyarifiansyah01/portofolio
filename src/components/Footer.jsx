@@ -1,157 +1,93 @@
 import React from "react";
-import { motion } from "framer-motion"; // Impor motion
+import { motion } from "framer-motion";
 
-const Footer = ({ menuItems = [] }) => {
+const Footer = () => {
    return (
-      <motion.div
-         className=" text-white pb-8 rounded-lg shadow-xl"
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         transition={{ duration: 1 }}
-      >
-         <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 ">
-               {/* About Us Section */}
-               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="md:col-span-3 border-t  border-gray-400"
-               >
-                  <p className="text-sm mb-4 text-gray-400 mt-8">( About Us )</p>
-                  <p className="text-white font-semibold text-base leading-relaxed">
-                     "Saya berkomitmen untuk memberikan hasil terbaik dengan
+      <footer className="w-full bg-slate-50 px-4 pb-6 pt-12 Helvetica-regular">
+         <motion.div
+            className="container relative mx-auto overflow-hidden rounded-[2.5rem] p-8 md:p-14
+                       bg-gradient-to-br from-rose-200 via-violet-200 to-sky-200"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+         >
+            {/* Teks besar sebagai watermark */}
+            <span
+               aria-hidden="true"
+               className="pointer-events-none select-none absolute -bottom-[0.18em] left-1/2 -translate-x-1/2
+                          text-[26vw] md:text-[18vw] font-extrabold leading-none tracking-tighter
+                          text-white/40 whitespace-nowrap"
+            >
+               ZODY
+            </span>
+
+            <div className="relative grid grid-cols-1 md:grid-cols-12 gap-10">
+               {/* Headline + quote */}
+               <div className="md:col-span-7">
+                  <p className="text-sm font-medium text-violet-600/80 mb-4">
+                     ( Contact )
+                  </p>
+                  <h2 className="font-nunito-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-slate-800">
+                     Punya ide proyek?
+                     <br />
+                     Mari kita wujudkan.
+                  </h2>
+               </div>
+
+               <div className="md:col-span-5 flex flex-col justify-end gap-6">
+                  <p className="text-sm md:text-base leading-relaxed text-slate-700">
+                     &quot;Saya berkomitmen untuk memberikan hasil terbaik dengan
                      fokus pada kualitas dan solusi inovatif yang memenuhi
                      kebutuhan pengguna, sambil memastikan kepuasan pengguna
-                     melalui dedikasi dan kreativitas."
+                     melalui dedikasi dan kreativitas.&quot;
                   </p>
-               </motion.div>
 
-
-
-
-               {/* Contact Section */}
-               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  className="border-t border-gray-200"
-               >
-                  <p className="text-sm mb-4 text-gray-400 mt-8">( Contact )</p>
-                  <p className="text-white font-semibold text-base leading-relaxed break-words">
-                     zodyarifiansyah01@gmail.com
-                  </p>
-               </motion.div>
+                  <a
+                     href="mailto:zodyarifiansyah01@gmail.com"
+                     className="group inline-flex w-fit max-w-full items-center gap-3 rounded-full
+                                bg-white pl-6 pr-2 py-2 text-sm md:text-base font-semibold text-slate-800
+                                shadow-sm hover:bg-slate-800 hover:text-white transition-colors duration-300"
+                  >
+                     <span className="break-all">zodyarifiansyah01@gmail.com</span>
+                     <span
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                   bg-violet-300 text-slate-800 transition-transform duration-300
+                                   group-hover:rotate-45"
+                     >
+                        <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           className="h-4 w-4"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke="currentColor"
+                           strokeWidth={2.5}
+                        >
+                           <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
+                        </svg>
+                     </span>
+                  </a>
+               </div>
             </div>
 
-
-            <motion.div
-               className="mt-52 text-center"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ duration: 1, delay: 0.8 }}
-            >
-               <p className="text-white text-xs md:text-sm">
+            {/* Baris bawah */}
+            <div className="relative mt-24 md:mt-32 flex flex-col sm:flex-row items-center justify-between gap-4
+                            pt-6 border-t border-white/70">
+               <p className="text-xs md:text-sm text-slate-700">
                   &copy; 2025 Arifiansyah. All rights reserved.
                </p>
-            </motion.div>
-         </div>
-      </motion.div>
+               <button
+                  type="button"
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="rounded-full bg-white/70 px-4 py-1.5 text-xs md:text-sm font-medium text-slate-700
+                             hover:bg-white transition-colors duration-200"
+               >
+                  Kembali ke atas
+               </button>
+            </div>
+         </motion.div>
+      </footer>
    );
 };
 
 export default Footer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const Footer = ({ menuItems = [] }) => {
-//    return (
-//       <motion.div
-//          className="bg-gradient-to-b from-black from-10% via-gray-500 via-40% to-white to-88% text-white py-8 rounded-lg shadow-xl"
-//          initial={{ opacity: 0 }}
-//          animate={{ opacity: 1 }}
-//          transition={{ duration: 1 }}
-//       >
-//          <div className="container mx-auto px-4">
-//             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-40">
-//                {/* About Us Section */}
-//                <motion.div
-//                   initial={{ opacity: 0, y: 20 }}
-//                   animate={{ opacity: 1, y: 0 }}
-//                   transition={{ duration: 0.5, delay: 0.2 }}
-//                >
-//                   <h5 className="text-xl font-bold mb-4 text-white">About Us</h5>
-//                   <p className="text-white text-sm leading-relaxed">
-//                      "Saya berkomitmen untuk memberikan hasil terbaik dengan
-//                      fokus pada kualitas dan solusi inovatif yang memenuhi
-//                      kebutuhan pengguna, sambil memastikan kepuasan pengguna
-//                      melalui dedikasi dan kreativitas."
-//                   </p>
-//                </motion.div>
-
-//                {/* Quick Links Section */}
-//                <motion.div
-//                   initial={{ opacity: 0, y: 20 }}
-//                   animate={{ opacity: 1, y: 0 }}
-//                   transition={{ duration: 0.5, delay: 0.4 }}
-//                   aria-label="Quick Links"
-//                   role="navigation"
-//                >
-//                   <h5 className="text-xl font-bold mb-4 text-white">Quick Links</h5>
-//                   <ul className="space-y-3">
-//                      {menuItems.map((item) => (
-//                         <li key={item.name}>
-//                            <a
-//                               href={item.link}
-//                               className="text-white hover:text-gray-900 transition-colors text-sm flex items-center gap-2"
-//                            >
-//                               <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
-//                               {item.name}
-//                            </a>
-//                         </li>
-//                      ))}
-//                   </ul>
-//                </motion.div>
-
-//                {/* Contact Section */}
-//                <motion.div
-//                   initial={{ opacity: 0, y: 20 }}
-//                   animate={{ opacity: 1, y: 0 }}
-//                   transition={{ duration: 0.5, delay: 0.6 }}
-//                >
-//                   <h5 className="text-xl font-bold mb-4 text-white">Contact</h5>
-//                   <p className="text-white text-sm flex items-center gap-2">
-//                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-//                      </svg>
-//                      zodyarifiansyah01@gmail.com
-//                   </p>
-//                </motion.div>
-//             </div>
-
-//             <motion.div
-//                className="mt-12 pt-6 border-t border-gray-200 text-center"
-//                initial={{ opacity: 0 }}
-//                animate={{ opacity: 1 }}
-//                transition={{ duration: 1, delay: 0.8 }}
-//             >
-//                <p className="text-gray-500 text-xs md:text-sm">
-//                   &copy; 2025 Arifiansyah. All rights reserved.
-//                </p>
-//             </motion.div>
-//          </div>
-//       </motion.div>
-//    );
-// };
-
-// export default Footer;
