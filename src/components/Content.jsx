@@ -3,11 +3,15 @@ import MoreWorks from "./MoreWorks";
 import CircularText from "../data/animation/CircularText";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
+import AppRoutes from "../routes/routes";
+import { useSound } from "../context/SoundContext";
 
 const INTRO_DELAY = 2.5; // sesuaikan dengan durasi preloader
 
 const Content = () => {
   const contentRef = useRef(null);
+  const { handleHover, handleClick } = useSound();
 
   useLayoutEffect(() => {
     // hormati pengguna yang mematikan animasi
@@ -151,6 +155,8 @@ const Content = () => {
               <div className="cta">
                 <a
                   id="cta-works"
+                  onMouseEnter={handleHover}
+                  onClick={handleClick}
                   href="#more-works"
                   className="block bg-[#d45d3f] px-6 py-3 font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:bg-[#bd4e33]"
                 >
@@ -159,13 +165,14 @@ const Content = () => {
               </div>
 
               <div className="cta">
-                <a
-                  id="cta-about"
-                  href="#about"
+                <Link
+                  onMouseEnter={handleHover}
+                  onClick={handleClick}
+                  to={AppRoutes.pageAbout}
                   className="block border border-[#171717]/40 px-6 py-3 font-bold text-[#171717] transition-all duration-200 hover:-translate-y-1 hover:border-[#d45d3f] hover:text-[#d45d3f]"
                 >
                   Tentang Saya
-                </a>
+                </Link>
               </div>
             </div>
           </div>
