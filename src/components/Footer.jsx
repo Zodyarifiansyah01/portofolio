@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
    return (
-      <footer className="w-full bg-slate-50 px-4 pb-6 pt-12 Helvetica-regular">
+      <footer className="w-full bg-[#e7e3dc] px-4 pb-6 pt-12 text-[#171717] Helvetica-regular">
          <motion.div
-            className="container relative mx-auto overflow-hidden rounded-[2.5rem] p-8 md:p-14
-                       bg-gradient-to-br from-rose-200 via-violet-200 to-sky-200"
+            className="container relative mx-auto overflow-hidden border-y border-[#171717]/20 py-8 md:py-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -16,8 +15,8 @@ const Footer = () => {
             <span
                aria-hidden="true"
                className="pointer-events-none select-none absolute -bottom-[0.18em] left-1/2 -translate-x-1/2
-                          text-[26vw] md:text-[18vw] font-extrabold leading-none tracking-tighter
-                          text-white/40 whitespace-nowrap"
+                          text-[26vw] md:text-[18vw] font-noto-serif leading-none tracking-tighter
+                          text-[#171717]/[0.06] whitespace-nowrap"
             >
                ZODY
             </span>
@@ -25,10 +24,10 @@ const Footer = () => {
             <div className="relative grid grid-cols-1 md:grid-cols-12 gap-10">
                {/* Headline + quote */}
                <div className="md:col-span-7">
-                  <p className="text-sm font-medium text-violet-600/80 mb-4">
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#d45d3f] sm:text-sm">
                      ( Contact )
                   </p>
-                  <h2 className="font-nunito-sans text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-slate-800">
+                  <h2 className="font-noto-serif text-4xl leading-[0.95] tracking-[-0.02em] sm:text-6xl md:text-7xl">
                      Punya ide proyek?
                      <br />
                      Mari kita wujudkan.
@@ -36,7 +35,7 @@ const Footer = () => {
                </div>
 
                <div className="md:col-span-5 flex flex-col justify-end gap-6">
-                  <p className="text-sm md:text-base leading-relaxed text-slate-700">
+                  <p className="text-sm leading-relaxed text-[#171717]/75 md:text-base">
                      &quot;Saya berkomitmen untuk memberikan hasil terbaik dengan
                      fokus pada kualitas dan solusi inovatif yang memenuhi
                      kebutuhan pengguna, sambil memastikan kepuasan pengguna
@@ -45,15 +44,11 @@ const Footer = () => {
 
                   <a
                      href="mailto:zodyarifiansyah01@gmail.com"
-                     className="group inline-flex w-fit max-w-full items-center gap-3 rounded-full
-                                bg-white pl-6 pr-2 py-2 text-sm md:text-base font-semibold text-slate-800
-                                shadow-sm hover:bg-slate-800 hover:text-white transition-colors duration-300"
+                     className="group inline-flex w-fit max-w-full items-center gap-3 border border-[#171717]/30 py-2 pl-4 pr-2 text-sm font-semibold text-[#171717] transition-colors duration-300 hover:border-[#d45d3f] hover:text-[#d45d3f] md:text-base"
                   >
                      <span className="break-all">zodyarifiansyah01@gmail.com</span>
                      <span
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                   bg-violet-300 text-slate-800 transition-transform duration-300
-                                   group-hover:rotate-45"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#d45d3f] text-white transition-transform duration-300 group-hover:rotate-45"
                      >
                         <svg
                            xmlns="http://www.w3.org/2000/svg"
@@ -72,15 +67,14 @@ const Footer = () => {
 
             {/* Baris bawah */}
             <div className="relative mt-24 md:mt-32 flex flex-col sm:flex-row items-center justify-between gap-4
-                            pt-6 border-t border-white/70">
-               <p className="text-xs md:text-sm text-slate-700">
+                            border-t border-[#171717]/20 pt-6">
+               <p className="text-xs text-[#171717]/60 md:text-sm">
                   &copy; 2025 Arifiansyah. All rights reserved.
                </p>
                <button
                   type="button"
                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  className="rounded-full bg-white/70 px-4 py-1.5 text-xs md:text-sm font-medium text-slate-700
-                             hover:bg-white transition-colors duration-200"
+                  className="border border-[#171717]/30 px-4 py-1.5 text-xs font-medium text-[#171717] transition-colors duration-200 hover:border-[#d45d3f] hover:text-[#d45d3f] md:text-sm"
                >
                   Kembali ke atas
                </button>
