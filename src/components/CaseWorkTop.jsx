@@ -4,15 +4,6 @@ import { imagesdata } from "../data";
 import AppRoutes from "../routes/routes";
 import { ChevronLeft } from "lucide-react";
 
-// Warna pastel bergantian untuk tag
-const tagTones = [
-   "bg-rose-100 text-rose-600 border-rose-200",
-   "bg-violet-100 text-violet-600 border-violet-200",
-   "bg-sky-100 text-sky-600 border-sky-200",
-   "bg-emerald-100 text-emerald-600 border-emerald-200",
-   "bg-amber-100 text-amber-600 border-amber-200",
-];
-
 const CaseWorkTop = () => {
    const location = useLocation().pathname;
 
@@ -33,22 +24,17 @@ const CaseWorkTop = () => {
    };
 
    return (
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#fdf2f8] via-[#f5f3ff] to-[#f0f9ff]">
-         {/* Blob pastel samar */}
-         <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-rose-200/40 blur-3xl" />
-         <div className="pointer-events-none absolute -top-16 right-0 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
-
+      <div className="relative overflow-hidden bg-[#e7e3dc] text-[#171717]">
          <div className="relative container mx-auto flex flex-col items-start px-4 lg:px-6 pt-20 pb-8">
             {/* Tombol kembali */}
             <Link
                to={AppRoutes.home}
                onClick={handleBack}
                onMouseEnter={handleHover}
-               className="group inline-flex items-center gap-x-1.5 rounded-full border border-slate-200
-                          bg-white/80 px-3.5 py-2 mb-5 text-sm font-medium text-slate-600 shadow-sm
-                          backdrop-blur-sm transition-all duration-200
-                          hover:border-violet-300 hover:text-violet-500 active:scale-95
-                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+               className="group mb-5 inline-flex items-center gap-x-1.5 border border-[#171717]/30
+                          px-3.5 py-2 text-sm font-medium text-[#171717]/75
+                          transition-colors duration-200 hover:border-[#d45d3f] hover:text-[#d45d3f]
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d45d3f]"
             >
                <ChevronLeft className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
                Kembali
@@ -56,7 +42,7 @@ const CaseWorkTop = () => {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb">
-               <ol className="flex flex-wrap items-center gap-x-1.5 text-xs sm:text-sm text-slate-500">
+               <ol className="flex flex-wrap items-center gap-x-1.5 text-xs text-[#171717]/55 sm:text-sm">
                   {pathDisplay.map((segment, index) => {
                      const isLast = index === pathDisplay.length - 1;
                      return (
@@ -68,14 +54,14 @@ const CaseWorkTop = () => {
                            <span
                               className={
                                  isLast
-                                    ? "font-semibold text-violet-500"
-                                    : "text-slate-500"
+                                    ? "font-semibold uppercase tracking-[0.08em] text-[#d45d3f]"
+                                    : "text-[#171717]/55"
                               }
                            >
                               {segment}
                            </span>
                            {!isLast && (
-                              <FaAngleRight className="h-3 w-3 text-slate-300" />
+                              <FaAngleRight className="h-3 w-3 text-[#171717]/30" />
                            )}
                         </li>
                      );
@@ -86,16 +72,14 @@ const CaseWorkTop = () => {
             {/* Judul dan tag */}
             {slug && (
                <div key={slug.id} className="mt-5 flex flex-col gap-4">
-                  <h1 className="font-nunito-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-800">
+                  <h1 className="font-noto-serif text-4xl leading-[0.95] tracking-[-0.02em] text-[#171717] sm:text-6xl lg:text-7xl">
                      {slug.titleApp}
                   </h1>
                   <div className="flex flex-wrap gap-2">
                      {slug.tagList.map((tag, index) => (
                         <span
                            key={index}
-                           className={`rounded-full border px-3.5 py-1 text-xs sm:text-sm font-medium
-                                       transition-transform duration-200 hover:-translate-y-0.5
-                                       ${tagTones[index % tagTones.length]}`}
+                           className="inline-flex items-center gap-2 rounded-full border border-[#171717]/15 bg-white/35 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-[#171717]/65 transition-colors duration-300 hover:border-[#d45d3f]/50 hover:bg-[#d45d3f]/10 hover:text-[#d45d3f] sm:text-xs"
                         >
                            {tag}
                         </span>

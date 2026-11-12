@@ -73,25 +73,41 @@ const ListWorks = () => {
           <Link
             to={`/Detail-Works/${item.slug}`}
             key={item.id}
-            className="col-span-12 md:col-span-6"
+            className="group/card col-span-12 block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d45d3f] md:col-span-6"
           >
             <div
-              className="cursor-pointer"
+              className="relative cursor-pointer rounded-3xl"
               onMouseEnter={handleHover}
               onClick={handleClick}
               ref={(el) => (cardRef.current[index] = el)}
             >
               <div className="w-full flex justify-center gap-4">
-                <div className="w-full aspect-[16/9] md:aspect-[16/9]">
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-3xl md:aspect-[16/9]">
                   <img
                     src={item.img}
                     alt={item.titleApp}
-                    className="w-full h-full rounded-3xl object-cover"
+                    className="h-full w-full rounded-3xl object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0.65,0.3,1)] group-hover/card:scale-[1.025]"
                   />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-3 scale-[0.98] border border-white/70 opacity-0 transition-all duration-500 ease-out group-hover/card:scale-100 group-hover/card:opacity-100"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute bottom-6 right-6 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full bg-[#d45d3f] text-lg text-white opacity-0 transition-all duration-500 ease-out group-hover/card:translate-y-0 group-hover/card:opacity-100"
+                  >
+                    ↗
+                  </span>
                 </div>
 
                 <div className="w-full flex flex-col gap-4 mt-4">
-                  <h1 className="font-bold text-2xl">{item.titleApp}</h1>
+                  <div className="w-fit">
+                    <h1 className="font-bold text-2xl">{item.titleApp}</h1>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 block h-px w-0 bg-[#d45d3f] transition-[width] duration-500 ease-out group-hover/card:w-full"
+                    />
+                  </div>
                   <p>{item.about}</p>
                   <div className="flex flex-wrap gap-2">
                     {item.tagList.map((tag, tagIndex) => (

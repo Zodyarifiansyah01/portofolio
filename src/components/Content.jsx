@@ -1,57 +1,68 @@
 import AboutMe from "./AboutMe";
 import MoreWorks from "./MoreWorks";
 import CircularText from "../data/animation/CircularText";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { motion } from "framer-motion";
+
+const INTRO_DELAY = 2.5; // sesuaikan dengan durasi preloader
 
 const Content = () => {
   const contentRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    // hormati pengguna yang mematikan animasi
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const context = gsap.context(() => {
-      const timeline = gsap.timeline();
-      timeline.fromTo(
-        "#hero-title",
-        { yPercent: -100, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          delay: 2.5,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<0.5",
-      );
-      timeline.fromTo(
+      const tl = gsap.timeline({
+        delay: INTRO_DELAY,
+        defaults: { ease: "power3.out" },
+      });
+
+      // Semua posisi dihitung dari awal timeline (detik), mudah diatur
+      tl.fromTo(
         "#openToWorkBadge",
-        { yPercent: -100, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-        },
-        "<0.5",
-      );
-      timeline.fromTo(
-        "#experience-summary",
-        { xPercent: -100, opacity: 0 },
-        { xPercent: 0, opacity: 1, duration: 1, ease: "power1.out" },
-        "<0.5",
-      );
-      timeline.fromTo(
-        ".skill-chip",
-        { xPercent: -50, opacity: 0 },
-        {
-          xPercent: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power1.out",
-          stagger: 0.9, // jeda 0,9 detik antar chip
-        },
-        "<0.5",
-      );
+        { y: 20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.8 },
+        0,
+      )
+        // Judul: naik dari balik mask, baris demi baris
+        .fromTo(
+          ".hero-line",
+          { yPercent: 110 },
+          { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.12 },
+          0.15,
+        )
+        .fromTo(
+          "#circular-text",
+          { scale: 0.7, autoAlpha: 0 },
+          { scale: 1, autoAlpha: 1, duration: 1.2 },
+          0.5,
+        )
+        .fromTo(
+          ".skill-chip",
+          { y: 16, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1 },
+          0.8,
+        )
+        .fromTo(
+          "#experience-summary",
+          { x: -24, autoAlpha: 0 },
+          { x: 0, autoAlpha: 1, duration: 0.9 },
+          0.9,
+        )
+        .fromTo(
+          ".cta",
+          { y: 16, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.1 },
+          1.0,
+        )
+        .fromTo(
+          "#greeting-text",
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 0.9 },
+          1.2,
+        );
     }, contentRef);
 
     return () => context.revert();
@@ -81,13 +92,8 @@ const Content = () => {
             </h3>
           </div>
 
-          {/* ===== Hero ===== */}
-          <motion.div
-            className="md:col-span-10 md:pl-8 lg:pl-16"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          {/* ===== Hero (motion.div diganti div biasa) ===== */}
+          <div className="md:col-span-10 md:pl-8 lg:pl-16">
             {/* Badge status */}
             <div
               id="openToWorkBadge"
@@ -97,19 +103,22 @@ const Content = () => {
               Open to work
             </div>
 
-            <h1
-              id="hero-title"
-              className="text-[#171717]"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#171717]/60 sm:text-sm sm:tracking-[0.28em]">
-                Hello, my name is
-              </p>
-
-              <div className="my-2 flex flex-wrap items-center gap-3">
-                <span className="inline-block font-noto-serif text-4xl leading-[0.95] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[8.5rem] lg:leading-[0.88] lg:tracking-[-0.04em]">
-                  ZODY ARIFIANSYAH
+            <h1 id="hero-title" className="text-[#171717]">
+              {/* Setiap baris: wrapper overflow-hidden (mask) + isi yang digerakkan */}
+              <span className="block overflow-hidden py-[0.1em] -my-[0.1em]">
+                <span className="hero-line block text-xs font-semibold uppercase tracking-[0.2em] text-[#171717]/60 sm:text-sm sm:tracking-[0.28em]">
+                  Hello, my name is
                 </span>
-                <span className="text-[#d45d3f]">
+              </span>
+
+              <span className="my-2 flex flex-wrap items-center gap-3">
+                {/* py + -my agar huruf tidak terpotong oleh leading yang rapat */}
+                <span className="block overflow-hidden py-[0.12em] -my-[0.12em]">
+                  <span className="hero-line block font-noto-serif text-4xl leading-[0.95] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-[8.5rem] lg:leading-[0.88] lg:tracking-[-0.04em]">
+                    ZODY ARIFIANSYAH
+                  </span>
+                </span>
+                <span id="circular-text" className="text-[#d45d3f]">
                   <CircularText
                     text="2001*2001*2001*"
                     onHover="speedUp"
@@ -117,49 +126,49 @@ const Content = () => {
                     className="custom-class hidden md:hidden xl:block"
                   />
                 </span>
-              </div>
+              </span>
 
-              <span
-                className="mt-4 block text-sm font-semibold uppercase tracking-[0.12em] text-[#d45d3f] sm:text-lg md:text-xl"
-              >
-                FRONT-END WEB DEVELOPER
+              <span className="mt-4 block overflow-hidden py-[0.1em] -my-[0.1em]">
+                <span className="hero-line block text-sm font-semibold uppercase tracking-[0.12em] text-[#d45d3f] sm:text-lg md:text-xl">
+                  FRONT-END WEB DEVELOPER
+                </span>
               </span>
             </h1>
 
-            {/* Chip skill */}
+            {/* Chip skill: wrapper = GSAP, inner = hover CSS */}
             <div className="flex flex-wrap gap-2 mt-6" id="skill-chips">
-              {[
-                { label: "Laravel" },
-                { label: "Tailwind" },
-              ].map((skill) => (
-                <span
-                  key={skill.label}
-                  className="skill-chip cursor-default border-b border-[#171717]/30 px-1 py-1.5 text-sm font-semibold uppercase tracking-[0.08em] transition-transform duration-200 hover:-translate-y-1"
-                >
-                  {skill.label}
+              {[{ label: "Laravel" }, { label: "Tailwind" }].map((skill) => (
+                <span key={skill.label} className="skill-chip inline-block">
+                  <span className="block cursor-default border-b border-[#171717]/30 px-1 py-1.5 text-sm font-semibold uppercase tracking-[0.08em] transition-transform duration-200 hover:-translate-y-1">
+                    {skill.label}
+                  </span>
                 </span>
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA: wrapper = GSAP, link = hover CSS */}
             <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                id="cta-works"
-                href="#more-works"
-                className="bg-[#d45d3f] px-6 py-3 font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:bg-[#bd4e33]"
-              >
-                Lihat Karya 🚀
-              </a>
+              <div className="cta">
+                <a
+                  id="cta-works"
+                  href="#more-works"
+                  className="block bg-[#d45d3f] px-6 py-3 font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:bg-[#bd4e33]"
+                >
+                  Lihat Karya 🚀
+                </a>
+              </div>
 
-              <a
-                id="cta-about"
-                href="#about"
-                className="border border-[#171717]/40 px-6 py-3 font-bold text-[#171717] transition-all duration-200 hover:-translate-y-1 hover:border-[#d45d3f] hover:text-[#d45d3f]"
-              >
-                Tentang Saya
-              </a>
+              <div className="cta">
+                <a
+                  id="cta-about"
+                  href="#about"
+                  className="block border border-[#171717]/40 px-6 py-3 font-bold text-[#171717] transition-all duration-200 hover:-translate-y-1 hover:border-[#d45d3f] hover:text-[#d45d3f]"
+                >
+                  Tentang Saya
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* ===== About Me ===== */}
