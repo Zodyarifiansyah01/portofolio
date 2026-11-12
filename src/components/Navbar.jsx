@@ -11,9 +11,8 @@ const socials = [
    { handle: "abhiprayaui", href: "https://www.instagram.com/abhiprayaui/" },
 ];
 
-const Navbar = ({ openModal, menuItems }) => {
+const Navbar = ({ isMenuOpen, onMenuToggle, menuItems = [] }) => {
    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-   const [isMobileOpen, setIsMobileOpen] = useState(false);
    const dropdownRef = useRef(null);
    const { handleHover, handleClick } = useSound();
 
@@ -27,25 +26,20 @@ const Navbar = ({ openModal, menuItems }) => {
       return () => document.removeEventListener("mousedown", handleClickOutside);
    }, []);
 
-   const handleMenuClick = () => {
-      setIsMobileOpen((prev) => !prev);
-      openModal?.();
-   };
-
    return (
       <motion.nav
-         className="sticky top-0 z-30 border-b border-white/10 bg-black/40 backdrop-blur-md"
+         className="sticky top-0 z-30 border-b border-[#171717]/10 bg-[#e7e3dc]/90 text-[#171717] backdrop-blur-md"
          initial={{ opacity: 0, y: -12 }}
          animate={{ opacity: 1, y: 0 }}
          transition={{ duration: 0.6, ease: "easeOut" }}
       >
-         <div className="container mx-auto flex items-center justify-between px-4 py-5">
+         <div className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-6">
             {/* Wordmark */}
-            <a href="#" className="group flex items-center gap-2">
-               <span className="text-lg font-semibold tracking-tight text-white md:text-xl">
+            <a href="#" className="group flex items-center gap-2.5">
+               <span className="font-noto-serif text-lg tracking-tight text-[#171717] md:text-xl">
                   Arifiansyah
                </span>
-               <span className="h-1.5 w-1.5 rounded-full bg-orange-500 transition-transform duration-300 group-hover:scale-150" />
+               <span className="h-1.5 w-1.5 rounded-full bg-[#d45d3f] transition-transform duration-300 group-hover:scale-150" />
             </a>
 
             {/* Desktop links */}
@@ -57,10 +51,10 @@ const Navbar = ({ openModal, menuItems }) => {
                         onMouseEnter={handleHover}
                         onClick={handleClick}
                         to={item.link}
-                        className="group relative py-1 text-sm text-zinc-300 transition-colors duration-200 hover:text-white"
+                        className="group relative py-2 text-sm text-[#171717]/65 transition-colors duration-200 hover:text-[#d45d3f]"
                      >
                         {item.name}
-                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                        <span className="absolute bottom-0 left-0 h-px w-0 bg-[#d45d3f] transition-all duration-300 group-hover:w-full" />
                      </Link>
                   </li>
                ))}
@@ -75,7 +69,7 @@ const Navbar = ({ openModal, menuItems }) => {
                      onClick={() => setIsDropdownVisible((v) => !v)}
                      aria-expanded={isDropdownVisible}
                      aria-label="Instagram links"
-                     className="flex h-9 w-9 items-center justify-center rounded-full text-zinc-300 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+                     className="flex h-9 w-9 items-center justify-center rounded-full border border-[#171717]/15 text-[#171717]/70 transition-colors duration-200 hover:border-[#d45d3f]/50 hover:bg-[#d45d3f]/10 hover:text-[#d45d3f]"
                   >
                      <FontAwesomeIcon icon={faInstagram} className="text-lg" />
                   </button>
@@ -87,7 +81,7 @@ const Navbar = ({ openModal, menuItems }) => {
                            animate={{ opacity: 1, y: 0 }}
                            exit={{ opacity: 0, y: -8 }}
                            transition={{ duration: 0.18 }}
-                           className="absolute right-0 mt-3 w-56 overflow-hidden rounded-xl border border-white/10 bg-zinc-900 shadow-xl shadow-black/40"
+                           className="absolute right-0 mt-3 w-56 overflow-hidden border border-[#171717]/15 bg-[#e7e3dc] shadow-xl shadow-[#171717]/10"
                         >
                            {socials.map((social) => (
                               <a
@@ -95,12 +89,12 @@ const Navbar = ({ openModal, menuItems }) => {
                                  target="_blank"
                                  rel="noopener noreferrer"
                                  href={social.href}
-                                 className="group flex items-center justify-between px-4 py-3 text-sm text-zinc-200 transition-colors duration-150 hover:bg-white/5 hover:text-white"
+                                 className="group flex items-center justify-between px-4 py-3 text-sm text-[#171717]/75 transition-colors duration-150 hover:bg-[#d45d3f]/10 hover:text-[#d45d3f]"
                               >
                                  <span>@{social.handle}</span>
                                  <FontAwesomeIcon
                                     icon={faChevronRight}
-                                    className="text-xs text-zinc-500 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-orange-500"
+                                    className="text-xs text-[#171717]/35 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-[#d45d3f]"
                                  />
                               </a>
                            ))}
@@ -112,11 +106,12 @@ const Navbar = ({ openModal, menuItems }) => {
                {/* Mobile toggle */}
                <button
                   type="button"
-                  onClick={handleMenuClick}
-                  aria-label={isMobileOpen ? "Close menu" : "Open menu"}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors duration-200 hover:bg-white/10 md:hidden"
+                  onClick={onMenuToggle}
+                  aria-expanded={isMenuOpen}
+                  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#171717]/15 text-[#171717] transition-colors duration-200 hover:border-[#d45d3f]/50 hover:bg-[#d45d3f]/10 hover:text-[#d45d3f] md:hidden"
                >
-                  <FontAwesomeIcon icon={isMobileOpen ? faXmark : faBars} className="text-xl" />
+                  <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-xl" />
                </button>
             </div>
          </div>

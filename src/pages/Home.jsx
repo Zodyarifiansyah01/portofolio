@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Content from "../components/Content"
 import Footer from "../components/Footer";
@@ -13,38 +13,39 @@ import { SoundProvider } from "../context/SoundContext";
 const Home = () => {
    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-   const handleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
-   };
    useEffect(() => {
       if (isMenuOpen) {
-         document.body.classList.add('overflow-hidden');
+         document.body.classList.add("overflow-hidden");
       } else {
-         document.body.classList.remove('overflow-hidden');
+         document.body.classList.remove("overflow-hidden");
       }
+
+      return () => document.body.classList.remove("overflow-hidden");
    }, [isMenuOpen]);
 
    return (
       <>
          <SoundProvider>
             <div className={`min-h-screen flex flex-col ${isMenuOpen ? "overflow-hidden" : ""}`}>
-
                <AnimatePresence>
-
                   {isMenuOpen && (
                      <ModalPopup
-                        onClose={handleMenu}
+                        onClose={() => setIsMenuOpen(false)}
                         menuItems={menuItems}
                      />
                   )}
                </AnimatePresence>
 
-               <Navbar openModal={handleMenu} menuItems={menuItems} />
-               <Content isScroll={isMenuOpen} />
+               <Navbar
+                  isMenuOpen={isMenuOpen}
+                  onMenuToggle={() => setIsMenuOpen((isOpen) => !isOpen)}
+                  menuItems={menuItems}
+               />
+               <Content />
             </div>
          </SoundProvider>
 
-         <Footer menuItems={menuItems} />
+         <Footer />
       </>
    );
 };
